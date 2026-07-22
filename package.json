@@ -1,0 +1,26 @@
+{
+  "name": "mae-kampong-village",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "optimize": "node scripts/optimize-gallery.mjs",
+    "predev": "node scripts/optimize-gallery.mjs",
+    "dev": "astro dev",
+    "prebuild": "node scripts/optimize-gallery.mjs",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.18.2",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "playwright": "^1.61.1",
+    "sharp": "^0.35.3",
+    "typescript": "^5.9.3"
+  }
+}
