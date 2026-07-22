@@ -61,22 +61,31 @@ const eco = messages.eco;
     </ul>
 
     <!-- Leave No Trace -->
-    <div class="mt-12 rounded-2xl border border-teak/30 bg-teak/5 p-6">
+    <div class="mt-12 rounded-2xl border border-teak/30 bg-teak/5 p-6 relative overflow-hidden" id="lnt-container">
       <h4 class="font-display text-xl text-teak mb-2">{eco.lntTitle}</h4>
       <p class="text-sm text-ink/75 mb-3">{eco.lntIntro}</p>
-      <ul class="space-y-2 text-sm text-ink/80">
-        {eco.lnt.map((t, i) => (
+      <ul class="space-y-2 text-sm text-ink/80 relative z-10">
+        {eco.lnt.map((t: string, i: number) => (
           <li>
             <label class="flex items-start gap-3 cursor-pointer group rounded-lg px-2 py-1.5 -mx-2 hover:bg-teak/5 transition-colors">
-              <input type="checkbox" id={`lnt-${i}`} class="peer mt-0.5 h-5 w-5 shrink-0 accent-teak cursor-pointer" />
+              <input type="checkbox" id={`lnt-${i}`} class="lnt-checkbox peer mt-0.5 h-5 w-5 shrink-0 accent-teak cursor-pointer" />
               <span class="leading-relaxed peer-checked:line-through peer-checked:text-ink/45 transition-colors">{t}</span>
             </label>
           </li>
         ))}
       </ul>
       {eco.lntCheckHint && (
-        <p class="mt-4 text-xs font-medium text-teak/80">{eco.lntCheckHint}</p>
+        <p class="mt-4 text-xs font-medium text-teak/80" id="lnt-hint">{eco.lntCheckHint}</p>
       )}
+      
+      <!-- Thank you message overlay -->
+      <div id="lnt-thankyou" class="absolute inset-0 bg-teakDeep/95 flex items-center justify-center text-center p-6 transition-all duration-500 opacity-0 pointer-events-none z-20">
+        <div>
+          <div class="text-4xl mb-3">🌿</div>
+          <p class="font-display text-xl text-goldBright font-semibold">{eco.lntThankYou}</p>
+          <button id="lnt-reset" class="mt-4 text-xs text-ivory/60 hover:text-ivory underline underline-offset-4">Reset</button>
+        </div>
+      </div>
     </div>
 
     <!-- Fauna & Flora checklist -->
@@ -100,3 +109,45 @@ const eco = messages.eco;
     )}
   </div>
 </section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.lnt-checkbox');
+    const thankYou = document.getElementById('lnt-thankyou');
+    const resetBtn = document.getElementById('lnt-reset');
+    
+    if (!checkboxes.length || !thankYou) return;
+
+    const LNT_KEY = 'visitmaekampong_lnt_agreed';
+    
+    function checkAll() {
+      const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+      if (allChecked) {
+        thankYou.classList.remove('opacity-0', 'pointer-events-none');
+        thankYou.classList.add('opacity-100', 'pointer-events-auto');
+        localStorage.setItem(LNT_KEY, 'true');
+      } else {
+        thankYou.classList.add('opacity-0', 'pointer-events-none');
+        thankYou.classList.remove('opacity-100', 'pointer-events-auto');
+        localStorage.removeItem(LNT_KEY);
+      }
+    }
+
+    // Load from local storage
+    if (localStorage.getItem(LNT_KEY) === 'true') {
+      checkboxes.forEach(cb => cb.checked = true);
+      checkAll();
+    }
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', checkAll);
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        checkboxes.forEach(cb => cb.checked = false);
+        checkAll();
+      });
+    }
+  });
+</script>

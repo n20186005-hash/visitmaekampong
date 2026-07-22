@@ -17,13 +17,14 @@
     "titleMain": "Mae Kampong",
     "titleAccent": "Lanna Village",
     "eyebrow": "A mountain village · Mae On · Chiang Mai",
-    "subtitle": "Mae Kampong Village sits in the mountains east of Chiang Mai at about 1,300 m above sea level. It stays cool all year and is known for tea, coffee, a waterfall, and misty morning clouds.",
+    "slogan": "When white mist rolls into the valley, the mountains become islands.",
+    "subtitle": "A centuries-old Lanna village sitting at 1,300 m above sea level, surrounded by highland tea, coffee, and misty morning clouds.",
     "rating": "4.5",
     "reviewCount": "5,904",
-    "coordsLabel": "Coordinates 18.8642°N, 99.3498°E",
+    "coordsLabel": "18.8642°N, 99.3498°E",
     "viewLocation": "View on Google Maps",
-    "cta1": "Plan your visit",
-    "cta2": "Food & Drink",
+    "cta1": "Explore Village Story",
+    "cta2": "Live Weather & Guide",
     "boardCategory": "Village",
     "boardTitle": "Mae Kampong",
     "boardEn": "Mae Kampong Village",
@@ -52,7 +53,7 @@
     "heading": "What is Mae Kampong Village?",
     "lead": "Mae Kampong is an old Lanna village set in a valley of Huai Kaeo, Mae On District, Chiang Mai Province, at about 1,300 m above sea level — cool year-round, with misty mornings.",
     "paragraph1": "The village is surrounded by rich pine and mountain forest, with highland strawberries, tea, cocoa and coffee, plus the Mae Kampong Waterfall flowing through the village. Community life is simple and in tune with nature.",
-    "paragraph2": "Since the late 1990s the village has developed Community-Based Tourism (CBT) and won Thailand Tourism Awards, reflecting Lanna traditions preserved from customs and religion to highland farming.",
+    "paragraph2": "Since the late 1990s, the village has developed Community-Based Tourism (CBT). Homestays and guides are fully run by villagers, with revenue feeding directly back into forest conservation, local healthcare, and education. Every step you take here supports the sustainable future of this centuries-old village.",
     "quote": "“When white mist rolls into the valley, the mountains become islands in a sea of clouds.”",
     "quoteAuthor": "A local saying",
     "stats": [
@@ -103,6 +104,7 @@
       "Respect wildlife, do not feed animals, and keep the forest quiet"
     ],
     "lntCheckHint": "If you're ready to follow these, please tick ✓",
+    "lntThankYou": "Thank you for being a protector of the Mae Kampong forest!",
     "checklist": {
       "title": "Pre-hike checklist",
       "intro": "Small tips to help you travel safely and protect nature",
@@ -150,7 +152,7 @@
       "items": [
         { "name": "The village & homestays", "difficulty": "Easy", "suits": "All ages / families", "desc": "Walk among wooden houses, tea farms and community life — gentle and friendly" },
         { "name": "Mae Kampong Waterfall", "difficulty": "Easy", "suits": "Light hikers", "desc": "A 7-tier waterfall about 1 km from the village, with a nature trail" },
-        { "name": "Sea-of-clouds viewpoints", "difficulty": "Moderate", "suits": "Photographers", "desc": "High ground around the village shows a wide sea of clouds at dawn" }
+        { "name": "Kew Fin Viewpoint", "difficulty": "Moderate", "suits": "Photographers", "desc": "About 3 km from the village at 1,517 m on the Lampang border, offering a 360° sea of clouds at dawn" }
       ]
     },
     "scamTip": {
@@ -278,8 +280,8 @@
     "heading": "Tea, coffee & local food",
     "lead": "The Mae Kampong experience blends Lanna culture with highland tea, coffee and simple local food.",
     "dishes": [
-      { "tag": "01", "name": "Khao Soi", "price": "฿60", "desc": "Egg noodles in a coconut curry — a Northern classic" },
-      { "tag": "02", "name": "Sai Ua (Northern sausage)", "price": "฿80", "desc": "Herbed pork sausage eaten with chili paste" },
+      { "tag": "01", "name": "Khao Soi", "price": "฿60", "desc": "A Northern classic: egg noodles in coconut curry, simmered with highland spring water and local herbs" },
+      { "tag": "02", "name": "Sai Ua (Northern sausage)", "price": "฿80", "desc": "Herbed pork sausage spiced with wild highland peppercorns, eaten with chili paste" },
       { "tag": "03", "name": "Homeroasted Oolong & coffee", "price": "฿50", "desc": "Tea and coffee from the village's highland farms" },
       { "tag": "04", "name": "Coconut dessert", "price": "฿40", "desc": "Thai sweets made with young coconut, perfect for slow living" }
     ],
@@ -294,6 +296,13 @@
     "intro": "Mist, mountains and valley life captured at different times of day.",
     "historicalNote": "All images show the real scenery of Mae Kampong Village.",
     "credits": "Photos: visitors and the local community.",
+    "tabs": {
+      "all": "All",
+      "mist": "Mist & Sea of Clouds",
+      "village": "Village Life",
+      "tea": "Tea & Coffee",
+      "nature": "Waterfall & Forest"
+    },
     "alts": [
       "Misty morning at Mae Kampong",
       "Layered mountains in the mist",

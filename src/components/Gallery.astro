@@ -9,6 +9,16 @@ const gallery = messages.gallery;
 const alts: string[] = gallery.alts;
 const count = alts.length;
 const mapsUrl = siteConfig.mapsUrl;
+
+// Map photos to categories based on index (0-indexed)
+// 0: mist, 1: mist, 2: mist, 3: mist tea, 4: nature, 5: tea, 6: nature village
+// 7: nature, 8: mist village, 9: mist, 10: mist nature, 11: village
+// 12: tea, 13: nature, 14: nature, 15: mist
+const photoCategories = [
+  ['mist'], ['mist'], ['mist'], ['mist', 'tea'], ['nature'], ['tea'], ['nature', 'village'],
+  ['nature'], ['mist', 'village'], ['mist'], ['mist', 'nature'], ['village'],
+  ['tea'], ['nature'], ['nature'], ['mist']
+];
 ---
 
 <section id="gallery" class="py-20 bg-ivory text-ink">
@@ -19,11 +29,31 @@ const mapsUrl = siteConfig.mapsUrl;
     {gallery.historicalNote && <p class="mt-2 max-w-2xl text-ink/70 italic text-sm">{gallery.historicalNote}</p>}
     <p class="mt-3 text-xs text-ink/50">{gallery.credits}</p>
 
-    <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[180px]">
+    <!-- Filter Tabs -->
+    <div class="mt-8 flex flex-wrap gap-2 filter-tabs">
+      <button class="filter-btn active px-4 py-1.5 rounded-full border border-gold/40 text-sm font-medium text-teak hover:bg-gold/10 transition-colors" data-filter="all">
+        {gallery.tabs?.all || 'All'}
+      </button>
+      <button class="filter-btn px-4 py-1.5 rounded-full border border-gold/40 text-sm font-medium text-teak hover:bg-gold/10 transition-colors" data-filter="mist">
+        {gallery.tabs?.mist || 'Mist'}
+      </button>
+      <button class="filter-btn px-4 py-1.5 rounded-full border border-gold/40 text-sm font-medium text-teak hover:bg-gold/10 transition-colors" data-filter="village">
+        {gallery.tabs?.village || 'Village'}
+      </button>
+      <button class="filter-btn px-4 py-1.5 rounded-full border border-gold/40 text-sm font-medium text-teak hover:bg-gold/10 transition-colors" data-filter="tea">
+        {gallery.tabs?.tea || 'Tea'}
+      </button>
+      <button class="filter-btn px-4 py-1.5 rounded-full border border-gold/40 text-sm font-medium text-teak hover:bg-gold/10 transition-colors" data-filter="nature">
+        {gallery.tabs?.nature || 'Nature'}
+      </button>
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[180px]" id="gallery-grid">
       {Array.from({ length: count }).map((_, i) => {
         const big = i === 0; // first photo spans larger
+        const cats = photoCategories[i] || [];
         return (
-          <div class={`photo-frame rounded-xl ${big ? 'col-span-2 row-span-2' : ''}`}>
+          <div class={`photo-frame rounded-xl gallery-item transition-all duration-500 ease-in-out ${big ? 'col-span-2 row-span-2' : ''}`} data-categories={cats.join(',')}>
             <img
               src={`/gallery/${siteConfig.galleryPrefix}${i + 1}.${siteConfig.galleryExt}`}
               alt={alts[i]}
@@ -41,3 +71,41 @@ const mapsUrl = siteConfig.mapsUrl;
     </div>
   </div>
 </section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button state
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-gold', 'text-white', 'border-gold');
+          b.classList.add('text-teak', 'border-gold/40');
+        });
+        btn.classList.add('bg-gold', 'text-white', 'border-gold');
+        btn.classList.remove('text-teak', 'border-gold/40');
+
+        const filter = btn.getAttribute('data-filter');
+
+        galleryItems.forEach(item => {
+          const categories = item.getAttribute('data-categories');
+          if (filter === 'all' || categories.includes(filter)) {
+            item.style.display = 'block';
+            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.95)';
+            setTimeout(() => { item.style.display = 'none'; }, 300);
+          }
+        });
+      });
+    });
+
+    // Initialize first button
+    if (filterBtns.length > 0) {
+      filterBtns[0].click();
+    }
+  });
+</script>

@@ -45,88 +45,81 @@ const weatherMap = Object.fromEntries(
 );
 ---
 
-<section id="home" class="relative min-h-screen flex items-end overflow-hidden">
-  <img src={heroImg} alt={main} class="absolute inset-0 w-full h-full object-cover" />
-  <div class="absolute inset-0 bg-gradient-to-t from-teakDeep via-teakDeep/70 to-teak/40"></div>
+<section id="home" class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+  <img src={heroImg} alt={main} class="absolute inset-0 w-full h-full object-cover object-center" />
+  <div class="absolute inset-0 bg-gradient-to-t from-teakDeep via-teakDeep/60 to-black/30"></div>
   <div class="hero-glow absolute inset-0"></div>
 
-  <div class="relative z-10 max-w-7xl mx-auto w-full px-5 pb-16 pt-28 grid lg:grid-cols-12 gap-10 items-end">
-    <div class="lg:col-span-7 text-ivory">
-      <p class="font-hand text-gold text-xl md:text-2xl mb-3">{hero.eyebrow}</p>
-      <h1 class="font-display font-semibold leading-[1.05] text-5xl md:text-7xl lg:text-8xl text-ivory">
-        {parts[0]}<span class="gold-text-bright">{accent}</span>{parts[1] ?? ''}
-      </h1>
-      <p class="mt-6 max-w-xl text-ivory/85 text-lg md:text-xl">{hero.subtitle}</p>
+  <div class="relative z-10 max-w-5xl mx-auto w-full px-5 text-center text-ivory flex flex-col items-center">
+    <p class="font-hand text-gold text-xl md:text-2xl mb-4">{hero.eyebrow}</p>
+    <h1 class="font-display font-semibold leading-[1.05] text-5xl md:text-7xl lg:text-8xl mb-6">
+      {parts[0]}<span class="gold-text-bright">{accent}</span>{parts[1] ?? ''}
+    </h1>
+    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-ivory/90 tracking-wide">{hero.slogan}</h2>
+    <p class="max-w-2xl text-ivory/80 text-lg md:text-xl leading-relaxed">{hero.subtitle}</p>
 
-      <div class="mt-7 flex flex-wrap items-center gap-3">
-        <a href="#guide" class="inline-flex items-center gap-2 bg-gold text-teak font-semibold px-6 py-3 rounded-full hover:bg-goldBright transition-colors">
-          {hero.cta1}
-        </a>
-        <a href="#food" class="inline-flex items-center gap-2 border border-gold/50 text-ivory px-6 py-3 rounded-full hover:border-goldBright hover:text-goldBright transition-colors">
-          {hero.cta2}
-        </a>
-      </div>
-
-      <div class="mt-8 flex flex-wrap items-center gap-5 text-sm text-ivory/80">
-        <span class="stars text-lg">★ {hero.rating}</span>
-        <span>{hero.reviewCount} Google</span>
-        <span class="hidden sm:inline text-ivory/40">·</span>
-        <span>{coordsLabel}</span>
-      </div>
-
-      <a href={mapsUrl} target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 text-goldBright hover:text-gold underline-offset-4 hover:underline text-sm">
-        {hero.viewLocation}
+    <div class="mt-10 flex flex-wrap justify-center items-center gap-4">
+      <a href="#about" class="inline-flex items-center gap-2 bg-gold text-teak font-semibold px-8 py-4 rounded-full hover:bg-goldBright transition-colors text-base md:text-lg">
+        {hero.cta1}
       </a>
-
-      <!-- wooden park signboard + carousel dots (bottom-left) -->
-      <div class="wood-sign mt-8 inline-block max-w-md px-5 py-4">
-        <p class="wood-title text-xs font-semibold uppercase tracking-[0.18em]">{hero.boardCategory}</p>
-        <p class="wood-title mt-1 font-display text-2xl font-bold leading-tight">{hero.boardTitle}</p>
-        <p class="wood-en mt-1 text-sm font-semibold">{hero.boardEn}</p>
-      </div>
-      <div class="carousel-dots mt-4">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-      </div>
+      <a href="#guide" class="inline-flex items-center gap-2 border border-gold/50 text-ivory px-8 py-4 rounded-full hover:border-goldBright hover:text-goldBright transition-colors text-base md:text-lg backdrop-blur-sm bg-black/20">
+        {hero.cta2}
+      </a>
     </div>
 
-    <!-- live weather + sunset planner (static by default; enhanced by API) -->
-    <div class="lg:col-span-5">
-      <div class="weather-card rounded-2xl p-5 text-ivory shadow-2xl">
-        <div class="flex items-center justify-between">
-          <span class="text-ivory/70 text-sm">{hero.plannerTitle}</span>
-          <span id="weather-status" class="text-xs text-ivory/55">{hero.liveWeather}</span>
+    <div class="mt-12 flex flex-wrap justify-center items-center gap-4 text-sm text-ivory/80">
+      <span class="stars text-lg">★ {hero.rating}</span>
+      <span>{hero.reviewCount} Google</span>
+      <span class="hidden sm:inline text-ivory/40">·</span>
+      <a href={mapsUrl} target="_blank" rel="noopener" class="hover:text-goldBright underline-offset-4 hover:underline transition-colors flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+        </svg>
+        {hero.coordsLabel}
+      </a>
+    </div>
+  </div>
+
+  <!-- Floating Weather Widget (Bottom Right) -->
+  <div class="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 z-20 hidden md:block w-72">
+    <div class="weather-widget backdrop-blur-md bg-teakDeep/80 border border-gold/20 rounded-2xl p-4 shadow-2xl transition-transform hover:-translate-y-1">
+      <div class="flex items-center justify-between mb-3 border-b border-gold/10 pb-2">
+        <span class="text-[11px] uppercase tracking-wider text-goldBright font-semibold">{hero.plannerTitle}</span>
+        <div class="flex items-center gap-1.5" title={hero.plannerNote}>
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span id="weather-status" class="text-[10px] text-ivory/60">{hero.liveWeather}</span>
         </div>
-        <div id="weather-body">
-          <div class="flex items-center justify-between mt-2">
-            <span id="cur-icon" class="text-2xl">🌦️</span>
-            <span class="text-xs text-ivory/55">{hero.plannerNote}</span>
-          </div>
-          <div class="mt-1 flex items-end gap-3">
-            <span id="cur-temp" class="font-display text-5xl font-semibold text-goldBright">{hero.defaultTemp}</span>
-            <div class="pb-1">
-              <div id="cur-cond" class="text-sm">{hero.defaultCond}</div>
-              <div class="text-xs text-ivory/60">💨 <span id="cur-wind">{hero.defaultWind}</span></div>
+      </div>
+      
+      <div id="weather-body" class="transition-opacity duration-500">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span id="cur-icon" class="text-3xl drop-shadow-md">🌦️</span>
+            <div>
+              <div class="flex items-baseline gap-1">
+                <span id="cur-temp" class="font-display text-3xl font-bold text-ivory">{hero.defaultTemp}</span>
+              </div>
+              <div id="cur-cond" class="text-[13px] text-ivory/80 leading-none">{hero.defaultCond}</div>
             </div>
           </div>
-
-          <div class="mt-4 rounded-xl bg-gold/15 border border-gold/30 px-4 py-3">
-            <div class="flex items-center justify-between gap-2">
-              <span class="text-xs uppercase tracking-wide text-ivory/70">☀️ {hero.sunsetIndexLabel}</span>
+          <div class="text-right flex flex-col justify-center">
+            <div class="text-[11px] text-ivory/60 mb-0.5">{hero.sunsetLabel} <span id="sunset-time" class="text-ivory font-semibold">{hero.defaultSunset}</span></div>
+            <div class="text-[11px] text-ivory/60">
+              <svg xmlns="http://www.w3.org/2000/svg" class="inline h-3 w-3 text-goldBright" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4z" />
+              </svg>
+              <span id="golden-time" class="text-goldBright font-semibold">{hero.defaultGolden.split(' ')[0]}</span>
             </div>
-            <p id="sunset-index" class="mt-1 font-display text-base font-semibold text-goldBright">{hero.sunsetIndexDefault}</p>
           </div>
-
-          <div class="mt-4 pt-4 border-t border-gold/20">
-            <p class="font-hand text-gold text-lg">{hero.plannerTitle}</p>
-            <p class="text-xs text-ivory/60 mt-0.5">{hero.plannerNote}</p>
-            <div class="mt-3 space-y-2 text-sm">
-              <div class="flex justify-between"><span class="text-ivory/70">{hero.goldenHourLabel}</span><span id="golden-time" class="font-semibold text-goldBright">{hero.defaultGolden}</span></div>
-              <div class="flex justify-between"><span class="text-ivory/70">{hero.sunsetLabel}</span><span id="sunset-time" class="font-semibold text-goldBright">{hero.defaultSunset}</span></div>
-              <div class="flex justify-between"><span class="text-ivory/70">{hero.blueHourLabel}</span><span id="blue-time" class="font-semibold text-goldBright">{hero.defaultBlue}</span></div>
-              <div class="flex justify-between"><span class="text-ivory/70">{hero.crowdWarningLabel}</span><span class="font-semibold text-ivory">{hero.defaultTip}</span></div>
-            </div>
-            <p class="text-[11px] text-ivory/50 mt-2">{hero.lightCaption}</p>
+        </div>
+        
+        <div class="mt-3 pt-3 border-t border-gold/10">
+          <div class="flex justify-between items-center text-[11px]">
+            <span class="text-ivory/70">{hero.sunsetIndexLabel}</span>
+            <span id="sunset-index" class="font-semibold text-goldBright">{hero.sunsetIndexDefault}</span>
           </div>
         </div>
       </div>
