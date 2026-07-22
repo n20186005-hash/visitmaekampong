@@ -1,0 +1,431 @@
+{
+  "meta": {
+    "title": "湄甘蓬村 Mae Kampong Village — 清迈山区的兰纳村落",
+    "description": "湄甘蓬村（Mae Kampong Village）指南：位于清迈 Mae On 山区的百年兰纳村落，有高山茶园、咖啡、瀑布与晨间云海。含交通方式与实时天气。"
+  },
+  "header": {
+    "home": "首页",
+    "about": "关于",
+    "history": "历史",
+    "guide": "游玩指南",
+    "food": "美食饮品",
+    "gallery": "相册",
+    "reviews": "评价",
+    "map": "地图"
+  },
+  "hero": {
+    "titleMain": "湄甘蓬",
+    "titleAccent": "兰纳村落",
+    "eyebrow": "山区村落 · Mae On · 清迈",
+    "subtitle": "湄甘蓬村坐落于清迈以东的群山之中，海拔约 1,300 米，全年凉爽，以高山茶、咖啡、瀑布与晨间云海闻名。",
+    "rating": "4.5",
+    "reviewCount": "5,904",
+    "coordsLabel": "坐标 18.8642°N, 99.3498°E",
+    "viewLocation": "在 Google 地图上查看位置",
+    "cta1": "规划行程",
+    "cta2": "美食饮品",
+    "boardCategory": "村落",
+    "boardTitle": "湄甘蓬",
+    "boardEn": "Mae Kampong Village",
+    "plannerTitle": "光线与天空计划",
+    "liveWeather": "Open-Meteo 实时数据",
+    "plannerNote": "已按村落真实坐标更新",
+    "defaultTemp": "20°",
+    "defaultCond": "晴空",
+    "defaultWind": "6 km/h",
+    "sunsetIndexLabel": "今日观景指数",
+    "sunsetIndexDefault": "🌤️ 天气良好 · 金色时刻 85%",
+    "goldenHourLabel": "金色时刻（日出）",
+    "defaultGolden": "06:15 – 07:45",
+    "sunsetLabel": "日落",
+    "defaultSunset": "18:45",
+    "blueHourLabel": "蓝调时刻",
+    "defaultBlue": "19:05 – 19:35",
+    "crowdWarningLabel": "建议",
+    "defaultTip": "清晨前往，欣赏最佳云海",
+    "lightCaption": "时间随季节与天气变化",
+    "weatherError": "",
+    "goldenChanceLabel": "金色时刻概率"
+  },
+  "about": {
+    "label": "关于",
+    "heading": "湄甘蓬村是什么？",
+    "lead": "湄甘蓬村是位于清迈府 Mae On 县 Huai Kaeo 山谷中的古老兰纳村落，海拔约 1,300 米，全年凉爽，清晨常有云海。",
+    "paragraph1": "村落四周是茂密的松林与山林，种有高山草莓、茶、可可和咖啡，还有穿村而过的湄甘蓬瀑布。社区生活简单，与自然和谐共处。",
+    "paragraph2": "自 1990 年代末，村落发展出社区旅游（Community-Based Tourism），并荣获泰国旅游奖，体现了从风俗、宗教到高山农耕的兰纳传统。",
+    "quote": "“当白雾漫入山谷，群山便成了云海中的岛屿。”",
+    "quoteAuthor": "当地俗语",
+    "stats": [
+      { "value": "≈ 1,300 米", "label": "海拔高度" },
+      { "value": "100+ 年", "label": "村落历史" },
+      { "value": "24 小时", "label": "全天可游览" }
+    ],
+    "highlights": [
+      { "tag": "🌫️", "title": "晨间云海", "desc": "从拂晓到清晨，山谷被白雾覆盖，非常适合拍照" },
+      { "tag": "🍵", "title": "高山茶与咖啡", "desc": "由皇家计划推广的乌龙茶梯田与阿拉比卡咖啡" },
+      { "tag": "🏡", "title": "社区民宿", "desc": "入住当地人家，近距离体验兰纳生活" }
+    ],
+    "editorTip": {
+      "tag": "💡 编辑建议",
+      "text": "湄甘蓬适合热爱自然与慢旅行的人，清晨到达能拍到最美的云海。",
+      "ctaLabel": "规划行程"
+    }
+  },
+  "eco": {
+    "label": "生态系统",
+    "heading": "湄甘蓬山林生态系统",
+    "quote": "“云海并非偶然，而是气温、湿润空气与季风把水汽送上山坡的结果。”",
+    "intro": "海拔超过 1,300 米，湄甘蓬全年凉爽湿润，山林中栖息着适应潮湿与雾气的动植物。",
+    "microTitle": "雾、风与微气候",
+    "micro": [
+      { "title": "雾气山谷", "desc": "偏东的低处，露水会在清晨凝结成浓雾" },
+      { "title": "清凉山巅", "desc": "最高点迎来凉风，云海最为辽阔" },
+      { "title": "荫凉茶角", "desc": "木造阳台荫凉宜人，适合边喝茶边看雾" }
+    ],
+    "plantsTitle": "山上的植物",
+    "plants": [
+      { "title": "松林与蕨类", "desc": "松树与蕨类，地面覆盖苔藓", "items": [ { "name": "苔藓与蕨类", "desc": "覆盖山林地面" }, { "name": "兰花与窄叶植物", "desc": "喜高湿环境" } ] },
+      { "title": "草莓与温带水果", "desc": "由皇家计划在温室中种植", "items": [ { "name": "草莓", "desc": "知名的温带水果" }, { "name": "温带蔬菜", "desc": "种于高山农场" } ] },
+      { "title": "高山茶与咖啡", "desc": "取代鸦片的乌龙茶梯田与阿拉比卡咖啡", "items": [ { "name": "乌龙茶", "desc": "种于梯田" }, { "name": "阿拉比卡咖啡", "desc": "于村内烘焙" } ] },
+      { "title": "温带花卉", "desc": "遍植于村落与民宿周围", "items": [ { "name": "冬季花卉", "desc": "凉季盛开最盛" }, { "name": "观赏植物", "desc": "点缀村落" } ] }
+    ],
+    "wildlifeTitle": "可见的野生动物",
+    "wildlife": [
+      "清晨在田间与园中觅食的鸟类与松鼠",
+      "在湿润林中展翅的蝴蝶与昆虫",
+      "栖于篱笆旁的壁虎、八哥等小动物"
+    ],
+    "lntTitle": "无痕山林",
+    "lntIntro": "高山自然十分脆弱，请遵守无痕山林（Leave No Trace）原则",
+    "lnt": [
+      "做好准备，沿既有步道行走，减少对植物的破坏",
+      "将所有垃圾带走，切勿丢弃于土中或溪里",
+      "尊重野生动物，不喂食，并保持山林安静"
+    ],
+    "lntCheckHint": "若你愿意遵守，请勾选 ✓",
+    "checklist": {
+      "title": "上山前清单",
+      "intro": "帮助你安全出行、保护自然的小建议",
+      "items": [
+        { "emoji": "🧥", "name": "保暖外套", "best": "拂晓很冷，可能低于 15°C", "rare": "", "rareClass": "" },
+        { "emoji": "👟", "name": "防滑鞋", "best": "清晨步道潮湿，部分路段易滑", "rare": "", "rareClass": "" },
+        { "emoji": "🗑️", "name": "个人垃圾袋", "best": "将所有垃圾自行带离", "rare": "", "rareClass": "" }
+      ]
+    }
+  },
+  "history": {
+    "label": "历史",
+    "heading": "湄甘蓬的故事与根源",
+    "lead": "湄甘蓬融合山谷地理与代代相传的兰纳传统。“Mae Kampong”一名源自穿村而过的湄甘蓬溪；按兰纳语，“Mae”意为母亲／河流，“Kampong”意为溪流或拦河坝，合起来即“甘蓬溪之母”。这条溪至今仍滋养着村落。",
+    "blocks": [
+      { "title": "兰纳移民（100 多年前）", "text": "兰纳先民从清盛、坤河一带迁来，沿湄甘蓬溪定居，在梯田种植水稻并采集山林物产。村落便以滋养他们的这条溪命名。" },
+      { "title": "皇家计划（1970–1980 年代）", "text": "皇家计划由普密蓬·阿杜德国王（King Bhumibol）倡议，引入茶、咖啡、水果与花卉等高山温带作物，以取代鸦片与刀耕火种，森林逐渐恢复，民生改善。" },
+      { "title": "社区旅游（1996 年至今）", "text": "村落开始系统化社区旅游，并荣获泰国旅游奖，成为泰国社区旅游（CBT）的典范。" },
+      { "title": "村名与活着的传统", "text": "村落一年四季保留着兰纳的生活节奏。凉季（11–2 月）云海最为壮观，也是民宿旺季，村民会在溪边神龛举行水灯节与新年祈福。每年家家户户仍向溪神献上花果与香烛，祈求风调雨顺、平静安宁。" }
+    ],
+    "legend": {
+      "title": "当地传说",
+      "text": "村民说，安静的清晨，雾气会卷入山谷化作“云海”，并相信清晨到访者能找到难得的宁静。他们也相信湄甘蓬溪由村神守护，每逢节庆与雨季之初，会在水边献上花果香烛，祈求风调雨顺、平静安宁。"
+    },
+    "didYouKnow": {
+      "title": "你知道吗？",
+      "text": "海拔超过 1,300 米，湄甘蓬比清迈低好几度，即便夏季依旧凉爽。"
+    },
+    "folklore": {
+      "title": "民间故事",
+      "tale": "故事说，飞越云海的鸟儿会把好消息带给那些早起守候黎明的人。",
+      "shrineTitle": "山间小神龛",
+      "shrine": "村中有座小神龛，村民与游客常在探访自然前上香祈福。"
+    }
+  },
+  "guide": {
+    "label": "游玩指南",
+    "heading": "湄甘蓬游玩指南",
+    "lead": "为山间最美的时刻做好准备——从交通、最佳季节到安全建议。",
+    "twoZone": {
+      "title": "值得一游的区域",
+      "intro": "村落可分为几处适合不同活动的地点",
+      "difficultyLabel": "难度",
+      "suitsLabel": "适合",
+      "items": [
+        { "name": "村落与民宿", "difficulty": "轻松", "suits": "全年龄 / 家庭", "desc": "漫步木屋、茶园与社区生活，平缓又亲切" },
+        { "name": "湄甘蓬瀑布", "difficulty": "轻松", "suits": "轻度徒步者", "desc": "距村约 1 公里的七层瀑布，设有自然步道" },
+        { "name": "云海观景点", "difficulty": "中等", "suits": "摄影爱好者", "desc": "村落周边高地，清晨可见辽阔云海" }
+      ]
+    },
+    "scamTip": {
+      "tag": "⚠️ 温馨提示",
+      "text": "请将车辆停在指定区域，并按社区公示价格支付瀑布费。"
+    },
+    "hours": {
+      "tag": "🕔 开放时间",
+      "time": "村落全天开放 · 瀑布 08:00–17:00",
+      "items": [
+        { "label": "瀑布开放", "value": "08:00" },
+        { "label": "瀑布关闭", "value": "17:00" }
+      ]
+    },
+    "fees": {
+      "tag": "💵 费用",
+      "title": "费用与服务",
+      "items": [
+        { "title": "瀑布门票", "desc": "社区收取小额费用，请备现金" },
+        { "title": "茶与小吃", "desc": "民宿与咖啡馆提供茶、咖啡与在地甜点" }
+      ]
+    },
+    "transport": {
+      "tag": "🚐 交通方式",
+      "title": "如何前往湄甘蓬",
+      "items": [
+        { "title": "租车 / 摩托车", "desc": "从清迈经 San Kamphaeng → Mae On → Huai Kaeo，车程约 1–1.5 小时" },
+        { "title": "双条车 / 出租车", "desc": "可从清迈包车，或转乘公共交通至村落入口" },
+        { "title": "一日游", "desc": "从清迈出发的往返一日游，含观景点与民宿体验" }
+      ]
+    },
+    "photography": {
+      "title": "摄影建议",
+      "intro": "光线与雾气不断变化，以下时段与地点值得留意",
+      "timesTitle": "金色光线时段",
+      "times": [
+        { "period": "06:00–08:00", "desc": "浓雾与日出的金色光线" },
+        { "period": "16:30–18:00", "desc": "柔和的暮光与辽阔天空" }
+      ],
+      "spotsTitle": "推荐拍摄点",
+      "spots": [
+        { "name": "木造阳台", "view": "辽阔云海", "tip": "以阳台为画框取景" },
+        { "name": "瀑布旁", "view": "层叠水流", "tip": "斜拍增加层次" },
+        { "name": "茶园", "view": "优美线条", "tip": "柔和光线下拍摄" }
+      ],
+      "settingsTitle": "相机设置",
+      "settings": [
+        { "style": "云海", "camera": "光圈 f/8–f/11", "phone": "HDR / 专业模式" },
+        { "style": "金色时刻", "camera": "清晨 ISO 100", "phone": "降低自动曝光" },
+        { "style": "星空", "camera": "三脚架 10–20 秒", "phone": "夜景模式" }
+      ],
+      "tipsTitle": "额外技巧",
+      "tips": [
+        "清晨前到达，在初光前架好三脚架",
+        "用木篱笆或树枝作前景元素",
+        "雾气可能打湿镜头，请保持干燥",
+        "低温下电池耗电快，请携带备用"
+      ],
+      "viewLabel": "景观",
+      "tipLabel": "技巧",
+      "cameraLabel": "相机",
+      "phoneLabel": "手机"
+    },
+    "bestTime": {
+      "title": "最佳季节",
+      "intro": "每个季节的湄甘蓬都有不同魅力",
+      "seasons": [
+        { "tag": "❄️ 凉季", "months": "11–2 月", "name": "云海季", "desc": "天气寒冷，云海最浓最阔，最适合赏云海" },
+        { "tag": "🌧️ 雨季", "months": "5–10 月", "name": "雨季", "desc": "山林翠绿、瀑布丰盈，但步道湿滑" },
+        { "tag": "🌤️ 热季", "months": "3–4 月", "name": "热季", "desc": "白日温暖、夜间仍凉，有薄雾，3–4 月或有焚风烟霾" }
+      ]
+    },
+    "safety": {
+      "title": "安全提示",
+      "items": [
+        { "title": "上山道路", "desc": "山路蜿蜒，请慢行并注意雾气" },
+        { "title": "地面湿滑", "desc": "清晨潮湿，请穿防滑鞋" },
+        { "title": "天气寒冷", "desc": "拂晓很冷，请带保暖外套" },
+        { "title": "垃圾", "desc": "请带走垃圾，保护山林" }
+      ]
+    },
+    "hazeSeason": {
+      "tag": "🌫️ 烟霾季",
+      "text": "雨季末至旱季初可能出现焚烧造成的烟霾，出行前请查询空气质量。"
+    },
+    "emergency": {
+      "title": "紧急信息",
+      "intro": "请记下这些号码，以备山上紧急情况",
+      "items": [
+        { "title": "泰国国家旅游局（清迈）", "value": "+66 53 248 604" },
+        { "title": "警察", "value": "191" },
+        { "title": "救护车", "value": "1669" },
+        { "title": "旅游热线", "value": "1155" }
+      ]
+    },
+    "accessibility": {
+      "title": "无障碍",
+      "intro": "湄甘蓬努力接待各类游客",
+      "items": [
+        { "title": "步道", "desc": "大多短而平缓，但部分有台阶且湿滑" },
+        { "title": "停车", "desc": "村落入口附近设有停车区" },
+        { "title": "设施", "desc": "有民宿与咖啡馆，但无直接轮椅坡道" }
+      ]
+    },
+    "faqTitle": "常见问题",
+    "faqs": [
+      { "q": "湄甘蓬离清迈远吗？", "a": "车程约 1–1.5 小时，位于清迈以东。" },
+      { "q": "何时云海最美？", "a": "清晨 06:00–08:00，尤其凉季（11–2 月）。" },
+      { "q": "需要门票吗？", "a": "村落免费；瀑布收小额社区费，请备现金。" },
+      { "q": "可以过夜吗？", "a": "可，有多家社区民宿，建议提前预订。" },
+      { "q": "适合长辈与儿童吗？", "a": "步道大多短而平缓，适合全年龄，但清晨需注意防滑。" }
+    ],
+    "nearby": {
+      "title": "周边景点",
+      "cta": "继续探索 Mae On",
+      "items": [
+        { "name": "湄甘蓬瀑布", "desc": "距村约 1 公里的七层瀑布", "url": "https://www.google.com/maps/search/?api=1&query=Mae+Kampong+Waterfall+Chiang+Mai+Thailand" },
+        { "name": "San Kamphaeng 温泉", "desc": "前往湄甘蓬途中的天然温泉", "url": "https://www.google.com/maps/search/?api=1&query=San+Kamphaeng+Hot+Spring+Chiang+Mai+Thailand" },
+        { "name": "清迈", "desc": "古城、素贴山与夜市", "url": "https://www.google.com/maps/search/?api=1&query=Chiang+Mai+Thailand" }
+      ]
+    }
+  },
+  "food": {
+    "label": "美食饮品",
+    "heading": "茶、咖啡与在地美食",
+    "lead": "湄甘蓬的体验将兰纳文化融入高山茶、咖啡与朴素的在地美食。",
+    "dishes": [
+      { "tag": "01", "name": "Khao Soi 咖喱面", "price": "฿60", "desc": "椰香咖喱汤底的蛋面，北部经典" },
+      { "tag": "02", "name": "Sai Ua 北部香肠", "price": "฿80", "desc": "香草猪肉肠，配辣椒酱食用" },
+      { "tag": "03", "name": "村内烘焙乌龙茶与咖啡", "price": "฿50", "desc": "来自村内高山农园的茶与咖啡" },
+      { "tag": "04", "name": "椰子甜点", "price": "฿40", "desc": "以嫩椰子制作的泰式甜点，契合慢生活" }
+    ],
+    "quote": {
+      "text": "“在云海中啜饮热茶，便是兰纳式的慢下来。”",
+      "author": "山间咖啡馆店主"
+    }
+  },
+  "gallery": {
+    "label": "相册",
+    "heading": "镜头下的湄甘蓬",
+    "intro": "不同时间段捕捉的云雾、山林与山谷生活。",
+    "historicalNote": "所有图片均为湄甘蓬村真实风景。",
+    "credits": "照片：游客与当地社区。",
+    "alts": [
+      "湄甘蓬的晨间云海",
+      "云雾中的层叠群山",
+      "山谷之上的日出",
+      "雾中木阳台品茶",
+      "湄甘蓬瀑布",
+      "高山乌龙茶梯田",
+      "温带花卉",
+      "松林与蕨类",
+      "游客观赏日出",
+      "漫入山谷的雾气",
+      "辽阔的暮空",
+      "寒冷中的静谧角落",
+      "茶与咖啡文化",
+      "山间的鸟与蝶",
+      "短途森林步道",
+      "黎明时的 360° 视野"
+    ],
+    "viewLocation": "在 Google 地图上查看位置"
+  },
+  "reviews": {
+    "label": "评价",
+    "heading": "游客如何评价湄甘蓬",
+    "intro": "汇集曾到访湄甘蓬村的游客心声。",
+    "disclaimer": "总评分来自 Google 评价（未经我们核实）。",
+    "declaration": "以下评价取自公开帖子，仅供参考。",
+    "featured": [
+      { "text": "早起非常值得——云海辽阔如海，日出美得令人屏息。", "source": "— 来自公开评价" },
+      { "text": "在雾中木阳台啜饮热茶，是我在清迈之旅最宁静的时刻。", "source": "— 来自公开评价" }
+    ],
+    "items": [
+      { "rating": "5", "name": "Anong S.", "date": "2025-12", "text": "[云海] 12 月雾很浓，拍出来非常美" },
+      { "rating": "5", "name": "James T.", "date": "2025-11", "text": "[日出] 五点起床不后悔，金色光线美" },
+      { "rating": "4", "name": "Linda", "date": "2026-01", "text": "[茶] 山顶咖啡馆很棒，空气凉爽" },
+      { "rating": "5", "name": "Peter W.", "date": "2025-10", "text": "[景观] 真正的 360°，四周都美" },
+      { "rating": "4", "name": "Somchai", "date": "2026-02", "text": "[路况] 上山弯多但好开，注意雾" },
+      { "rating": "5", "name": "Mika K.", "date": "2025-12", "text": "[民宿] 住民宿清晨醒来看雾，超赞，推荐" },
+      { "rating": "4", "name": "Wichai", "date": "2025-09", "text": "[美食] 上面有茶和点心，视野好" },
+      { "rating": "5", "name": "Emma R.", "date": "2026-01", "text": "[摄影] 白雾色调美，清晨前到最值" },
+      { "rating": "4", "name": "Noi Na", "date": "2025-11", "text": "[家庭] 带孩子也行，步道短但注意滑" },
+      { "rating": "5", "name": "Daniel L.", "date": "2025-12", "text": "[安静] 比别处安静，适合放松" },
+      { "rating": "4", "name": "Or", "date": "2026-02", "text": "[凉季] 很冷，别忘保暖外套" },
+      { "rating": "5", "name": "Yuki H.", "date": "2025-10", "text": "[划算] 瀑布门票不贵，景观超值" }
+    ],
+    "viewLocation": "在 Google 地图上查看位置"
+  },
+  "mapSection": {
+    "label": "地图",
+    "heading": "前往湄甘蓬",
+    "lead": "村落位于清迈 Mae On 县 Huai Kaeo，可使用下方坐标导航。",
+    "stats": [
+      { "tag": "距清迈", "value": "≈ 1–1.5 小时", "sub": "车程" },
+      { "tag": "坐标", "value": "18.8642°N", "sub": "99.3498°E" },
+      { "tag": "Plus Code", "value": "V982+695", "sub": "Huai Kaeo, Mae On" }
+    ],
+    "address": "V982+695, Huai Kaeo, Mae On District, Chiang Mai 50130, Thailand",
+    "plusCode": "V982+695（Huai Kaeo, Mae On）",
+    "coords": "18.8642°N, 99.3498°E（海拔 ≈ 1,300 米）"
+  },
+  "sources": {
+    "label": "资料来源",
+    "heading": "资料来源与致谢",
+    "intro": "本站信息整理自旅游主管机构与公开可查资料，用于科普与保育。",
+    "photoTitle": "图片致谢",
+    "photoItems": [
+      { "text": "所有图片均为湄甘蓬村真实风景。", "url": "https://maps.app.goo.gl/CJABCvJdCDW68ttP9", "linkLabel": "查看位置" },
+      { "text": "照片由游客与当地社区提供。", "url": "", "linkLabel": "" }
+    ],
+    "factTitle": "参考数据",
+    "factText": "天气来自 Open-Meteo；评分来自 Google 评价；位置依据 GPS 坐标与 Plus Code。",
+    "correctionTitle": "纠错与补充",
+    "correctionText": "若发现信息有误或想补充，请通过下方邮箱联系我们。",
+    "correctionMailto": "mailto:n20186005@gmail.com",
+    "correctionCta": "发送纠错",
+    "copyright": "湄甘蓬村"
+  },
+  "legal": {
+    "privacy": {
+      "title": "隐私政策",
+      "updated": "最近更新：2026",
+      "sections": [
+        { "h": "我们收集的信息", "p": "本站不强制填写个人信息，也不存储可识别身份的数据。" },
+        { "h": "Cookie 与分析", "p": "我们仅使用 Cookie 记住语言设置，不与第三方共享用于营销的数据。" },
+        { "h": "外部链接", "p": "本站链接至 Google 地图与第三方来源，各自有其隐私政策。" },
+        { "h": "联系我们", "p": "若对您的资料有疑问，可通过首页所示渠道联系我们。" }
+      ]
+    },
+    "terms": {
+      "title": "使用条款",
+      "updated": "最近更新：2026",
+      "sections": [
+        { "h": "使用建议", "p": "本站内容仅用于学习与参考。" },
+        { "h": "责任限制", "p": "我们对使用本信息造成的损害不承担责任；出行前请核实最新信息。" },
+        { "h": "版权", "p": "所有内容归本站作者所有，未经许可不得用于商业用途。" }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie 设置",
+      "updated": "最近更新：2026",
+      "intro": "Cookie 帮助记住语言设置并改善体验，你可以在下方开关。",
+      "categories": [
+        { "h": "必要 Cookie", "p": "用于语言选择等基本功能", "status": "已启用", "subStatus": "必要", "active": true },
+        { "h": "分析 Cookie", "p": "以不可识别身份的方式了解使用情况", "status": "已停用", "subStatus": "可选", "active": false }
+      ],
+      "consent": "点击“保存”即按所选接受 Cookie。",
+      "save": "保存",
+      "rejectAll": "全部拒绝"
+    }
+  },
+  "footer": {
+    "brand": { "name": "湄甘蓬 · 兰纳村落", "tagline": "雾气到访之地 · Mae On, 清迈" },
+    "about": "湄甘蓬村指南——独立科普资源，汇集本村的风景、生态与社区故事。",
+    "navTitle": "菜单",
+    "navItems": [
+      { "label": "首页", "href": "#home" },
+      { "label": "关于", "href": "#about" },
+      { "label": "生态", "href": "#eco" },
+      { "label": "历史", "href": "#history" },
+      { "label": "游玩指南", "href": "#guide" },
+      { "label": "地图", "href": "#map" }
+    ],
+    "noteTitle": "联系",
+    "note": "村落全天开放；瀑布 08:00–17:00。旅游咨询请联系泰国国家旅游局清迈办事处 +66 53 248 604。",
+    "mapsLabel": "Google Maps →",
+    "sourcesTitle": "资料来源",
+    "sourcesNote": "参考自旅游主管机构与公开资料。",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "cookies": "Cookie 设置",
+    "disclaimerLead": "本站为非营利景点科普指南，用于学习、研究与推广保育。",
+    "unofficial": "并非湄甘蓬村或任何政府机构的官方代表或网站。",
+    "dataSource": "天气来自 Open-Meteo；评分来自 Google 评价。",
+    "copyright": "© 2026 湄甘蓬村 · 版权所有"
+  }
+}

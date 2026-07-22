@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Raw source photos (large) — kept locally only; optimized WebP is committed in public/gallery/
+gallery-source/
+
+# Logs & build artifacts
+build.log
+build.err
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Env
+.env
+.env.*

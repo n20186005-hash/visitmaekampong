@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../config';
+import { htmlLang, languagesList, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  messages: Record<string, any>;
+}
+const { lang, title, description, messages } = Astro.props;
+const canonical = `${siteConfig.domain}/${lang}/`;
+
+const faqs = (messages && messages.guide && messages.guide.faqs) ? messages.guide.faqs : [];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristAttraction',
+    name: siteConfig.name[lang],
+    description,
+    image: `${siteConfig.domain}/gallery/${siteConfig.galleryPrefix}1.${siteConfig.galleryExt}`,
+    url: canonical,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: siteConfig.address,
+      addressCountry: 'TH',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: siteConfig.coords.lat,
+      longitude: siteConfig.coords.lng,
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: siteConfig.rating,
+      reviewCount: siteConfig.reviewCount.replace(/,/g, ''),
+    },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '05:00',
+        closes: '20:00',
+      },
+    ],
+    sameAs: siteConfig.sameAs,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/webp" href={`/gallery/${siteConfig.galleryPrefix}1.${siteConfig.galleryExt}`} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={htmlLang[lang]} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteConfig.domain}/gallery/${siteConfig.galleryPrefix}1.${siteConfig.galleryExt}`} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {languagesList.map((l) => (
+      <link rel="alternate" hreflang={htmlLang[l]} href={`${siteConfig.domain}/${l}/`} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${siteConfig.domain}/th/`} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Trirong:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Sarabun:wght@300;400;500;600;700&family=Charm:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="grain">
+    <slot />
+  </body>
+</html>
