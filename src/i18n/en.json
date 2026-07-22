@@ -46,7 +46,14 @@
     "defaultTip": "Come at dawn for the best sea of clouds",
     "lightCaption": "Times shift with the season and weather",
     "weatherError": "",
-    "goldenChanceLabel": "Golden-hour chance"
+    "goldenChanceLabel": "Golden-hour chance",
+    "glance": [
+      { "icon": "📍", "label": "Location", "value": "Mae On, Chiang Mai" },
+      { "icon": "⛰️", "label": "Elevation", "value": "Approx. 1,300 m" },
+      { "icon": "🚗", "label": "Drive from City", "value": "1 - 1.5 hours" },
+      { "icon": "⏱️", "label": "Best Time", "value": "Nov - Feb (Cool Season)" },
+      { "icon": "🎟️", "label": "Entrance Fee", "value": "Free (small fee for waterfall)" }
+    ]
   },
   "about": {
     "label": "About",
@@ -120,9 +127,10 @@
     "heading": "The story and roots of Mae Kampong",
     "lead": "Mae Kampong blends valley geography with Lanna heritage passed down through generations. Locals read the name as Mae ('mother' or 'river') plus Kampong ('stream' or 'weir') — 'Mother of the Kampong stream'. The brook still feeds the village, and its story is one of forest, faith and quiet self-reliance.",
     "blocks": [
-      { "title": "Lanna migration (100+ years ago)", "text": "Lanna ancestors moved from the Chiang Saen and Kok River area and settled along the Mae Kampong stream, farming rice on terraces and gathering forest products. The settlement took its name from the brook that still supplies their water and irrigates the fields." },
-      { "title": "The Royal Project (1970s–1980s)", "text": "A development initiative inspired by King Bhumibol Adulyadej's Royal Project introduced cool-climate crops — tea, coffee, fruit and flowers — to replace opium and slash-and-burn farming, improving local livelihoods and letting the forest recover." },
-      { "title": "Community-Based Tourism (1996–today)", "text": "The village began organized community tourism and won Thailand Tourism Awards, becoming a model of CBT in Thailand." },
+      { "title": "Lanna Migration (100+ years ago)", "text": "Lanna pioneers migrated from Chiang Saen and the Khun River area, settling along the Mae Kampong stream. They terraced rice fields and gathered forest products, naming the village after the stream that sustained them." },
+      { "title": "Miang: The Economic Lifeblood", "text": "What is Miang? It is a traditional Lanna fermented tea made from large tea leaves, chewed by locals for energy. Before modern tourism, gathering and fermenting Miang was the primary industry and the most important economic lifeline for Mae Kampong." },
+      { "title": "The Royal Project & Tea Culture (1970s–1980s)", "text": "For centuries, villagers made a living gathering wild tea leaves to make Miang (Lanna fermented tea). Later, inspired by King Bhumibol's initiative, the Teen Tok Royal Project Development Center introduced cool-climate crops — oolong tea and Arabica coffee — replacing slash-and-burn farming and letting the forest recover." },
+      { "title": "Community-Based Tourism (1996–present)", "text": "The village structured its community tourism, winning Thailand Tourism Awards and becoming a model for CBT in Thailand. The core lies in the 'Community Cooperative Model' — tourism revenue is not just for individuals, but is distributed to community funds, forest fire prevention teams, and pension funds, truly achieving sustainable ecological and economic development." },
       { "title": "Name & Living Traditions", "text": "The village keeps a Lanna rhythm through the year. Cool season (Nov–Feb) brings the famous sea of clouds and the homestay high season, with Loy Krathong and New Year merit-making at the stream shrine. Each year households still leave offerings of flowers and incense to the stream spirit for rain and calm." }
     ],
     "legend": {
@@ -152,7 +160,7 @@
       "items": [
         { "name": "The village & homestays", "difficulty": "Easy", "suits": "All ages / families", "desc": "Walk among wooden houses, tea farms and community life — gentle and friendly" },
         { "name": "Mae Kampong Waterfall", "difficulty": "Easy", "suits": "Light hikers", "desc": "A 7-tier waterfall about 1 km from the village, with a nature trail" },
-        { "name": "Kew Fin Viewpoint", "difficulty": "Moderate", "suits": "Photographers", "desc": "About 3 km from the village at 1,517 m on the Lampang border, offering a 360° sea of clouds at dawn" }
+        { "name": "Kew Fin Viewpoint", "difficulty": "Moderate", "suits": "Photographers", "desc": "About 3 km from the village, located within Chae Son National Park on the border of Chiang Mai and Lampang. At 1,517 m, it offers a 360° sea of clouds at dawn" }
       ]
     },
     "scamTip": {
@@ -176,12 +184,13 @@
       ]
     },
     "transport": {
-      "tag": "🚐 Getting there",
-      "title": "How to reach Mae Kampong",
+      "tag": "🚐 Transport",
+      "title": "Getting to Mae Kampong",
       "items": [
-        { "title": "Rental car / motorbike", "desc": "From Chiang Mai drive via San Kamphaeng → Mae On → Huai Kaeo, about 1–1.5 hrs" },
-        { "title": "Songthaew / taxi", "desc": "Hire from Chiang Mai, or connect by public transport to the village entrance" },
-        { "title": "Day tour", "desc": "A round-trip day tour from Chiang Mai, including viewpoints and a homestay" }
+        { "title": "From Chiang Mai International Airport", "desc": "You can take a taxi directly from the airport or book a private transfer. The journey takes about 1.5 hours to the village entrance" },
+        { "title": "Car / Scooter", "desc": "About 1–1.5 hours from Chiang Mai via San Kamphaeng → Mae On → Huai Kaeo" },
+        { "title": "Songthaew / Taxi", "desc": "Charter a ride from Chiang Mai or take public transport to the village entrance" },
+        { "title": "Day Tours", "desc": "Round-trip tours from Chiang Mai, including viewpoints and village walks" }
       ]
     },
     "photography": {

@@ -100,75 +100,86 @@ const guideImgs = [
 
     <!-- Photography & rainbow guide -->
     {guide.photography && (
-      <div class="mt-14 max-w-4xl">
-        <h3 class="font-display text-2xl text-teak mb-2">{guide.photography.title}</h3>
-        <p class="text-sm text-ink/75 mb-5">{guide.photography.intro}</p>
-
-        <!-- Best light / rainbow windows -->
-        <h4 class="font-display text-lg text-gold mb-3">{guide.photography.timesTitle}</h4>
-        <div class="grid sm:grid-cols-3 gap-3 mb-6">
-          {guide.photography.times.map((t) => (
-            <div class="rounded-xl border border-gold/25 bg-white/50 p-4">
-              <div class="font-semibold text-teak">{t.period}</div>
-              <p class="mt-1 text-sm text-ink/70">{t.desc}</p>
-            </div>
-          ))}
+      <div class="mt-16 bg-teak text-ivory rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl max-w-4xl">
+        <div class="absolute -right-10 -bottom-10 opacity-10">
+          <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
         </div>
-
-        <!-- Photo spots -->
-        <h4 class="font-display text-lg text-gold mb-3">{guide.photography.spotsTitle}</h4>
-        <div class="space-y-3 mb-6">
-          {guide.photography.spots.map((s) => (
-            <div class="rounded-xl border border-gold/25 bg-white/50 p-4">
-              <div class="font-semibold text-teak">{s.name}</div>
-              <p class="mt-1 text-sm text-ink/70"><span class="font-medium">{guide.photography.viewLabel}</span> {s.view}</p>
-              <p class="mt-1 text-sm text-ink/70"><span class="font-medium">{guide.photography.tipLabel}</span> {s.tip}</p>
+        
+        <div class="relative z-10">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="text-goldBright text-2xl">📸</span>
+            <h3 class="font-display text-2xl">{guide.photography.title}</h3>
+          </div>
+          <p class="text-sm text-ivory/80 mb-8">{guide.photography.intro}</p>
+          
+          <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <!-- Golden Hours -->
+            <div>
+              <h4 class="text-gold font-medium mb-4 uppercase tracking-widest text-xs">{guide.photography.timesTitle}</h4>
+              <div class="space-y-4">
+                {guide.photography.times.map((t: any) => (
+                  <div class="flex gap-4 items-start">
+                    <div class="bg-black/20 text-goldBright font-mono text-sm px-2 py-1 rounded shrink-0">{t.period}</div>
+                    <div class="text-sm text-ivory/80 pt-1">{t.desc}</div>
+                  </div>
+                ))}
+              </div>
+              
+              <h4 class="text-gold font-medium mt-8 mb-4 uppercase tracking-widest text-xs">{guide.photography.tipsTitle}</h4>
+              <ul class="space-y-2 text-sm text-ivory/70 list-disc list-inside ml-4">
+                {guide.photography.tips.map((t: string) => (
+                  <li>{t}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
-
-        <!-- Camera & phone settings -->
-        <h4 class="font-display text-lg text-gold mb-3">{guide.photography.settingsTitle}</h4>
-        <div class="space-y-3 mb-6">
-          {guide.photography.settings.map((st) => (
-            <div class="rounded-xl border border-gold/25 bg-white/50 p-4">
-              <div class="font-semibold text-teak">{st.style}</div>
-              <p class="mt-1 text-sm text-ink/70"><span class="font-medium">{guide.photography.cameraLabel}</span> {st.camera}</p>
-              <p class="mt-1 text-sm text-ink/70"><span class="font-medium">{guide.photography.phoneLabel}</span> {st.phone}</p>
+            
+            <!-- Camera Settings -->
+            <div>
+              <h4 class="text-gold font-medium mb-4 uppercase tracking-widest text-xs">{guide.photography.settingsTitle}</h4>
+              <div class="space-y-4">
+                {guide.photography.settings.map((s: any) => (
+                  <div class="bg-black/10 border border-gold/10 rounded-lg p-3">
+                    <div class="font-medium text-ivory mb-2">{s.style}</div>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                      <div>
+                        <span class="text-gold/60 block mb-0.5">{guide.photography.cameraLabel}</span>
+                        <span class="text-ivory/80">{s.camera}</span>
+                      </div>
+                      <div>
+                        <span class="text-gold/60 block mb-0.5">{guide.photography.phoneLabel}</span>
+                        <span class="text-ivory/80">{s.phone}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
         </div>
-
-        <!-- Tips -->
-        <h4 class="font-display text-lg text-gold mb-3">{guide.photography.tipsTitle}</h4>
-        <ul class="space-y-2 text-sm text-ink/75">
-          {guide.photography.tips.map((tp) => (
-            <li class="flex gap-2">
-              <span class="text-gold mt-0.5" aria-hidden="true">•</span>
-              <span>{tp}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     )}
 
     <!-- Best time to visit / flowering -->
     {guide.bestTime && (
-      <div class="mt-14 max-w-4xl">
+      <div class="mt-16 max-w-4xl">
         <h3 class="font-display text-2xl text-teak mb-2">{guide.bestTime.title}</h3>
-        <p class="text-sm text-ink/75 mb-5">{guide.bestTime.intro}</p>
-        <div class="grid sm:grid-cols-2 gap-4">
-          {guide.bestTime.seasons.map((sn) => (
-            <div class="rounded-2xl border border-gold/25 bg-white/50 p-5">
-              <div class="flex items-center justify-between">
-                <span class="font-display text-gold text-xl">{sn.tag}</span>
-                <span class="text-xs text-teak font-medium bg-gold/15 px-2 py-1 rounded-full">{sn.months}</span>
-              </div>
-              <h4 class="font-display text-teak font-semibold text-lg mt-2">{sn.name}</h4>
-              <p class="mt-1 text-sm text-ink/75">{sn.desc}</p>
+        <p class="text-sm text-ink/70 mb-6">{guide.bestTime.intro}</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {guide.bestTime.seasons.map((s: any) => (
+            <div class="bg-ivory border border-gold/30 rounded-xl p-5 hover:shadow-lg transition-shadow relative overflow-hidden group">
+              <div class="absolute top-0 right-0 p-4 opacity-10 text-4xl group-hover:scale-110 transition-transform">{s.tag.split(' ')[0]}</div>
+              <div class="font-semibold text-teak text-lg mb-1">{s.name}</div>
+              <div class="text-xs font-medium text-goldBright mb-3 bg-gold/10 inline-block px-2 py-1 rounded">{s.months}</div>
+              <p class="text-sm text-ink/80 leading-relaxed relative z-10">{s.desc}</p>
             </div>
           ))}
         </div>
+        {guide.hazeSeason && (
+          <div class="mt-4 p-4 rounded-xl border border-orange-200 bg-orange-50 text-orange-900/80 text-sm flex gap-3">
+            <span class="text-xl">⚠️</span>
+            <p class="mt-0.5">{guide.hazeSeason.text}</p>
+          </div>
+        )}
       </div>
     )}
 

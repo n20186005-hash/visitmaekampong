@@ -28,37 +28,54 @@ const eco = messages.eco;
       ))}
     </div>
 
-    <!-- Vertical plants -->
-    <h3 class="font-display text-2xl text-teak mt-12 mb-4">{eco.plantsTitle}</h3>
-    <div class="space-y-6">
-      {eco.plants.map((p) => (
-        <div class="rounded-2xl border border-gold/25 bg-white/40 p-6">
-          <div class="font-display text-lg text-gold mb-2">{p.title}</div>
-          <p class="text-sm text-ink/75 mb-3">{p.desc}</p>
-          {p.items && (
-            <ul class="space-y-2 text-sm text-ink/75">
-              {p.items.map((it) => (
-                <li class="flex gap-2">
-                  <span class="text-gold mt-0.5" aria-hidden="true">•</span>
-                  <span><span class="font-medium text-teak">{it.name}</span> — {it.desc}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+    <!-- Fauna & Flora checklist (Accordion) -->
+    <div class="mt-16 grid md:grid-cols-2 gap-10">
+      <div>
+        <h3 class="font-display text-2xl text-teak mb-4">{eco.plantsTitle}</h3>
+        <div class="space-y-3">
+          {eco.plants.map((p: any, i: number) => (
+            <div class="accordion-item border border-gold/20 rounded-xl overflow-hidden bg-ivory">
+              <button class="accordion-btn w-full px-5 py-4 flex items-center justify-between text-left hover:bg-gold/5 transition-colors focus:outline-none">
+                <div>
+                  <span class="font-semibold text-teak">{p.title}</span>
+                  <span class="block text-xs text-ink/60 mt-0.5">{p.desc}</span>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gold transform transition-transform duration-300 accordion-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                <ul class="p-5 pt-0 space-y-3 text-sm border-t border-gold/10">
+                  {p.items.map((it: any) => (
+                    <li class="flex items-start gap-3">
+                      <span class="text-gold mt-0.5">🌱</span>
+                      <div>
+                        <span class="font-medium text-ink/90">{it.name}</span>
+                        <span class="block text-ink/60 text-xs mt-0.5">{it.desc}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
 
-    <!-- Wildlife -->
-    <h3 class="font-display text-2xl text-teak mt-12 mb-4">{eco.wildlifeTitle}</h3>
-    <ul class="space-y-2 max-w-3xl text-sm text-ink/80">
-      {eco.wildlife.map((w) => (
-        <li class="flex gap-2">
-          <span class="text-gold mt-0.5" aria-hidden="true">•</span>
-          <span>{w}</span>
-        </li>
-      ))}
-    </ul>
+      <div>
+        <h3 class="font-display text-2xl text-teak mb-4">{eco.wildlifeTitle}</h3>
+        <div class="bg-white border border-gold/20 rounded-2xl p-6 shadow-sm">
+          <ul class="space-y-4">
+            {eco.wildlife.map((w: string) => (
+              <li class="flex items-start gap-3 text-sm text-ink/80 pb-4 border-b border-gold/10 last:border-0 last:pb-0">
+                <span class="text-goldBright text-lg">🐾</span>
+                <span class="leading-relaxed mt-0.5">{w}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <!-- Leave No Trace -->
     <div class="mt-12 rounded-2xl border border-teak/30 bg-teak/5 p-6 relative overflow-hidden" id="lnt-container">
@@ -116,6 +133,36 @@ const eco = messages.eco;
     const thankYou = document.getElementById('lnt-thankyou');
     const resetBtn = document.getElementById('lnt-reset');
     
+    // Accordion Logic
+    const accordionBtns = document.querySelectorAll('.accordion-btn');
+    accordionBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const icon = this.querySelector('.accordion-icon');
+        
+        // Close all other accordions
+        accordionBtns.forEach(otherBtn => {
+          if (otherBtn !== this) {
+            otherBtn.classList.remove('bg-gold/5');
+            const otherContent = otherBtn.nextElementSibling;
+            const otherIcon = otherBtn.querySelector('.accordion-icon');
+            otherContent.style.maxHeight = null;
+            otherIcon.classList.remove('rotate-180');
+          }
+        });
+
+        // Toggle current accordion
+        this.classList.toggle('bg-gold/5');
+        icon.classList.toggle('rotate-180');
+        
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+
     if (!checkboxes.length || !thankYou) return;
 
     const LNT_KEY = 'visitmaekampong_lnt_agreed';
