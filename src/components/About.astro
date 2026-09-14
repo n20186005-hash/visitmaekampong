@@ -4,6 +4,13 @@ interface Props {
 }
 const { messages } = Astro.props;
 const about = messages.about;
+const entity = messages.entity || {};
+
+// 地理归属层级：Mae Kampong Village → Mae On → Chiang Mai → Thailand（与 BreadcrumbList 结构数据一致）
+const hierarchy = String(about.locationHierarchy || '')
+  .split('→')
+  .map((s) => s.trim())
+  .filter(Boolean);
 ---
 
 <section id="about" class="py-20 bg-ivory text-ink">
@@ -11,8 +18,26 @@ const about = messages.about;
     <p class="font-hand text-gold text-xl md:text-2xl">{about.label}</p>
     <h2 class="font-display font-semibold text-3xl md:text-5xl text-teak mt-2">{about.heading}</h2>
 
+    {hierarchy.length > 0 && (
+      <nav aria-label={entity.breadcrumbLabel || 'Location'} class="mt-4">
+        <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink/60">
+          {hierarchy.map((item, i) => (
+            <li class="flex items-center gap-2">
+              {i > 0 && <span class="text-gold/60" aria-hidden="true">→</span>}
+              {i === 0
+                ? <strong class="font-semibold text-teak">{item}</strong>
+                : <a href="#map" class="hover:text-gold hover:underline">{item}</a>}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
     <div class="grid lg:grid-cols-12 gap-10 mt-10">
       <div class="lg:col-span-7 space-y-4 text-ink/85">
+        {entity.equivalence && (
+          <p class="rounded-xl border-l-4 border-gold bg-white/50 px-4 py-3 text-ink/80">{entity.equivalence}</p>
+        )}
         <p class="text-lg text-teak font-medium">{about.lead}</p>
         <p>{about.paragraph1}</p>
         <p>{about.paragraph2}</p>

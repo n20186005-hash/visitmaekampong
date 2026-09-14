@@ -1,62 +1,124 @@
 ---
 import '../styles/global.css';
 import { siteConfig } from '../config';
-import { htmlLang, languagesList, type Lang } from '../i18n/ui';
+import { htmlLang, hreflangCodes, ogLocale, languagesList, type Lang } from '../i18n/ui';
 
 interface Props {
   lang: Lang;
   title: string;
   description: string;
   messages: Record<string, any>;
+  /** Slug under /{lang}/ — empty for the home page. Drives canonical + hreflang. */
+  path?: string;
+  /** Legal / utility pages: keep them out of the index so crawl budget goes to guides. */
+  noindex?: boolean;
+  /** Extra breadcrumb label for sub pages. */
+  crumb?: string;
+  faqs?: { q: string; a: string }[];
 }
-const { lang, title, description, messages } = Astro.props;
-const canonical = `${siteConfig.domain}/${lang}/`;
+const { lang, title, description, messages, path = '', noindex = false, crumb } = Astro.props;
+const e = siteConfig.entity;
+const domain = siteConfig.domain;
 
-const faqs = (messages && messages.guide && messages.guide.faqs) ? messages.guide.faqs : [];
+const slug = path.replace(/^\/+|\/+$/g, '');
+const homeUrl = `${domain}/${lang}/`;
+const canonical = slug ? `${homeUrl}${slug}/` : homeUrl;
+/** Same slug in another language — keeps every hreflang cluster self-consistent. */
+const altHref = (l: string) => (slug ? `${domain}/${l}/${slug}/` : `${domain}/${l}/`);
 
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'TouristAttraction',
-    name: siteConfig.name[lang],
-    description,
-    image: `${siteConfig.domain}/gallery/${siteConfig.galleryPrefix}1.${siteConfig.galleryExt}`,
-    url: canonical,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: siteConfig.address,
-      addressCountry: 'TH',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: siteConfig.coords.lat,
-      longitude: siteConfig.coords.lng,
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: siteConfig.rating,
-      reviewCount: siteConfig.reviewCount.replace(/,/g, ''),
-    },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '08:00',
-        closes: '17:00',
-      },
-    ],
-    sameAs: siteConfig.sameAs,
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  },
+const heroImage = `${domain}${siteConfig.heroImage}`;
+const galleryImage = (n: number) => `${domain}/gallery/${siteConfig.galleryPrefix}${n}.${siteConfig.galleryExt}`;
+
+const homeFaqs = (messages && messages.guide && messages.guide.faqs) ? messages.guide.faqs : [];
+
+// 实体语义：域名含义（shortName）与官方全称（fullName）等位
+const entity = messages.entity || {};
+const breadcrumbLabel = entity.breadcrumbLabel || 'Location';
+const breadcrumbTrail = [
+  { name: e.fullName, url: canonical },
+  { name: entity.districtName || e.district, url: `${canonical}#map` },
+  { name: entity.cityName || e.city, url: `${canonical}#map` },
+  { name: entity.countryName || e.country, url: `${canonical}#map` },
+  ...(crumb ? [{ name: crumb, url: canonical }] : []),
 ];
+
+/**
+ * 结构化数据（Schema.org / JSON-LD）
+ * 说明：评分与评价内容仅作为页面可见文本展示，不写入 JSON-LD，
+ * 以避免 Google 结构化数据评价政策风险（评价版权归原作者与 Google 地图所有）。
+ */
+const touristAttraction = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristAttraction',
+  '@id': `${domain}/#attraction`,
+  name: e.fullName,
+  alternateName: [e.shortName, `${e.city} ${e.fullName}`, ...e.alternateNames],
+  description: entity.schemaDescription ||
+    `Comprehensive visitor guide to ${e.fullName} in ${e.city}, ${e.stateProvince}, ${e.country}.`,
+  url: domain,
+  image: [heroImage, galleryImage(2), galleryImage(15)],
+  isAccessibleForFree: true,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteConfig.address,
+    addressLocality: e.subDistrict,
+    addressRegion: e.stateProvince,
+    postalCode: e.postalCode,
+    addressCountry: e.countryCode,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: e.latitude,
+    longitude: e.longitude,
+  },
+  hasMap: e.mapsShareUrl,
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '08:00',
+      closes: '17:00',
+    },
+  ],
+  sameAs: [e.mapsShareUrl, e.govtTourismUrl],
+};
+
+const webSite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${domain}/#website`,
+  url: domain,
+  name: `${e.fullName} — Visitor Guide`,
+  inLanguage: htmlLang[lang],
+  publisher: { '@id': `${domain}/#attraction` },
+};
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbTrail.map((b, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: b.name,
+    item: b.url,
+  })),
+};
+
+const faqList: { q: string; a: string }[] = Astro.props.faqs ?? (slug ? [] : homeFaqs);
+
+const faqPage = faqList.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqList.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
+
+const jsonLd = [touristAttraction, webSite, breadcrumb, faqPage].filter(Boolean);
 ---
 
 <!doctype html>
@@ -64,21 +126,42 @@ const jsonLd = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/webp" href={`/gallery/${siteConfig.galleryPrefix}1.${siteConfig.galleryExt}`} />
+    <link rel="icon" type="image/webp" href={siteConfig.heroImage} />
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <!-- Canonical 规范网址（每页自引用，法律页不再指向首页） -->
     <link rel="canonical" href={canonical} />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content={htmlLang[lang]} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={slug ? 'article' : 'website'} />
+    <meta property="og:site_name" content={`${e.fullName} — ${e.city}`} />
+    <meta property="og:locale" content={ogLocale[lang]} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteConfig.domain}/gallery/${siteConfig.galleryPrefix}1.${siteConfig.galleryExt}`} />
+    <meta property="og:image" content={heroImage} />
+    <meta property="og:image:alt" content={`${e.fullName} in ${e.city}`} />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary_large_image" />
-    {languagesList.map((l) => (
-      <link rel="alternate" hreflang={htmlLang[l]} href={`${siteConfig.domain}/${l}/`} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={`${siteConfig.domain}/th/`} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={heroImage} />
+
+    {languagesList.flatMap((l) =>
+      hreflangCodes[l].map((code) => <link rel="alternate" hreflang={code} href={altHref(l)} />)
+    )}
+    <link rel="alternate" hreflang="x-default" href={altHref('th')} />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content={e.themeColor} />
+    <meta name="application-name" content={e.fullName} />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content={e.shortName} />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -87,18 +170,25 @@ const jsonLd = [
       rel="stylesheet"
     />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HXM22WWPKP" is:inline></script>
-    <script is:inline>
+    <!-- Google tag (gtag.js) — GA4 -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.ga4Id}`} is:inline></script>
+    <script is:inline define:vars={{ ga4Id: siteConfig.ga4Id }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-HXM22WWPKP');
+      gtag('config', ga4Id);
     </script>
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="grain">
     <slot />
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').catch(function () {});
+        });
+      }
+    </script>
   </body>
 </html>

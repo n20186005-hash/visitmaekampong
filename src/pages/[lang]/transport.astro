@@ -1,0 +1,86 @@
+---
+import TopicLayout from '../../layouts/TopicLayout.astro';
+import { siteConfig } from '../../config';
+import th from '../../i18n/th.json';
+import en from '../../i18n/en.json';
+import zh from '../../i18n/zh.json';
+import { languagesList, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return languagesList.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const m = { th, en, zh }[lang];
+const guide = m.guide;
+const services = m.services;
+const pick = (icons: string[]) => services.items.filter((i: any) => icons.includes(i.icon));
+---
+
+<TopicLayout lang={lang} messages={m} topic="transport">
+  <section>
+    <h2 class="font-display text-2xl text-teak">{guide.transport.title}</h2>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      {
+        guide.transport.items.map((i: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{i.title}</h3>
+            <p class="mt-1 text-stone-600">{i.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="rounded-2xl border border-gold/40 bg-white/50 p-6">
+    <h2 class="font-display text-2xl text-teak">{m.mapSection.heading}</h2>
+    <p class="mt-2 text-stone-600">{m.mapSection.lead}</p>
+    <dl class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">
+      {
+        m.mapSection.stats.map((s: any) => (
+          <div class="rounded-xl bg-sand/60 p-4">
+            <dt class="text-stone-500">{s.tag}</dt>
+            <dd class="mt-1 font-semibold text-stone-800">{s.value}</dd>
+            <dd class="text-xs text-stone-500">{s.sub}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <dl class="mt-4 space-y-2 text-sm">
+      <div>
+        <dt class="text-stone-500">{m.mapSection.heading}</dt>
+        <dd class="text-stone-800">{m.mapSection.address}</dd>
+      </div>
+      <div class="text-stone-700">
+        {m.mapSection.plusCode} · {m.mapSection.coords}
+      </div>
+    </dl>
+    <a
+      href={siteConfig.mapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-5 inline-flex items-center gap-2 rounded-full bg-teak px-5 py-2.5 text-sm font-semibold text-ivory hover:bg-teakDeep transition-colors"
+    >
+      {m.landmarks.viewOnMaps}
+    </a>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{services.heading}</h2>
+    <div class="mt-4 space-y-4">
+      {
+        pick(['🅿️', '⛽', '💊']).map((i: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">
+              <span class="mr-2">{i.icon}</span>
+              {i.name}
+              <span class="ml-2 text-xs font-normal text-stone-500">{i.type}</span>
+            </h3>
+            <p class="mt-1 text-stone-600">{i.desc}</p>
+            {i.tip && <p class="mt-2 text-sm text-amber-800">{i.tip}</p>}
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</TopicLayout>

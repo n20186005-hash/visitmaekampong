@@ -20,11 +20,22 @@ const stars = (r: string) => {
     <h2 class="font-display font-semibold text-3xl md:text-5xl text-ivory mt-2">{reviews.heading}</h2>
     <p class="mt-4 max-w-2xl text-ivory/80">{reviews.intro}</p>
 
-    <div class="mt-8 flex flex-wrap items-center gap-4">
-      <span class="stars text-2xl">{stars(siteConfig.rating)}</span>
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <span class="stars text-2xl" aria-hidden="true">{stars(String(siteConfig.rating))}</span>
       <span class="font-display text-2xl text-goldBright">{siteConfig.rating}</span>
-      <span class="text-ivory/70">{reviews.disclaimer}</span>
+      <span class="text-ivory/70">{siteConfig.reviewCount}</span>
+      <span class="text-ivory/70">{reviews.reviewsFrom}</span>
     </div>
+    <!-- 评分与评价数同步自谷歌地图（Google Maps）用户评价 · 点击查看谷歌地图全部评价 -->
+    <p class="mt-3 text-xs text-ivory/60">
+      {reviews.disclaimer}
+      <a
+        href={mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ml-1 text-goldBright hover:underline"
+      >↗</a>
+    </p>
     <p class="mt-2 text-xs text-ivory/50">{reviews.declaration}</p>
 
     <div class="grid md:grid-cols-2 gap-4 mt-8">
@@ -64,7 +75,7 @@ const stars = (r: string) => {
     </div>
 
     <div class="mt-10 text-center">
-      <a href={mapsUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-ivory border border-gold/50 px-6 py-3 rounded-full hover:bg-gold hover:text-teak transition-colors">
+      <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-ivory border border-gold/50 px-6 py-3 rounded-full hover:bg-gold hover:text-teak transition-colors">
         {reviews.viewLocation}
       </a>
     </div>

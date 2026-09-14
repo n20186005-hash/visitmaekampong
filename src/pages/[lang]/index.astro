@@ -9,6 +9,11 @@ import History from '../../components/History.astro';
   import Guide from '../../components/Guide.astro';
   import Sources from '../../components/Sources.astro';
   import Food from '../../components/Food.astro';
+  import Landmarks from '../../components/Landmarks.astro';
+  import Weather from '../../components/Weather.astro';
+  import Services from '../../components/Services.astro';
+  import Planner from '../../components/Planner.astro';
+  import Science from '../../components/Science.astro';
 import Gallery from '../../components/Gallery.astro';
 import Reviews from '../../components/Reviews.astro';
 import MapSection from '../../components/MapSection.astro';
@@ -30,8 +35,13 @@ const { lang, messages } = await getI18n(Astro.url);
     <Ecosystem messages={messages} />
     <History messages={messages} />
     <Guide messages={messages} />
+    <Weather lang={lang} messages={messages} />
+    <Services messages={messages} />
+    <Planner messages={messages} />
     <Food messages={messages} />
+    <Landmarks messages={messages} />
     <Gallery messages={messages} />
+    <Science messages={messages} />
     <Reviews messages={messages} />
     <Sources messages={messages} />
     <MapSection lang={lang} messages={messages} />

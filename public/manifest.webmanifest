@@ -1,0 +1,53 @@
+{
+  "name": "Mae Kampong Village — Visitor Guide",
+  "short_name": "Mae Kampong",
+  "description": "Comprehensive visitor guide to Mae Kampong Village in Chiang Mai, Chiang Mai Province, Thailand: location map, opening details, nearby Mae Kampong Waterfall and travel tips.",
+  "id": "/",
+  "start_url": "/th/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5ecd7",
+  "theme_color": "#071a1c",
+  "lang": "th",
+  "dir": "ltr",
+  "categories": ["travel", "education"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Visitor Guide",
+      "short_name": "Guide",
+      "url": "/en/#guide"
+    },
+    {
+      "name": "Map & Location",
+      "short_name": "Map",
+      "url": "/en/#map"
+    }
+  ]
+}

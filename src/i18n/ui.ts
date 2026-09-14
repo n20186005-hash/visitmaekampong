@@ -8,17 +8,35 @@ export type Lang = (typeof languagesList)[number];
 
 export const languages: Record<Lang, string> = {
   th: 'ไทย',
-  en: 'English',
-  zh: '中文',
+  en: 'EN',
+  zh: '中',
 };
 
 const messagesMap: Record<Lang, any> = { th, en, zh };
 
-// mapping for <html lang> / hreflang
+// mapping for <html lang> — /zh/ is Traditional Chinese (Taiwan / Hong Kong)
 export const htmlLang: Record<Lang, string> = {
   th: 'th',
   en: 'en',
-  zh: 'zh-CN',
+  zh: 'zh-Hant',
+};
+
+/**
+ * Every hreflang code a page must announce. /zh/ serves Traditional Chinese, so
+ * it is declared once language-only (zh-Hant) and once per target region
+ * (zh-Hant-TW / zh-Hant-HK) — all pointing at the same URL.
+ */
+export const hreflangCodes: Record<Lang, string[]> = {
+  th: ['th'],
+  en: ['en'],
+  zh: ['zh-Hant', 'zh-Hant-TW', 'zh-Hant-HK'],
+};
+
+// og:locale wants the underscore form (zh_TW), not BCP 47.
+export const ogLocale: Record<Lang, string> = {
+  th: 'th_TH',
+  en: 'en_US',
+  zh: 'zh_TW',
 };
 
 const lookup = (obj: Record<string, unknown>, key: string): string => {

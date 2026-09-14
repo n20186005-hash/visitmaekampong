@@ -5,21 +5,31 @@
   "type": "module",
   "scripts": {
     "optimize": "node scripts/optimize-gallery.mjs",
-    "predev": "node scripts/optimize-gallery.mjs",
+    "icons": "node scripts/generate-pwa-icons.mjs",
+    "compress": "node scripts/compress-gallery.mjs",
+    "predev": "npm run optimize && npm run icons && npm run compress",
     "dev": "astro dev",
-    "prebuild": "node scripts/optimize-gallery.mjs",
+    "prebuild": "npm run optimize && npm run icons && npm run compress",
     "build": "astro build",
+    "postbuild": "node scripts/gen-sitemap.mjs",
+    "i18n:hant": "node scripts/zh-hant.mjs",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "deploy": "npm run build && wrangler deploy",
+    "cf:dev": "npm run build && wrangler dev",
+    "cf:tail": "wrangler tail"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.6.13",
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^5.18.2",
     "sharp": "^0.35.3",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.0",
+    "wrangler": "^4.131.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "opencc-js": "^1.4.2",
     "playwright": "^1.61.1",
     "typescript": "^5.9.3"
   }

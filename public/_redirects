@@ -1,1 +1,51 @@
 /  /th/  302
+
+# ---------------------------------------------------------------------------
+# 网址规范化：Search Console 同时收录了带斜杠与不带斜杠的版本
+# （/en/privacy-policy 与 /en/privacy-policy/），这里统一 301 到带斜杠版本。
+# ---------------------------------------------------------------------------
+/th/privacy-policy      /th/privacy-policy/     301
+/en/privacy-policy      /en/privacy-policy/     301
+/zh/privacy-policy      /zh/privacy-policy/     301
+/th/terms-of-service    /th/terms-of-service/   301
+/en/terms-of-service    /en/terms-of-service/   301
+/zh/terms-of-service    /zh/terms-of-service/   301
+/th/cookie-settings     /th/cookie-settings/    301
+/en/cookie-settings     /en/cookie-settings/    301
+/zh/cookie-settings     /zh/cookie-settings/    301
+
+/th/transport           /th/transport/          301
+/en/transport           /en/transport/          301
+/zh/transport           /zh/transport/          301
+/th/stay                /th/stay/               301
+/en/stay                /en/stay/               301
+/zh/stay                /zh/stay/               301
+/th/attractions         /th/attractions/        301
+/en/attractions         /en/attractions/        301
+/zh/attractions         /zh/attractions/        301
+/th/plan                /th/plan/               301
+/en/plan                /en/plan/               301
+/zh/plan                /zh/plan/               301
+
+# ---------------------------------------------------------------------------
+# www → 主域名（https://visitmaekampong.com）无法在本文件处理：
+# Cloudflare 的 _redirects 不支持「域名级重定向」（domain-level redirects ❌，
+# 见 developers.cloudflare.com/workers/static-assets/redirects/），
+# 且本文件的规则只对静态资源响应生效。请在控制台用下面任一方式做 301。
+#
+# 方式 A（推荐，已采用）批量重定向 Bulk Redirects
+#   管理规则 → 批量重定向 → 新建列表 mae-kampong-www：
+#     Source URL                Target URL              Status  参数
+#     www.visitmaekampong.com   visitmaekampong.com     301     勾选「保留路径与查询字符串」
+#   再新建 Bulk Redirect Rule 引用该列表即可（Bulk Redirects 运行在 Worker 之前）。
+#
+# 方式 B 重定向规则 Redirect Rules
+#   规则 → 重定向规则 → 创建规则：
+#     自定义筛选表达式：http.host eq "www.visitmaekampong.com"
+#     类型：动态
+#     URL 重定向目标：concat("https://visitmaekampong.com", http.request.uri.path)
+#     状态代码：301，并勾选「保留查询字符串」
+#
+# 生效后 https://www.visitmaekampong.com/... 会 301 落到主域，GSC 里的双主机
+# 收录会自然合并（通常需数周）。
+# ---------------------------------------------------------------------------

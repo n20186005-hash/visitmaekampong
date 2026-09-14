@@ -8,11 +8,14 @@ interface Props {
 const { lang, messages } = Astro.props;
 const footer = messages.footer;
 const mapsUrl = siteConfig.mapsUrl;
+// Topic landing pages — the crawlable entry points into the guide cluster.
+const topicKeys = ['transport', 'stay', 'attractions', 'plan'];
+const topics = messages.topics;
 ---
 
 <footer class="bg-teakDeep text-ivory pt-16 pb-8">
   <div class="max-w-7xl mx-auto px-5">
-    <div class="grid md:grid-cols-3 gap-10">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
       <div>
         <div class="font-display text-2xl text-goldBright">{footer.brand.name}</div>
         <p class="font-hand text-gold text-lg mt-1">{footer.brand.tagline}</p>
@@ -28,13 +31,30 @@ const mapsUrl = siteConfig.mapsUrl;
         </ul>
       </div>
 
+      {
+        topics && (
+          <div>
+            <div class="text-xs uppercase tracking-wider text-gold mb-3">{topics.label}</div>
+            <ul class="grid grid-cols-2 gap-2 text-sm">
+              {topicKeys.map((k) => (
+                <li>
+                  <a href={`/${lang}/${k}/`} class="text-ivory/80 hover:text-goldBright transition-colors">
+                    {topics[k].navLabel}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
       <div>
         <div class="text-xs uppercase tracking-wider text-gold mb-3">{footer.noteTitle}</div>
         <p class="text-sm text-ivory/70">{footer.note}</p>
         <a
           href={mapsUrl}
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="mt-5 inline-flex items-center gap-2 bg-gold text-teak font-semibold px-5 py-2.5 rounded-full hover:bg-goldBright transition-colors"
         >
           {footer.mapsLabel}
@@ -74,6 +94,8 @@ const mapsUrl = siteConfig.mapsUrl;
       <p>{footer.disclaimerLead}</p>
       <p class="text-ivory/70">{footer.unofficial}</p>
       <p>{footer.dataSource}</p>
+      <p>{footer.reviewSource}</p>
+      <p>{footer.imageCopyright}</p>
       <p class="pt-2 text-ivory/40">{footer.copyright}</p>
     </div>
   </div>

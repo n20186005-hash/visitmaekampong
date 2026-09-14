@@ -6,6 +6,7 @@ interface Props {
 }
 const { messages } = Astro.props;
 const s = messages.sources;
+const mapsUrl = siteConfig.mapsUrl;
 ---
 
 <section id="sources" class="py-16 bg-teakDeep text-ivory">
@@ -30,8 +31,47 @@ const s = messages.sources;
       <div>
         <h3 class="font-display text-xl text-goldBright">{s.factTitle}</h3>
         <p class="mt-3 text-sm text-ivory/80">{s.factText}</p>
+
+        <!-- 评价 · 同步时间与来源说明 -->
+        {s.reviewTitle && (
+          <div class="mt-5">
+            <h4 class="font-display text-lg text-goldBright">{s.reviewTitle}</h4>
+            <p class="mt-1 text-sm text-ivory/80">{s.reviewSync} · {siteConfig.reviewCount} · ★ {siteConfig.rating}</p>
+            <p class="mt-1 text-xs text-ivory/60">{s.reviewSource}</p>
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block mt-2 text-sm text-goldBright hover:underline"
+            >
+              {s.reviewLinkLabel} ↗
+            </a>
+          </div>
+        )}
+
+        <!-- 官方旅游局 / 政府权威来源 -->
+        {s.portalTitle && (
+          <div class="mt-5">
+            <h4 class="font-display text-lg text-goldBright">{s.portalTitle}</h4>
+            <a
+              href={siteConfig.entity.govtTourismUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-1 inline-block text-sm text-goldBright hover:underline"
+            >
+              {s.portalLabel} ↗
+            </a>
+          </div>
+        )}
       </div>
     </div>
+
+    <!-- 图片版权声明 -->
+    {s.imageCopyright && (
+      <p class="mt-8 rounded-xl border border-gold/20 bg-white/5 p-4 text-xs text-ivory/70">
+        {s.imageCopyright}
+      </p>
+    )}
 
     <div class="mt-8 rounded-2xl border border-gold/30 bg-white/5 p-5">
       <h3 class="font-display text-lg text-goldBright">{s.correctionTitle}</h3>

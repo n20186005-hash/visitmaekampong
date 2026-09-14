@@ -1,0 +1,364 @@
+---
+import { siteConfig } from '../config';
+import type { Lang } from '../i18n/ui';
+import {
+  getWeather,
+  seaOfCloudsChance,
+  shortDate,
+  weekdayLabel,
+  wmoIcon,
+  wmoLabel,
+  wmoLabelMap,
+} from '../lib/weather';
+import { buildAdvice, type AdviceInput } from '../lib/weatherAdvice';
+
+interface Props {
+  lang: Lang;
+  messages: Record<string, any>;
+}
+const { lang, messages } = Astro.props;
+const w = messages.weather;
+const a = (w && w.advice) || {};
+
+// Server-side data resolution (cached in-process across the th/en/zh renders).
+const snap = await getWeather(siteConfig.coords.lat, siteConfig.coords.lng, 7);
+
+const iconOf = (code: number | null) => wmoIcon(code);
+const labelOf = (code: number | null) => wmoLabel(code, lang);
+const r0 = (n: number | null, suffix = '') => (n === null ? '—' : `${Math.round(n)}${suffix}`);
+const r1 = (n: number | null, suffix = '') => (n === null ? '—' : `${n.toFixed(1)}${suffix}`);
+const vis = (n: number | null) => (n === null ? '—' : n >= 1000 ? r1(n / 1000, ' km') : r0(n, ' m'));
+
+const day0 = snap.days[0] ?? null;
+const mistChance = snap.ok ? seaOfCloudsChance(snap) : null;
+
+const input: AdviceInput = {
+  code: snap.current.code,
+  temp: snap.current.temperature,
+  apparent: snap.current.apparent,
+  humidity: snap.current.humidity,
+  wind: snap.current.wind,
+  gust: snap.current.gust,
+  precip: snap.current.precipitation,
+  precipProb: day0?.rainChance ?? null,
+  uv: day0?.uv ?? null,
+  visibility: snap.current.visibility,
+  tmax: day0?.max ?? null,
+  tmin: day0?.min ?? null,
+  cityTemp: snap.cityTemp,
+  mistChance,
+};
+const advice = buildAdvice(input, a);
+const hasRisk = advice.risks.length > 0;
+
+const weekdays: string[] = w.weekdays || [];
+
+const clientData = {
+  advice: a,
+  labels: wmoLabelMap(lang),
+  cityTemp: snap.cityTemp,
+  unit: w.windUnit,
+  rainLabel: w.rain,
+};
+---
+
+{
+  w && (
+    <section
+      id="weather"
+      class="py-20 bg-teak text-ivory"
+      data-lat={siteConfig.coords.lat}
+      data-lon={siteConfig.coords.lng}
+      data-city={snap.cityTemp ?? ''}
+      data-unit={w.windUnit}
+      data-i18n={JSON.stringify(clientData)}
+    >
+      <div class="max-w-7xl mx-auto px-5">
+        <p class="font-hand text-gold text-xl md:text-2xl">{w.label}</p>
+        <h2 class="font-display font-semibold text-3xl md:text-5xl text-ivory mt-2">{w.heading}</h2>
+        <p class="mt-4 max-w-3xl text-ivory/80">{w.lead}</p>
+
+        {!snap.ok && (
+          <p class="mt-8 rounded-2xl border border-gold/25 bg-teakDeep/50 p-6 text-ivory/80">{w.fallback}</p>
+        )}
+
+        {snap.ok && (
+          <div class="mt-8 space-y-6">
+            <!-- 1. Risk warning — always on top, red when something is up -->
+            <div
+              id="w-risk"
+              class={`rounded-2xl border p-5 ${hasRisk ? 'border-red-400/70 bg-red-500/15' : 'border-ivory/15 bg-teakDeep/40'}`}
+            >
+              <div class={`flex items-center gap-2 text-sm font-semibold ${hasRisk ? 'text-red-200' : 'text-ivory/70'}`}>
+                <span aria-hidden="true">⚠️</span>
+                <span>{a.riskTitle}</span>
+              </div>
+              <ul id="w-risks" class={`mt-2 space-y-1.5 text-sm text-ivory/95 ${hasRisk ? '' : 'hidden'}`}>
+                {advice.risks.map((r: string) => (
+                  <li class="flex gap-2">
+                    <span class="text-red-300" aria-hidden="true">•</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+              <p id="w-norisk" class={`mt-1.5 text-sm text-ivory/65 ${hasRisk ? 'hidden' : ''}`}>{a.noRisk}</p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-6">
+              <!-- 2. Base conditions -->
+              <div class="lg:col-span-2 rounded-2xl border border-gold/25 bg-teakDeep/50 p-6">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <div class="text-xs uppercase tracking-widest text-goldBright">{w.nowTitle}</div>
+                    <div class="flex items-start gap-3 mt-2">
+                      <span id="w-now-icon" class="text-5xl leading-none">{iconOf(snap.current.code)}</span>
+                      <div>
+                        <div class="font-display text-5xl font-semibold text-goldBright leading-none">
+                          <span id="w-now-temp">{r0(snap.current.temperature)}</span>°
+                        </div>
+                        <div id="w-now-cond" class="mt-1 text-sm text-ivory/80">{labelOf(snap.current.code)}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-right text-[11px] text-ivory/55">
+                    <div>{w.updated}</div>
+                    <time id="w-updated" datetime={snap.fetchedAt ?? ''}>
+                      {snap.fetchedAt ? snap.fetchedAt.slice(11, 16) : '—'}
+                    </time>
+                  </div>
+                </div>
+
+                <div class="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-xs text-ivory/60">
+                  <span>☀️ {w.sunrise} {snap.sunrise ?? '—'}</span>
+                  <span>🌇 {w.sunset} {snap.sunset ?? '—'}</span>
+                </div>
+
+                <dl class="mt-5 grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.feelsLike}</dt>
+                    <dd id="w-feels" class="font-semibold">{r0(snap.current.apparent)}°</dd>
+                  </div>
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.humidity}</dt>
+                    <dd id="w-humidity" class="font-semibold">{r0(snap.current.humidity, '%')}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.wind}</dt>
+                    <dd id="w-wind" class="font-semibold">{`${r0(snap.current.wind)} ${w.windUnit}`}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.gust}</dt>
+                    <dd id="w-gust" class="font-semibold">{`${r0(snap.current.gust)} ${w.windUnit}`}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.rain}</dt>
+                    <dd id="w-prob" class="font-semibold">{r0(day0?.rainChance ?? null, '%')}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.precipitation}</dt>
+                    <dd id="w-precip" class="font-semibold">{r1(snap.current.precipitation, ' mm')}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.uv}</dt>
+                    <dd id="w-uv" class="font-semibold">{r1(day0?.uv ?? null)}</dd>
+                  </div>
+                  <div>
+                    <dt class="text-ivory/55 text-xs">{w.visibility}</dt>
+                    <dd id="w-vis" class="font-semibold">{vis(snap.current.visibility)}</dd>
+                  </div>
+                </dl>
+
+                {mistChance !== null && (
+                  <div class="mt-5 rounded-xl border border-gold/20 bg-teak/40 p-4">
+                    <div class="text-xs uppercase tracking-widest text-goldBright">{w.mistTitle}</div>
+                    <div class="mt-1 font-display text-3xl text-ivory"><span id="w-mist">{mistChance}</span>%</div>
+                    <p class="mt-1 text-xs text-ivory/55">{w.mistNote}</p>
+                  </div>
+                )}
+              </div>
+
+              <!-- 3. What the numbers mean for your day -->
+              <div class="lg:col-span-3 space-y-4">
+                {advice.outfit.length > 0 && (
+                  <div id="w-block-outfit" class="rounded-2xl border border-gold/25 bg-teakDeep/50 p-5">
+                    <div class="text-xs uppercase tracking-widest text-goldBright">👕 {a.outfitTitle}</div>
+                    <ul id="w-outfit" class="mt-2 space-y-1.5 text-sm text-ivory/85">
+                      {advice.outfit.map((x: string) => (
+                        <li class="flex gap-2">
+                          <span class="text-gold" aria-hidden="true">•</span>
+                          <span>{x}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {advice.plan.length > 0 && (
+                  <div id="w-block-plan" class="rounded-2xl border border-gold/25 bg-teakDeep/50 p-5">
+                    <div class="text-xs uppercase tracking-widest text-goldBright">🗺️ {a.planTitle}</div>
+                    <ul id="w-plan" class="mt-2 space-y-1.5 text-sm text-ivory/85">
+                      {advice.plan.map((x: string) => (
+                        <li class="flex gap-2">
+                          <span class="text-gold" aria-hidden="true">•</span>
+                          <span>{x}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {advice.pack.length > 0 && (
+                  <div id="w-block-pack" class="rounded-2xl border border-gold/25 bg-teakDeep/50 p-5">
+                    <div class="text-xs uppercase tracking-widest text-goldBright">🎒 {w.packTitle}</div>
+                    <ul id="w-pack" class="mt-3 flex flex-wrap gap-2 text-sm">
+                      {advice.pack.map((x: string) => (
+                        <li class="rounded-full border border-gold/35 bg-teak/40 px-3 py-1 text-ivory/90">{x}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <p class="px-1 text-xs text-ivory/55">{w.mountainNote}</p>
+                <p class="px-1 text-xs text-ivory/40">{w.note}</p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {snap.ok && snap.days.length > 0 && (
+          <div class="mt-10">
+            <h3 class="font-display text-2xl text-ivory">{w.forecastTitle}</h3>
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+              {snap.days.map((d, i) => (
+                <div class={`rounded-xl border border-gold/20 bg-teakDeep/40 p-4 text-center ${i === 0 ? 'ring-1 ring-gold/50' : ''}`}>
+                  <div class="text-xs text-goldBright">
+                    {i === 0 ? w.today : weekdayLabel(d.date, weekdays)}
+                  </div>
+                  <div class="text-[11px] text-ivory/45">{shortDate(d.date)}</div>
+                  <div class="text-3xl my-2" title={labelOf(d.code)}>{iconOf(d.code)}</div>
+                  <div class="text-sm font-semibold text-ivory">{r0(d.max)}° <span class="text-ivory/55 font-normal">{r0(d.min)}°</span></div>
+                  <div class="mt-1 text-[11px] text-ivory/60">☔ {r0(d.rainChance, '%')}</div>
+                  {d.uv !== null && <div class="text-[11px] text-ivory/45">{w.uv} {Math.round(d.uv)}</div>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
+
+<script>
+  import { mistChanceFromCurrent, pickLocation, weatherUrl, wmoIcon } from '../lib/weather';
+  import { adviceFromPayload, buildAdvice } from '../lib/weatherAdvice';
+
+  const sec = document.getElementById('weather');
+  if (sec) {
+
+  const i18n = JSON.parse(sec.getAttribute('data-i18n') || '{}');
+  const dict: Record<string, string> = i18n.advice || {};
+  const labels: Record<string, string> = i18n.labels || {};
+  const unit: string = i18n.unit || '';
+  const cityFallback: number | null = parseFloat(sec.getAttribute('data-city') || '') || null;
+  const lat = Number(sec.getAttribute('data-lat'));
+  const lon = Number(sec.getAttribute('data-lon'));
+
+  const set = (id: string, value: string | number | null | undefined): void => {
+    const el = document.getElementById(id);
+    if (el && value !== undefined && value !== null) el.textContent = String(value);
+  };
+
+  const r1 = (n: number | null | undefined, s = ''): string =>
+    n === null || n === undefined || !Number.isFinite(n) ? '—' : n.toFixed(1) + s;
+
+  const vis = (n: number | null | undefined): string => {
+    if (n === null || n === undefined || !Number.isFinite(n)) return '—';
+    return n >= 1000 ? r1(n / 1000, ' km') : `${Math.round(n)} m`;
+  };
+
+  const render = (id: string, items: string[], chips: boolean): void => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = '';
+    items.forEach((text) => {
+      const li = document.createElement('li');
+      if (chips) {
+        li.className = 'rounded-full border border-gold/35 bg-teak/40 px-3 py-1 text-ivory/90';
+        li.textContent = text;
+      } else {
+        li.className = 'flex gap-2';
+        const dot = document.createElement('span');
+        dot.className = 'text-gold';
+        dot.setAttribute('aria-hidden', 'true');
+        dot.textContent = '•';
+        const span = document.createElement('span');
+        span.textContent = text;
+        li.appendChild(dot);
+        li.appendChild(span);
+      }
+      el.appendChild(li);
+    });
+  };
+
+  const toggle = (id: string, show: boolean): void => {
+    const el = document.getElementById(id);
+    if (el) el.classList[show ? 'remove' : 'add']('hidden');
+  };
+
+  fetch(weatherUrl(lat, lon, 7))
+    .then((r) => r.json())
+    .then((raw: any) => {
+      const data = pickLocation(raw, 0);
+      const city = pickLocation(raw, 1);
+      const c = data?.current;
+      if (!c) return;
+
+      set('w-now-temp', Math.round(c.temperature_2m));
+      set('w-now-icon', wmoIcon(c.weather_code));
+      if (labels[String(c.weather_code)]) set('w-now-cond', labels[String(c.weather_code)]);
+      set('w-feels', `${Math.round(c.apparent_temperature)}°`);
+      set('w-humidity', `${Math.round(c.relative_humidity_2m)}%`);
+      set('w-wind', `${Math.round(c.wind_speed_10m)} ${unit}`);
+      set('w-gust', `${Math.round(c.wind_gusts_10m)} ${unit}`);
+      set('w-precip', r1(c.precipitation, ' mm'));
+      set('w-vis', vis(c.visibility));
+      set('w-prob', `${Math.round((data.daily?.precipitation_probability_max || [])[0])}%`);
+      set('w-uv', r1((data.daily?.uv_index_max || [])[0]));
+
+      const mist = Math.round(
+        mistChanceFromCurrent(c.relative_humidity_2m, c.wind_speed_10m, c.weather_code)
+      );
+      set('w-mist', mist);
+
+      const cityTemp: number | null = city?.current?.temperature_2m ?? cityFallback;
+      const advice = buildAdvice(
+        adviceFromPayload(data, { cityTemp, mistChance: mist }),
+        dict
+      );
+
+      const risky = advice.risks.length > 0;
+      const box = document.getElementById('w-risk');
+      if (box) {
+        box.className = risky
+          ? 'rounded-2xl border p-5 border-red-400/70 bg-red-500/15'
+          : 'rounded-2xl border p-5 border-ivory/15 bg-teakDeep/40';
+      }
+      toggle('w-risks', risky);
+      toggle('w-norisk', !risky);
+      render('w-risks', advice.risks, false);
+      render('w-outfit', advice.outfit, false);
+      render('w-plan', advice.plan, false);
+      render('w-pack', advice.pack, true);
+      toggle('w-block-outfit', advice.outfit.length > 0);
+      toggle('w-block-plan', advice.plan.length > 0);
+      toggle('w-block-pack', advice.pack.length > 0);
+
+      const t = document.getElementById('w-updated');
+      if (t) t.textContent = new Date().toTimeString().slice(0, 5);
+    })
+    .catch(() => {
+      /* keep the values rendered on the page */
+    });
+  }
+</script>

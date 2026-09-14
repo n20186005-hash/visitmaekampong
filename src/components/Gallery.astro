@@ -9,6 +9,14 @@ const gallery = messages.gallery;
 const alts: string[] = gallery.alts;
 const count = alts.length;
 const mapsUrl = siteConfig.mapsUrl;
+// 图片 Alt 语义绑定：实体全称 + 城市 + 国家
+const altSuffix = (messages.entity && messages.entity.altSuffix) || '';
+// 图片产权声明（与资料来源 / 页脚保持一致）
+const imageCopyright = (messages.sources && messages.sources.imageCopyright) || '';
+
+// 压缩后的两种尺寸：长边 1800 的原图 + 长边 800 的缩略图
+const fullSrc = (i: number) => `/gallery/${siteConfig.galleryPrefix}${i + 1}.${siteConfig.galleryExt}`;
+const smallSrc = (i: number) => `/gallery/${siteConfig.galleryPrefix}${i + 1}-800.${siteConfig.galleryExt}`;
 
 // Map photos to categories based on index (0-indexed)
 // 0: mist, 1: mist, 2: mist, 3: mist tea, 4: nature, 5: tea, 6: nature village
@@ -55,17 +63,22 @@ const photoCategories = [
         return (
           <div class={`photo-frame rounded-xl gallery-item transition-all duration-500 ease-in-out ${big ? 'col-span-2 row-span-2' : ''}`} data-categories={cats.join(',')}>
             <img
-              src={`/gallery/${siteConfig.galleryPrefix}${i + 1}.${siteConfig.galleryExt}`}
-              alt={alts[i]}
+              src={big ? fullSrc(i) : smallSrc(i)}
+              srcset={`${smallSrc(i)} 800w, ${fullSrc(i)} 1600w`}
+              sizes={big ? '(max-width: 767px) 100vw, 50vw' : '(max-width: 767px) 50vw, 25vw'}
+              alt={altSuffix ? `${alts[i]} — ${altSuffix}` : alts[i]}
               loading="lazy"
+              decoding="async"
             />
           </div>
         );
       })}
     </div>
 
+    {imageCopyright && <p class="mt-6 text-xs text-ink/50">{imageCopyright}</p>}
+
     <div class="mt-10 text-center">
-      <a href={mapsUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-teak border border-gold/50 px-6 py-3 rounded-full hover:bg-gold hover:text-teak transition-colors">
+      <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-teak border border-gold/50 px-6 py-3 rounded-full hover:bg-gold hover:text-teak transition-colors">
         {gallery.viewLocation}
       </a>
     </div>

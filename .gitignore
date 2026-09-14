@@ -5,6 +5,10 @@ node_modules/
 dist/
 .astro/
 
+# Cloudflare
+.wrangler/
+.dev.vars
+
 # Raw source photos (large) — kept locally only; optimized WebP is committed in public/gallery/
 gallery-source/
 

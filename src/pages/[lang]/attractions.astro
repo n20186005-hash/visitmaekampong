@@ -1,0 +1,79 @@
+---
+import TopicLayout from '../../layouts/TopicLayout.astro';
+import th from '../../i18n/th.json';
+import en from '../../i18n/en.json';
+import zh from '../../i18n/zh.json';
+import { languagesList, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return languagesList.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const m = { th, en, zh }[lang];
+const guide = m.guide;
+const landmarks = m.landmarks;
+---
+
+<TopicLayout lang={lang} messages={m} topic="attractions">
+  <section>
+    <h2 class="font-display text-2xl text-teak">{guide.twoZone.title}</h2>
+    <p class="mt-2 text-stone-600">{guide.twoZone.intro}</p>
+    <div class="mt-4 space-y-4">
+      {
+        guide.twoZone.items.map((i: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{i.name}</h3>
+            <p class="mt-1 text-stone-600">{i.desc}</p>
+            <p class="mt-2 text-sm text-stone-500">
+              {guide.twoZone.difficultyLabel}: {i.difficulty} · {guide.twoZone.suitsLabel}: {i.suits}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{landmarks.heading}</h2>
+    <p class="mt-2 text-stone-600">{landmarks.lead}</p>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      {
+        landmarks.items.map((i: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{i.name}</h3>
+            <p class="mt-1 text-stone-600">{i.desc}</p>
+            <a
+              href={i.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-3 inline-block text-sm text-amber-800 hover:underline"
+            >
+              {landmarks.viewOnMaps} ↗
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{guide.photography.title}</h2>
+    <p class="mt-2 text-stone-600">{guide.photography.intro}</p>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      {
+        guide.photography.spots.map((s: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{s.name}</h3>
+            <p class="mt-1 text-sm text-stone-600">
+              {guide.photography.viewLabel}: {s.view}
+            </p>
+            <p class="mt-1 text-sm text-amber-800">
+              {guide.photography.tipLabel}: {s.tip}
+            </p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</TopicLayout>

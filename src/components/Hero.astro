@@ -19,26 +19,26 @@ const coordsLabel = hero.coordsLabel;
 // Full weather-code labels (all languages); only the current language is shipped per page.
 const WEATHER_CODES: Record<number, Record<string, { t: string; s: string }>> = {
   0: { th: { t: 'ท้องฟ้าโปร่งใส', s: 'แดดจัด' }, en: { t: 'Clear sky', s: 'Sunny' }, zh: { t: '晴空', s: '晴' } },
-  1: { th: { t: 'โปร่งโล่ง', s: 'ส่วนใหญ่โปร่ง' }, en: { t: 'Mainly clear', s: 'Mostly clear' }, zh: { t: '少云', s: '少云' } },
-  2: { th: { t: 'มีเมฆบางส่วน', s: 'มีเมฆบางส่วน' }, en: { t: 'Partly cloudy', s: 'Partly cloudy' }, zh: { t: '局部多云', s: '局部多云' } },
-  3: { th: { t: 'เมฆมาก', s: 'เมฆมาก' }, en: { t: 'Overcast', s: 'Overcast' }, zh: { t: '阴', s: '阴' } },
-  45: { th: { t: 'หมอก', s: 'หมอก' }, en: { t: 'Fog', s: 'Fog' }, zh: { t: '雾', s: '雾' } },
-  48: { th: { t: 'หมอกแข็ง', s: 'หมอก' }, en: { t: 'Rime fog', s: 'Fog' }, zh: { t: '雾凇', s: '雾' } },
+  1: { th: { t: 'โปร่งโล่ง', s: 'ส่วนใหญ่โปร่ง' }, en: { t: 'Mainly clear', s: 'Mostly clear' }, zh: { t: '少雲', s: '少雲' } },
+  2: { th: { t: 'มีเมฆบางส่วน', s: 'มีเมฆบางส่วน' }, en: { t: 'Partly cloudy', s: 'Partly cloudy' }, zh: { t: '區域性多雲', s: '區域性多雲' } },
+  3: { th: { t: 'เมฆมาก', s: 'เมฆมาก' }, en: { t: 'Overcast', s: 'Overcast' }, zh: { t: '陰', s: '陰' } },
+  45: { th: { t: 'หมอก', s: 'หมอก' }, en: { t: 'Fog', s: 'Fog' }, zh: { t: '霧', s: '霧' } },
+  48: { th: { t: 'หมอกแข็ง', s: 'หมอก' }, en: { t: 'Rime fog', s: 'Fog' }, zh: { t: '霧凇', s: '霧' } },
   51: { th: { t: 'ฝนปรอยเล็กน้อย', s: 'ฝนปรอย' }, en: { t: 'Light drizzle', s: 'Drizzle' }, zh: { t: '小毛毛雨', s: '毛毛雨' } },
   53: { th: { t: 'ฝนปรอยปานกลาง', s: 'ฝนปรอย' }, en: { t: 'Drizzle', s: 'Drizzle' }, zh: { t: '毛毛雨', s: '毛毛雨' } },
-  55: { th: { t: 'ฝนปรอยหนัก', s: 'ฝนปรอย' }, en: { t: 'Dense drizzle', s: 'Drizzle' }, zh: { t: '浓毛毛雨', s: '毛毛雨' } },
+  55: { th: { t: 'ฝนปรอยหนัก', s: 'ฝนปรอย' }, en: { t: 'Dense drizzle', s: 'Drizzle' }, zh: { t: '濃毛毛雨', s: '毛毛雨' } },
   61: { th: { t: 'ฝนตกเล็กน้อย', s: 'ฝนตก' }, en: { t: 'Light rain', s: 'Rain' }, zh: { t: '小雨', s: '雨' } },
   63: { th: { t: 'ฝนตกปานกลาง', s: 'ฝนตก' }, en: { t: 'Rain', s: 'Rain' }, zh: { t: '中雨', s: '雨' } },
   65: { th: { t: 'ฝนตกหนัก', s: 'ฝนตก' }, en: { t: 'Heavy rain', s: 'Rain' }, zh: { t: '大雨', s: '雨' } },
   71: { th: { t: 'หิมะตกเล็กน้อย', s: 'หิมะ' }, en: { t: 'Light snow', s: 'Snow' }, zh: { t: '小雪', s: '雪' } },
   73: { th: { t: 'หิมะตกปานกลาง', s: 'หิมะ' }, en: { t: 'Snow', s: 'Snow' }, zh: { t: '中雪', s: '雪' } },
   75: { th: { t: 'หิมะตกหนัก', s: 'หิมะ' }, en: { t: 'Heavy snow', s: 'Snow' }, zh: { t: '大雪', s: '雪' } },
-  80: { th: { t: 'ฝนตกเป็นระยะ', s: 'ฝนตก' }, en: { t: 'Rain showers', s: 'Showers' }, zh: { t: '阵雨', s: '阵雨' } },
-  81: { th: { t: 'ฝนตกเป็นระยะปานกลาง', s: 'ฝนตก' }, en: { t: 'Rain showers', s: 'Showers' }, zh: { t: '阵雨', s: '阵雨' } },
-  82: { th: { t: 'ฝนตกเป็นระยะหนัก', s: 'ฝนตก' }, en: { t: 'Violent showers', s: 'Showers' }, zh: { t: '强阵雨', s: '阵雨' } },
-  95: { th: { t: 'พายุฝนฟ้าคะนอง', s: 'ฟ้าคะนอง' }, en: { t: 'Thunderstorm', s: 'Storm' }, zh: { t: '雷阵雨', s: '雷雨' } },
-  96: { th: { t: 'พายุฝนฟ้าคะนองลูกเห็บ', s: 'ฟ้าคะนอง' }, en: { t: 'Thunderstorm', s: 'Storm' }, zh: { t: '雷阵雨', s: '雷雨' } },
-  99: { th: { t: 'พายุฝนฟ้าคะนองลูกเห็บหนัก', s: 'ฟ้าคะนอง' }, en: { t: 'Severe thunderstorm', s: 'Storm' }, zh: { t: '强雷阵雨', s: '雷雨' } },
+  80: { th: { t: 'ฝนตกเป็นระยะ', s: 'ฝนตก' }, en: { t: 'Rain showers', s: 'Showers' }, zh: { t: '陣雨', s: '陣雨' } },
+  81: { th: { t: 'ฝนตกเป็นระยะปานกลาง', s: 'ฝนตก' }, en: { t: 'Rain showers', s: 'Showers' }, zh: { t: '陣雨', s: '陣雨' } },
+  82: { th: { t: 'ฝนตกเป็นระยะหนัก', s: 'ฝนตก' }, en: { t: 'Violent showers', s: 'Showers' }, zh: { t: '強陣雨', s: '陣雨' } },
+  95: { th: { t: 'พายุฝนฟ้าคะนอง', s: 'ฟ้าคะนอง' }, en: { t: 'Thunderstorm', s: 'Storm' }, zh: { t: '雷陣雨', s: '雷雨' } },
+  96: { th: { t: 'พายุฝนฟ้าคะนองลูกเห็บ', s: 'ฟ้าคะนอง' }, en: { t: 'Thunderstorm', s: 'Storm' }, zh: { t: '雷陣雨', s: '雷雨' } },
+  99: { th: { t: 'พายุฝนฟ้าคะนองลูกเห็บหนัก', s: 'ฟ้าคะนอง' }, en: { t: 'Severe thunderstorm', s: 'Storm' }, zh: { t: '強雷陣雨', s: '雷雨' } },
 };
 const weatherMap = Object.fromEntries(
   Object.entries(WEATHER_CODES).map(([k, v]) => [k, v[lang] ?? v.en])
@@ -46,14 +46,19 @@ const weatherMap = Object.fromEntries(
 ---
 
 <section id="home" class="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
-  <img src={heroImg} alt={main} class="absolute inset-0 w-full h-full object-cover object-center" />
+  <img
+    src={heroImg}
+    alt={`${siteConfig.entity.fullName} - Main view in ${siteConfig.entity.city}, ${siteConfig.entity.country}`}
+    class="absolute inset-0 w-full h-full object-cover object-center"
+    loading="eager"
+  />
   <div class="absolute inset-0 bg-gradient-to-t from-teakDeep via-teakDeep/60 to-black/30"></div>
   <div class="hero-glow absolute inset-0"></div>
 
   <div class="relative z-10 max-w-5xl mx-auto w-full px-5 text-center text-ivory flex flex-col items-center">
     <p class="font-hand text-gold text-xl md:text-2xl mb-4">{hero.eyebrow}</p>
     <h1 class="font-display font-semibold leading-[1.05] text-5xl md:text-7xl lg:text-8xl mb-6">
-      {parts[0]}<span class="gold-text-bright">{accent}</span>{parts[1] ?? ''}
+      {parts[0]}<span class="gold-text-bright">{accent}</span>{parts[1] ?? ''}<span class="block md:inline md:ml-4 mt-2 md:mt-0 align-middle font-normal text-2xl md:text-4xl lg:text-5xl text-ivory/75">{hero.cityName}</span>
     </h1>
     <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-ivory/90 tracking-wide">{hero.slogan}</h2>
     <p class="max-w-2xl text-ivory/80 text-lg md:text-xl leading-relaxed">{hero.subtitle}</p>
@@ -68,8 +73,8 @@ const weatherMap = Object.fromEntries(
     </div>
 
     <div class="mt-12 flex flex-wrap justify-center items-center gap-4 text-sm text-ivory/80">
-      <span class="stars text-lg">★ {hero.rating}</span>
-      <span>{hero.reviewCount} Google</span>
+      <span class="stars text-lg">★ {siteConfig.rating}</span>
+      <span>{siteConfig.reviewCount} Google</span>
       <span class="hidden sm:inline text-ivory/40">·</span>
       <a href={mapsUrl} target="_blank" rel="noopener" class="hover:text-goldBright underline-offset-4 hover:underline transition-colors flex items-center gap-1">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -78,6 +83,12 @@ const weatherMap = Object.fromEntries(
         {hero.coordsLabel}
       </a>
     </div>
+
+    <!-- 评分来源说明：同步自谷歌地图用户评价 -->
+    <p class="mt-3 text-xs text-ivory/60 max-w-2xl">
+      {hero.ratingSyncNote}
+      <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="ml-1 text-goldBright hover:underline">↗</a>
+    </p>
 
     <!-- At a Glance / 速览卡片 -->
     {hero.glance && (
