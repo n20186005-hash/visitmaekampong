@@ -13,6 +13,7 @@ const { lang } = Astro.params as { lang: Lang };
 const m = { th, en, zh }[lang];
 const services = m.services;
 const guide = m.guide;
+const s = m.topics.stay;
 const pick = (icons: string[]) => services.items.filter((i: any) => icons.includes(i.icon));
 ---
 
@@ -44,6 +45,50 @@ const pick = (icons: string[]) => services.items.filter((i: any) => icons.includ
         guide.fees.items.map((i: any) => (
           <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
             <h3 class="font-semibold text-stone-800">{i.title}</h3>
+            <p class="mt-1 text-stone-600">{i.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{s.roomTypesTitle}</h2>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      {
+        s.roomTypes.map((i: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{i.name}</h3>
+            <p class="mt-1 text-stone-600">{i.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+    <p class="mt-3 text-sm text-amber-800">{s.roomNote}</p>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{s.bookingTitle}</h2>
+    <ul class="mt-4 space-y-2 text-stone-600 list-disc pl-5">
+      {s.booking.map((item: string) => <li>{item}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{s.priceTitle}</h2>
+    <ul class="mt-4 space-y-2 text-stone-600 list-disc pl-5">
+      {s.priceFactors.map((item: string) => <li>{item}</li>)}
+    </ul>
+    <p class="mt-3 text-sm text-amber-800">{s.priceNote}</p>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{s.suitsTitle}</h2>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      {
+        s.suits.map((i: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{i.name}</h3>
             <p class="mt-1 text-stone-600">{i.desc}</p>
           </article>
         ))

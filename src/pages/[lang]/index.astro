@@ -7,6 +7,7 @@ import About from '../../components/About.astro';
 import Ecosystem from '../../components/Ecosystem.astro';
 import History from '../../components/History.astro';
   import Guide from '../../components/Guide.astro';
+import QuickStart from '../../components/QuickStart.astro';
   import Sources from '../../components/Sources.astro';
   import Food from '../../components/Food.astro';
   import Landmarks from '../../components/Landmarks.astro';
@@ -31,6 +32,7 @@ const { lang, messages } = await getI18n(Astro.url);
   <Header lang={lang} messages={messages} />
   <main>
     <Hero lang={lang} messages={messages} />
+    <QuickStart lang={lang} messages={messages} />
     <About messages={messages} />
     <Ecosystem messages={messages} />
     <History messages={messages} />

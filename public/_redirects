@@ -27,6 +27,10 @@
 /en/plan                /en/plan/               301
 /zh/plan                /zh/plan/               301
 
+/th/mae-kampong-waterfall      /th/mae-kampong-waterfall/     301
+/en/mae-kampong-waterfall      /en/mae-kampong-waterfall/     301
+/zh/mae-kampong-waterfall      /zh/mae-kampong-waterfall/     301
+
 # ---------------------------------------------------------------------------
 # www → 主域名（https://visitmaekampong.com）无法在本文件处理：
 # Cloudflare 的 _redirects 不支持「域名级重定向」（domain-level redirects ❌，

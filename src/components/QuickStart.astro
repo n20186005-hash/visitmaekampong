@@ -1,0 +1,61 @@
+---
+interface Props {
+  lang: string;
+  messages: Record<string, any>;
+}
+const { lang, messages } = Astro.props;
+const q = messages.quick;
+const topics = messages.topics;
+
+// Order + icon for the guide cards. Keys must match topics.* namespaces.
+const guides = [
+  { key: 'transport', icon: '🚐' },
+  { key: 'stay', icon: '🏡' },
+  { key: 'waterfall', icon: '💧' },
+  { key: 'plan', icon: '🗺️' },
+  { key: 'attractions', icon: '🌿' },
+];
+---
+
+<section id="quick" class="py-16 md:py-20 bg-sand/40">
+  <div class="max-w-7xl mx-auto px-5">
+    <p class="font-hand text-2xl text-amber-700">{q.label}</p>
+    <h2 class="mt-1 font-display text-3xl md:text-4xl font-semibold text-teak">{q.heading}</h2>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        q.facts.map((f: any) => (
+          <div class="rounded-2xl border border-stone-300 bg-white/60 p-5 flex items-start gap-4">
+            <span class="text-2xl leading-none">{f.icon}</span>
+            <div>
+              <div class="text-xs uppercase tracking-wide text-stone-500">{f.label}</div>
+              <div class="mt-0.5 font-medium text-stone-800">{f.value}</div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-12 font-hand text-2xl text-amber-700">{q.guidesTitle}</p>
+    <p class="mt-1 text-stone-600">{q.guidesLead}</p>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        guides.map((g) => (
+          <a
+            href={`/${lang}/${g.key}/`}
+            class="group rounded-2xl border border-stone-300 bg-white/60 p-5 hover:border-amber-600 transition-colors flex items-start gap-4"
+          >
+            <span class="text-2xl leading-none">{g.icon}</span>
+            <div>
+              <div class="font-semibold text-stone-800 group-hover:text-amber-800 transition-colors">
+                {topics[g.key].navLabel}
+              </div>
+              <p class="mt-1 text-sm text-stone-600 leading-relaxed">{q.guideDescs[g.key]}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

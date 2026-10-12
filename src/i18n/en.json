@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Mae Kampong Village Chiang Mai: Homestays, Waterfall & Transport",
-    "description": "Plan a trip to Mae Kampong Village, Chiang Mai: how to get there, where to stay, the 7-tier waterfall, Kew Fin sea of clouds and the best season to come."
+    "title": "Mae Kampong Village Guide | Transport, Homestays & Map",
+    "description": "Plan your visit to Mae Kampong Village near Chiang Mai. Find transport routes, homestay tips, waterfall attractions, seasonal advice and the village map."
   },
   "topics": {
     "label": "Guides",
@@ -28,7 +28,83 @@
         {
           "q": "Anything to know before driving?",
           "a": "There is no fuel station and no public EV charger in the village — fill up or charge in San Kamphaeng or Mae On. Arriving before 09:00 makes parking at the village entrance much easier."
+        },
+        {
+          "q": "Where exactly do I park, and is parking free?",
+          "a": "Parking is near the village entrance and at homestay areas. Spaces are limited on weekends and holidays, so arriving before 09:00 helps. Confirm any parking charge with your host on arrival."
+        },
+        {
+          "q": "Can I get back to Chiang Mai in the evening?",
+          "a": "Yes, but arrange it in advance. Public transport is limited in the late afternoon, daylight fades early in the valley, and the mountain road is slower after dark — agree a pickup time with your driver or tour operator before you leave the village."
         }
+      ],
+      "departuresTitle": "Where to start from Chiang Mai",
+      "departures": [
+        {
+          "name": "Chiang Mai Old City (Nimman / Tha Phae area)",
+          "desc": "The usual starting point. Head east towards San Kamphaeng, then follow signs for Mae On and Huai Kaeo. Enter the Plus Code V982+695 or “Mae Kampong Village” in Google Maps for turn-by-turn guidance."
+        },
+        {
+          "name": "Chiang Mai International Airport (CNX)",
+          "desc": "About 1.5 hours by car. Taxis and private transfers can be arranged at the airport; book ahead for late arrivals so your driver knows the mountain road."
+        },
+        {
+          "name": "San Kamphaeng / Mae On towns",
+          "desc": "The last fuel and supplies before the climb. Fill up here — there is no fuel station in the village."
+        }
+      ],
+      "compareTitle": "Compare your options",
+      "compare": {
+        "cols": [
+          "Option",
+          "Typical time",
+          "Best for"
+        ],
+        "rows": [
+          {
+            "option": "Self-drive car",
+            "time": "1–1.5 hrs each way",
+            "best": "Freedom to chase dawn at Kew Fin and stop at viewpoints"
+          },
+          {
+            "option": "Self-drive scooter",
+            "time": "1.5–2 hrs each way",
+            "best": "Solo riders comfortable on winding roads; bring a jacket for the descent"
+          },
+          {
+            "option": "Private car with driver",
+            "time": "1–1.5 hrs each way",
+            "best": "Families and groups who want the driver to wait"
+          },
+          {
+            "option": "Songthaew / local transport",
+            "time": "Longer, limited services",
+            "best": "Budget travellers heading to the village entrance only"
+          },
+          {
+            "option": "Round-trip day tour",
+            "time": "Full day",
+            "best": "Visitors without transport who want viewpoints included"
+          }
+        ]
+      },
+      "compareNote": "Agree the fare, waiting time and return pickup before you set off. Prices change with fuel costs and the season, so this site does not publish fixed figures — confirm the current rate with your driver or tour operator when booking.",
+      "roadTitle": "Mountain-road & driving notes",
+      "road": [
+        "The last stretch into the valley is a long series of hairpin bends — allow the full 1–1.5 hours even though the map distance is short.",
+        "Mist and wet leaves make the road slippery after rain, especially on the descent. Slow down and use a low gear.",
+        "There is no fuel station or public EV charger in the village — fill up or charge in San Kamphaeng or Mae On.",
+        "Arrive before 09:00 on weekends and holidays; parking at the village entrance fills up quickly.",
+        "If you are driving back after dark, watch for fog on the ridges and oncoming vehicles on the narrow bends."
+      ],
+      "parkingTitle": "Parking at the village",
+      "parking": "Parking is available near the village entrance and at homestay areas, but spaces are limited on busy weekends. Arriving early also gets you the calmest hours in the village before day-trip crowds.",
+      "returnTitle": "Plan your return before you arrive",
+      "return": [
+        "Agree the pickup time and place with your driver or tour operator in the morning, not in the afternoon.",
+        "Daylight fades early in the valley — aim to be off the mountain road before dusk (sunset is around 18:00–18:45 depending on the season).",
+        "Public transport out of the village is limited in the late afternoon; if you are not staying overnight, keep a booked ride or your homestay host’s phone number.",
+        "If you stay the night, ask your host about the dawn departure for Kew Fin sea of clouds — leaving in the dark is normal, just drive slowly."
       ]
     },
     "stay": {
@@ -51,6 +127,61 @@
         {
           "q": "Can I eat in the village if I am not staying overnight?",
           "a": "Yes. Family kitchens and tea houses serve northern Thai dishes, highland oolong tea and coffee roasted in the village, mostly from morning to early evening — aim to eat before 18:00."
+        },
+        {
+          "q": "How much does a Mae Kampong homestay cost?",
+          "a": "Rates are set by each household and move with the season, so this guide does not publish fixed prices. Confirm the current rate, meals and transfer directly with your host or the community cooperative when booking — and book early for cool-season weekends."
+        }
+      ],
+      "roomTypesTitle": "What kind of rooms to expect",
+      "roomTypes": [
+        {
+          "name": "Family homestay room",
+          "desc": "A simple room in a village household registered with the community cooperative. Shared bathrooms, blankets and mosquito nets are typical."
+        },
+        {
+          "name": "Family / group room",
+          "desc": "Larger rooms or adjacent rooms in the same house — the practical choice for families with children or small groups travelling together."
+        },
+        {
+          "name": "Quiet couple rooms",
+          "desc": "Rooms set slightly away from the communal areas, popular with couples who came for the dawn sea of clouds and the evening quiet."
+        }
+      ],
+      "roomNote": "Inventory changes household by household and season to season. Ask what is actually available for your dates rather than assuming a room type exists.",
+      "bookingTitle": "Confirm these before you book",
+      "booking": [
+        "Bathroom: shared or private, and whether hot water is available.",
+        "Bedding: blankets and mosquito nets for nights that are 5–8 °C cooler than Chiang Mai city.",
+        "Meals: which meals are included, and the latest dinner time — village kitchens mostly serve until early evening.",
+        "Transfer: whether pickup from Chiang Mai can be arranged, and at what cost.",
+        "Payment and cancellation terms, especially for cool-season weekends and holidays."
+      ],
+      "priceTitle": "What changes the price",
+      "priceFactors": [
+        "Season: the cool season (November–February) and holiday weekends are the busiest and least flexible.",
+        "Room type and whether meals are included.",
+        "Group size — whole-house or multi-room bookings are usually negotiated directly.",
+        "How far ahead you book; last-minute cool-season weekends often sell out."
+      ],
+      "priceNote": "Each household sets its own rate and prices change with the season, so this site deliberately does not publish fixed figures. Confirm the current price directly with your host or the community cooperative when booking.",
+      "suitsTitle": "Who each option suits",
+      "suits": [
+        {
+          "name": "Families with children",
+          "desc": "Short trails, a safe village to walk around, and early bedtimes that match a dawn start."
+        },
+        {
+          "name": "Couples",
+          "desc": "Evening quiet, misty mornings and tea-house terraces — the reason most people stay overnight."
+        },
+        {
+          "name": "Solo travellers",
+          "desc": "Easy to arrange a room and meals through a host; a good base for photography at dawn."
+        },
+        {
+          "name": "Groups",
+          "desc": "Book several rooms or a whole house early, and agree meals and transfers with the host in one go."
         }
       ]
     },
@@ -99,6 +230,102 @@
           "a": "Stay in the village the night before, be at the viewpoint for the sea of clouds at dawn, walk to the waterfall in the morning, eat in the village at midday and head back in the afternoon — the mountain road is easier before dark."
         }
       ]
+    },
+    "waterfall": {
+      "navLabel": "Mae Kampong Waterfall",
+      "meta": {
+        "title": "Mae Kampong Waterfall: Trail, Hours, Fees & Tips",
+        "description": "The seven-tier Mae Kampong Waterfall sits about 1 km from the village on a community nature trail. Find the walking route, 08:00–17:00 hours, the community fee, what to bring and safety notes."
+      },
+      "heading": "Mae Kampong Waterfall",
+      "lead": "A seven-tier waterfall about 1 km from the village, reached along a community nature trail. It is the one attraction most visitors walk to — and the easiest to get wrong by arriving late.",
+      "facts": [
+        {
+          "icon": "🚶",
+          "label": "Walk from village",
+          "value": "About 1 km on a community nature trail"
+        },
+        {
+          "icon": "🕕",
+          "label": "Open",
+          "value": "08:00–17:00"
+        },
+        {
+          "icon": "🎟️",
+          "label": "Fee",
+          "value": "Small community fee — bring cash"
+        },
+        {
+          "icon": "💧",
+          "label": "Tiers",
+          "value": "Seven levels along the stream"
+        }
+      ],
+      "routeTitle": "The walk from the village",
+      "route": [
+        "Start from the village centre and follow signs for the waterfall / nature trail.",
+        "The trail runs roughly 1 km along the stream — allow about 30 minutes at an easy pace with stops.",
+        "The path is a community-maintained nature trail: uneven surfaces, roots and stone sections, and steps near the lower tiers.",
+        "Wear shoes with grip; the rocks stay slick even on dry days."
+      ],
+      "bringTitle": "What to bring",
+      "bring": [
+        "Cash for the community fee at the trailhead.",
+        "Water and a light snack — there are no shops on the trail.",
+        "Shoes with grip and clothes you do not mind getting damp if you enter the water where permitted.",
+        "A dry bag or zip bag for your phone and camera.",
+        "A rain jacket in the wet season — showers arrive quickly on the mountain."
+      ],
+      "safetyTitle": "Safety on the trail",
+      "safety": [
+        "Rocks and steps are slippery, especially after rain — the wet season (June–October) needs the most care.",
+        "Water levels rise quickly during and after heavy rain; if the stream is high, enjoy the view from the bank.",
+        "Check the on-site rules before entering the water, and keep children within arm’s reach near the tiers.",
+        "Mobile signal can be patchy in the valley — tell your host when you set off."
+      ],
+      "seasonsTitle": "The waterfall through the year",
+      "seasons": [
+        {
+          "name": "Cool season (Nov–Feb)",
+          "desc": "Clear skies and comfortable walking temperatures; flow is steady rather than spectacular."
+        },
+        {
+          "name": "Hot season (Mar–May)",
+          "desc": "Lower water and hazy valleys; agricultural smoke can affect air quality — go early and check conditions."
+        },
+        {
+          "name": "Rainy season (Jun–Oct)",
+          "desc": "The fullest, most dramatic flow, but the slickest trails. Best combined with an early start and grip footwear."
+        }
+      ],
+      "photoTitle": "Photography notes",
+      "photo": [
+        "Midday shade under the canopy suits long exposures of the tiers — bring a tripod.",
+        "Morning light reaches the upper tiers first; the village trail is quietest before 10:00.",
+        "Protect gear from spray: a microfibre cloth and a rain cover are worth the pack space."
+      ],
+      "faqs": [
+        {
+          "q": "How far is the walk to Mae Kampong Waterfall?",
+          "a": "About 1 km from the village along a community nature trail — roughly 30 minutes at an easy pace each way."
+        },
+        {
+          "q": "What are the waterfall’s opening hours?",
+          "a": "The waterfall area is open 08:00–17:00. The village itself is open at any hour."
+        },
+        {
+          "q": "Is there an entrance fee?",
+          "a": "Yes — the community charges a small fee at the posted rate, and cash is the safe way to pay."
+        },
+        {
+          "q": "Can you swim at Mae Kampong Waterfall?",
+          "a": "Check the on-site rules before entering the water. The pools are shallow and rocky, levels rise after rain, and there are no lifeguards — treat any swim as at your own risk and follow on-site signage."
+        },
+        {
+          "q": "How long should I spend at the waterfall?",
+          "a": "One to two hours is comfortable for the walk, photos and a rest at the lower tiers. Combine it with a village lunch and, if you stay overnight, a dawn viewpoint run."
+        }
+      ]
     }
   },
   "entity": {
@@ -138,9 +365,9 @@
     "slogan": "When white mist rolls into the valley, the mountains become islands.",
     "subtitle": "A centuries-old Lanna village sitting at 1,300 m above sea level, surrounded by highland tea, coffee, and misty morning clouds.",
     "rating": "4.5",
-    "reviewCount": "6,102",
+    "reviewCount": "6,198",
     "ratingLabel": "Google rating",
-    "ratingSyncNote": "Ratings and review counts synced from Google Maps user reviews · September 2026 · Click to view all Google Maps reviews",
+    "ratingSyncNote": "Ratings and review counts synced from Google Maps user reviews · October 2026 · Click to view all Google Maps reviews",
     "coordsLabel": "18.8642°N, 99.3498°E",
     "viewLocation": "View on Google Maps",
     "cta1": "Explore Village Story",
@@ -168,11 +395,31 @@
     "weatherError": "",
     "goldenChanceLabel": "Golden-hour chance",
     "glance": [
-      { "icon": "📍", "label": "Location", "value": "Mae On, Chiang Mai" },
-      { "icon": "⛰️", "label": "Elevation", "value": "Approx. 1,300 m" },
-      { "icon": "🚗", "label": "Drive from City", "value": "1 - 1.5 hours" },
-      { "icon": "⏱️", "label": "Best Time", "value": "Nov - Feb (Cool Season)" },
-      { "icon": "🎟️", "label": "Entrance Fee", "value": "Free (small fee for waterfall)" }
+      {
+        "icon": "📍",
+        "label": "Location",
+        "value": "Mae On, Chiang Mai"
+      },
+      {
+        "icon": "⛰️",
+        "label": "Elevation",
+        "value": "Approx. 1,300 m"
+      },
+      {
+        "icon": "🚗",
+        "label": "Drive from City",
+        "value": "1 - 1.5 hours"
+      },
+      {
+        "icon": "⏱️",
+        "label": "Best Time",
+        "value": "Nov - Feb (Cool Season)"
+      },
+      {
+        "icon": "🎟️",
+        "label": "Entrance Fee",
+        "value": "Free (small fee for waterfall)"
+      }
     ]
   },
   "about": {
@@ -185,14 +432,35 @@
     "quote": "“When white mist rolls into the valley, the mountains become islands in a sea of clouds.”",
     "quoteAuthor": "A local saying",
     "stats": [
-      { "value": "≈ 1,300 m", "label": "Elevation above sea level" },
-      { "value": "100+ yrs", "label": "Age of the village" },
-      { "value": "24 hrs", "label": "Open every day" }
+      {
+        "value": "≈ 1,300 m",
+        "label": "Elevation above sea level"
+      },
+      {
+        "value": "100+ yrs",
+        "label": "Age of the village"
+      },
+      {
+        "value": "24 hrs",
+        "label": "Open every day"
+      }
     ],
     "highlights": [
-      { "tag": "🌫️", "title": "Misty mornings", "desc": "From early dawn the valley is covered in white mist — perfect for photography" },
-      { "tag": "🍵", "title": "Highland tea & coffee", "desc": "Oolong tea terraces and Arabica coffee grown through the Royal Project" },
-      { "tag": "🏡", "title": "Community homestays", "desc": "Stay with local families and experience Lanna life up close" }
+      {
+        "tag": "🌫️",
+        "title": "Misty mornings",
+        "desc": "From early dawn the valley is covered in white mist — perfect for photography"
+      },
+      {
+        "tag": "🍵",
+        "title": "Highland tea & coffee",
+        "desc": "Oolong tea terraces and Arabica coffee grown through the Royal Project"
+      },
+      {
+        "tag": "🏡",
+        "title": "Community homestays",
+        "desc": "Stay with local families and experience Lanna life up close"
+      }
     ],
     "editorTip": {
       "tag": "💡 Editor's tip",
@@ -207,16 +475,77 @@
     "intro": "At over 1,300 m, Mae Kampong stays cool, damp and fresh all year. These forests host plants and animals adapted to moisture and mist.",
     "microTitle": "Mist, wind & microclimate",
     "micro": [
-      { "title": "Misty valley", "desc": "Lower to the east, dew condenses into thick morning mist" },
-      { "title": "Cool peaks", "desc": "The highest points catch cool winds and the widest sea of clouds" },
-      { "title": "Shady tea corners", "desc": "Wooden verandas in the shade are perfect for tea with a view of the mist" }
+      {
+        "title": "Misty valley",
+        "desc": "Lower to the east, dew condenses into thick morning mist"
+      },
+      {
+        "title": "Cool peaks",
+        "desc": "The highest points catch cool winds and the widest sea of clouds"
+      },
+      {
+        "title": "Shady tea corners",
+        "desc": "Wooden verandas in the shade are perfect for tea with a view of the mist"
+      }
     ],
     "plantsTitle": "Plants on the mountain",
     "plants": [
-      { "title": "Pine forest & ferns", "desc": "Pines and ferns, with moss covering the ground", "items": [ { "name": "Moss & ferns", "desc": "Cover the forest floor" }, { "name": "Orchids & narrow leaves", "desc": "Love high humidity" } ] },
-      { "title": "Strawberries & cool-climate fruit", "desc": "Grown in greenhouses under the Royal Project", "items": [ { "name": "Strawberries", "desc": "The famous cool-climate fruit" }, { "name": "Cool-climate vegetables", "desc": "Grown on highland farms" } ] },
-      { "title": "Highland tea & coffee", "desc": "Oolong terraces and Arabica coffee planted to replace opium", "items": [ { "name": "Oolong tea", "desc": "Grown on terraces" }, { "name": "Arabica coffee", "desc": "Roasted in the village" } ] },
-      { "title": "Cool-climate flowers", "desc": "Planted around the village and homestays", "items": [ { "name": "Winter flowers", "desc": "Best bloom in the cool season" }, { "name": "Ornamental plants", "desc": "Decorate the village" } ] }
+      {
+        "title": "Pine forest & ferns",
+        "desc": "Pines and ferns, with moss covering the ground",
+        "items": [
+          {
+            "name": "Moss & ferns",
+            "desc": "Cover the forest floor"
+          },
+          {
+            "name": "Orchids & narrow leaves",
+            "desc": "Love high humidity"
+          }
+        ]
+      },
+      {
+        "title": "Strawberries & cool-climate fruit",
+        "desc": "Grown in greenhouses under the Royal Project",
+        "items": [
+          {
+            "name": "Strawberries",
+            "desc": "The famous cool-climate fruit"
+          },
+          {
+            "name": "Cool-climate vegetables",
+            "desc": "Grown on highland farms"
+          }
+        ]
+      },
+      {
+        "title": "Highland tea & coffee",
+        "desc": "Oolong terraces and Arabica coffee planted to replace opium",
+        "items": [
+          {
+            "name": "Oolong tea",
+            "desc": "Grown on terraces"
+          },
+          {
+            "name": "Arabica coffee",
+            "desc": "Roasted in the village"
+          }
+        ]
+      },
+      {
+        "title": "Cool-climate flowers",
+        "desc": "Planted around the village and homestays",
+        "items": [
+          {
+            "name": "Winter flowers",
+            "desc": "Best bloom in the cool season"
+          },
+          {
+            "name": "Ornamental plants",
+            "desc": "Decorate the village"
+          }
+        ]
+      }
     ],
     "wildlifeTitle": "Wildlife you may see",
     "wildlife": [
@@ -237,9 +566,27 @@
       "title": "Pre-hike checklist",
       "intro": "Small tips to help you travel safely and protect nature",
       "items": [
-        { "emoji": "🧥", "name": "Warm jacket", "best": "Dawn can be very cold, below 15°C", "rare": "", "rareClass": "" },
-        { "emoji": "👟", "name": "Non-slip shoes", "best": "Trails are damp at dawn and can be slippery", "rare": "", "rareClass": "" },
-        { "emoji": "🗑️", "name": "Personal trash bag", "best": "Take all your litter back with you", "rare": "", "rareClass": "" }
+        {
+          "emoji": "🧥",
+          "name": "Warm jacket",
+          "best": "Dawn can be very cold, below 15°C",
+          "rare": "",
+          "rareClass": ""
+        },
+        {
+          "emoji": "👟",
+          "name": "Non-slip shoes",
+          "best": "Trails are damp at dawn and can be slippery",
+          "rare": "",
+          "rareClass": ""
+        },
+        {
+          "emoji": "🗑️",
+          "name": "Personal trash bag",
+          "best": "Take all your litter back with you",
+          "rare": "",
+          "rareClass": ""
+        }
       ]
     }
   },
@@ -248,11 +595,26 @@
     "heading": "History & Significance of Mae Kampong Village",
     "lead": "Mae Kampong blends valley geography with Lanna heritage passed down through generations. Locals read the name as Mae ('mother' or 'river') plus Kampong ('stream' or 'weir') — 'Mother of the Kampong stream'. The brook still feeds the village, and its story is one of forest, faith and quiet self-reliance.",
     "blocks": [
-      { "title": "Lanna Migration (100+ years ago)", "text": "Lanna pioneers migrated from Chiang Saen and the Khun River area, settling along the Mae Kampong stream. They terraced rice fields and gathered forest products, naming the village after the stream that sustained them." },
-      { "title": "Miang: The Economic Lifeblood", "text": "What is Miang? It is a traditional Lanna fermented tea made from large tea leaves, chewed by locals for energy. Before modern tourism, gathering and fermenting Miang was the primary industry and the most important economic lifeline for Mae Kampong." },
-      { "title": "The Royal Project & Tea Culture (1970s–1980s)", "text": "For centuries, villagers made a living gathering wild tea leaves to make Miang (Lanna fermented tea). Later, inspired by King Bhumibol's initiative, the Teen Tok Royal Project Development Center introduced cool-climate crops — oolong tea and Arabica coffee — replacing slash-and-burn farming and letting the forest recover." },
-      { "title": "Community-Based Tourism (1996–present)", "text": "The village structured its community tourism, winning Thailand Tourism Awards and becoming a model for CBT in Thailand. The core lies in the 'Community Cooperative Model' — tourism revenue is not just for individuals, but is distributed to community funds, forest fire prevention teams, and pension funds, truly achieving sustainable ecological and economic development." },
-      { "title": "Name & Living Traditions", "text": "The village keeps a Lanna rhythm through the year. Cool season (Nov–Feb) brings the famous sea of clouds and the homestay high season, with Loy Krathong and New Year merit-making at the stream shrine. Each year households still leave offerings of flowers and incense to the stream spirit for rain and calm." }
+      {
+        "title": "Lanna Migration (100+ years ago)",
+        "text": "Lanna pioneers migrated from Chiang Saen and the Khun River area, settling along the Mae Kampong stream. They terraced rice fields and gathered forest products, naming the village after the stream that sustained them."
+      },
+      {
+        "title": "Miang: The Economic Lifeblood",
+        "text": "What is Miang? It is a traditional Lanna fermented tea made from large tea leaves, chewed by locals for energy. Before modern tourism, gathering and fermenting Miang was the primary industry and the most important economic lifeline for Mae Kampong."
+      },
+      {
+        "title": "The Royal Project & Tea Culture (1970s–1980s)",
+        "text": "For centuries, villagers made a living gathering wild tea leaves to make Miang (Lanna fermented tea). Later, inspired by King Bhumibol's initiative, the Teen Tok Royal Project Development Center introduced cool-climate crops — oolong tea and Arabica coffee — replacing slash-and-burn farming and letting the forest recover."
+      },
+      {
+        "title": "Community-Based Tourism (1996–present)",
+        "text": "The village structured its community tourism, winning Thailand Tourism Awards and becoming a model for CBT in Thailand. The core lies in the 'Community Cooperative Model' — tourism revenue is not just for individuals, but is distributed to community funds, forest fire prevention teams, and pension funds, truly achieving sustainable ecological and economic development."
+      },
+      {
+        "title": "Name & Living Traditions",
+        "text": "The village keeps a Lanna rhythm through the year. Cool season (Nov–Feb) brings the famous sea of clouds and the homestay high season, with Loy Krathong and New Year merit-making at the stream shrine. Each year households still leave offerings of flowers and incense to the stream spirit for rain and calm."
+      }
     ],
     "legend": {
       "title": "Local legend",
@@ -279,9 +641,24 @@
       "difficultyLabel": "Difficulty",
       "suitsLabel": "Best for",
       "items": [
-        { "name": "The village & homestays", "difficulty": "Easy", "suits": "All ages / families", "desc": "Walk among wooden houses, tea farms and community life — gentle and friendly" },
-        { "name": "Mae Kampong Waterfall", "difficulty": "Easy", "suits": "Light hikers", "desc": "A 7-tier waterfall about 1 km from the village, with a nature trail" },
-        { "name": "Kew Fin Viewpoint", "difficulty": "Moderate", "suits": "Photographers", "desc": "About 3 km from the village, located within Chae Son National Park on the border of Chiang Mai and Lampang. At 1,517 m, it offers a 360° sea of clouds at dawn" }
+        {
+          "name": "The village & homestays",
+          "difficulty": "Easy",
+          "suits": "All ages / families",
+          "desc": "Walk among wooden houses, tea farms and community life — gentle and friendly"
+        },
+        {
+          "name": "Mae Kampong Waterfall",
+          "difficulty": "Easy",
+          "suits": "Light hikers",
+          "desc": "A 7-tier waterfall about 1 km from the village, with a nature trail"
+        },
+        {
+          "name": "Kew Fin Viewpoint",
+          "difficulty": "Moderate",
+          "suits": "Photographers",
+          "desc": "About 3 km from the village, located within Chae Son National Park on the border of Chiang Mai and Lampang. At 1,517 m, it offers a 360° sea of clouds at dawn"
+        }
       ]
     },
     "scamTip": {
@@ -292,26 +669,50 @@
       "tag": "🕔 Opening hours",
       "time": "Village open all day · Waterfall 08:00–17:00",
       "items": [
-        { "label": "Waterfall opens", "value": "08:00" },
-        { "label": "Waterfall closes", "value": "17:00" }
+        {
+          "label": "Waterfall opens",
+          "value": "08:00"
+        },
+        {
+          "label": "Waterfall closes",
+          "value": "17:00"
+        }
       ]
     },
     "fees": {
       "tag": "💵 Fees",
       "title": "Fees & services",
       "items": [
-        { "title": "Waterfall entry", "desc": "The community charges a small fee — bring cash" },
-        { "title": "Tea & snacks", "desc": "Homestays and cafés serve tea, coffee and local desserts" }
+        {
+          "title": "Waterfall entry",
+          "desc": "The community charges a small fee — bring cash"
+        },
+        {
+          "title": "Tea & snacks",
+          "desc": "Homestays and cafés serve tea, coffee and local desserts"
+        }
       ]
     },
     "transport": {
       "tag": "🚐 Transport",
       "title": "Getting to Mae Kampong",
       "items": [
-        { "title": "From Chiang Mai International Airport", "desc": "You can take a taxi directly from the airport or book a private transfer. The journey takes about 1.5 hours to the village entrance" },
-        { "title": "Car / Scooter", "desc": "About 1–1.5 hours from Chiang Mai via San Kamphaeng → Mae On → Huai Kaeo" },
-        { "title": "Songthaew / Taxi", "desc": "Charter a ride from Chiang Mai or take public transport to the village entrance" },
-        { "title": "Day Tours", "desc": "Round-trip tours from Chiang Mai, including viewpoints and village walks" }
+        {
+          "title": "From Chiang Mai International Airport",
+          "desc": "You can take a taxi directly from the airport or book a private transfer. The journey takes about 1.5 hours to the village entrance"
+        },
+        {
+          "title": "Car / Scooter",
+          "desc": "About 1–1.5 hours from Chiang Mai via San Kamphaeng → Mae On → Huai Kaeo"
+        },
+        {
+          "title": "Songthaew / Taxi",
+          "desc": "Charter a ride from Chiang Mai or take public transport to the village entrance"
+        },
+        {
+          "title": "Day Tours",
+          "desc": "Round-trip tours from Chiang Mai, including viewpoints and village walks"
+        }
       ]
     },
     "photography": {
@@ -319,20 +720,50 @@
       "intro": "Light and mist keep changing — these spots and times are worth watching",
       "timesTitle": "Golden-light windows",
       "times": [
-        { "period": "06:00–08:00", "desc": "Thick mist and golden sunrise light" },
-        { "period": "16:30–18:00", "desc": "Soft evening light and wide skies" }
+        {
+          "period": "06:00–08:00",
+          "desc": "Thick mist and golden sunrise light"
+        },
+        {
+          "period": "16:30–18:00",
+          "desc": "Soft evening light and wide skies"
+        }
       ],
       "spotsTitle": "Recommended photo spots",
       "spots": [
-        { "name": "Wooden veranda", "view": "Wide sea of clouds", "tip": "Use the veranda as a frame" },
-        { "name": "By the waterfall", "view": "Cascading tiers", "tip": "Shoot at an angle for depth" },
-        { "name": "Tea terraces", "view": "Beautiful lines", "tip": "Shoot in soft light" }
+        {
+          "name": "Wooden veranda",
+          "view": "Wide sea of clouds",
+          "tip": "Use the veranda as a frame"
+        },
+        {
+          "name": "By the waterfall",
+          "view": "Cascading tiers",
+          "tip": "Shoot at an angle for depth"
+        },
+        {
+          "name": "Tea terraces",
+          "view": "Beautiful lines",
+          "tip": "Shoot in soft light"
+        }
       ],
       "settingsTitle": "Camera settings",
       "settings": [
-        { "style": "Sea of clouds", "camera": "Aperture f/8–f/11", "phone": "HDR / Pro mode" },
-        { "style": "Golden hour", "camera": "ISO 100 in the morning", "phone": "Lower auto exposure" },
-        { "style": "Stars", "camera": "Tripod 10–20 sec", "phone": "Night mode" }
+        {
+          "style": "Sea of clouds",
+          "camera": "Aperture f/8–f/11",
+          "phone": "HDR / Pro mode"
+        },
+        {
+          "style": "Golden hour",
+          "camera": "ISO 100 in the morning",
+          "phone": "Lower auto exposure"
+        },
+        {
+          "style": "Stars",
+          "camera": "Tripod 10–20 sec",
+          "phone": "Night mode"
+        }
       ],
       "tipsTitle": "Extra tips",
       "tips": [
@@ -350,18 +781,45 @@
       "title": "Best time to visit",
       "intro": "Each season gives Mae Kampong a different charm",
       "seasons": [
-        { "tag": "❄️ Cool", "months": "Nov–Feb", "name": "Sea-of-clouds season", "desc": "Cold weather, the thickest and widest mist — best for the sea of clouds" },
-        { "tag": "🌧️ Rainy", "months": "May–Oct", "name": "Rainy season", "desc": "Lush green forest and full waterfalls, but slippery trails" },
-        { "tag": "🌤️ Hot", "months": "Mar–Apr", "name": "Hot season", "desc": "Warm days but cool nights, light mist, and possible smoke haze in Mar–Apr" }
+        {
+          "tag": "❄️ Cool",
+          "months": "Nov–Feb",
+          "name": "Sea-of-clouds season",
+          "desc": "Cold weather, the thickest and widest mist — best for the sea of clouds"
+        },
+        {
+          "tag": "🌧️ Rainy",
+          "months": "May–Oct",
+          "name": "Rainy season",
+          "desc": "Lush green forest and full waterfalls, but slippery trails"
+        },
+        {
+          "tag": "🌤️ Hot",
+          "months": "Mar–Apr",
+          "name": "Hot season",
+          "desc": "Warm days but cool nights, light mist, and possible smoke haze in Mar–Apr"
+        }
       ]
     },
     "safety": {
       "title": "Safety tips",
       "items": [
-        { "title": "The access road", "desc": "The mountain road is winding — drive slowly and watch for mist" },
-        { "title": "Slippery ground", "desc": "Damp at dawn; wear non-slip shoes" },
-        { "title": "Cold weather", "desc": "Dawn is very cold — bring a warm jacket" },
-        { "title": "Litter", "desc": "Take your trash back to protect the mountain" }
+        {
+          "title": "The access road",
+          "desc": "The mountain road is winding — drive slowly and watch for mist"
+        },
+        {
+          "title": "Slippery ground",
+          "desc": "Damp at dawn; wear non-slip shoes"
+        },
+        {
+          "title": "Cold weather",
+          "desc": "Dawn is very cold — bring a warm jacket"
+        },
+        {
+          "title": "Litter",
+          "desc": "Take your trash back to protect the mountain"
+        }
       ]
     },
     "hazeSeason": {
@@ -372,42 +830,108 @@
       "title": "Emergency info",
       "intro": "Keep these numbers handy for emergencies on the mountain",
       "items": [
-        { "title": "Tourism Authority of Thailand (Chiang Mai)", "value": "+66 53 248 604" },
-        { "title": "Police", "value": "191" },
-        { "title": "Ambulance", "value": "1669" },
-        { "title": "Tourism hotline", "value": "1155" }
+        {
+          "title": "Tourism Authority of Thailand (Chiang Mai)",
+          "value": "+66 53 248 604"
+        },
+        {
+          "title": "Police",
+          "value": "191"
+        },
+        {
+          "title": "Ambulance",
+          "value": "1669"
+        },
+        {
+          "title": "Tourism hotline",
+          "value": "1155"
+        }
       ]
     },
     "accessibility": {
       "title": "Accessibility",
       "intro": "Mae Kampong tries to welcome all visitors",
       "items": [
-        { "title": "Trails", "desc": "Most are short and flat, but some have stairs and slippery surfaces" },
-        { "title": "Parking", "desc": "A parking area is available near the village entrance" },
-        { "title": "Facilities", "desc": "Homestays and cafés exist, but no direct wheelchair ramps" }
+        {
+          "title": "Trails",
+          "desc": "Most are short and flat, but some have stairs and slippery surfaces"
+        },
+        {
+          "title": "Parking",
+          "desc": "A parking area is available near the village entrance"
+        },
+        {
+          "title": "Facilities",
+          "desc": "Homestays and cafés exist, but no direct wheelchair ramps"
+        }
       ]
     },
     "faqTitle": "Frequently asked questions",
     "faqs": [
-      { "q": "Where is Mae Kampong Village located?", "a": "Mae Kampong Village is located in Huai Kaeo, Mae On District, Chiang Mai Province, Thailand (postal code 50130), about a 1–1.5 hour drive east of Chiang Mai city." },
-      { "q": "Is Mae Kampong free to visit?", "a": "Yes, Mae Kampong Village is a public village and is free to visit year-round; only the community waterfall charges a small maintenance fee." },
-      { "q": "How far is Mae Kampong from Chiang Mai?", "a": "About a 1–1.5 hour drive, east of Chiang Mai." },
-      { "q": "When is the sea of clouds best?", "a": "At dawn 06:00–08:00, especially in the cool season (Nov–Feb)." },
-      { "q": "Is there an entry fee?", "a": "The village is free; the waterfall charges a small community fee — bring cash." },
-      { "q": "Can I stay overnight?", "a": "Yes — several community homestays; booking ahead is recommended." },
-      { "q": "Is it suitable for seniors and children?", "a": "Most trails are short and flat, good for all ages, but watch for slipperiness at dawn." },
-      { "q": "What is Mae Kampong famous for?", "a": "Highland oolong tea and Arabica coffee, the seven-tier Mae Kampong Waterfall, community homestays and the dawn 'sea of clouds' rolling over the valley." },
-      { "q": "Is there parking and are there public restrooms?", "a": "Yes. Open-air parking lots sit at the village entrance and along the main lane, and public restrooms are available near the car park and at the waterfall entrance. Homestays and tea houses also let visitors use their facilities." },
-      { "q": "Can I refuel or charge an electric car in the village?", "a": "No. There is no fuel station and no public EV charger in Mae Kampong. Refuel or recharge in San Kamphaeng or Mae On before the mountain climb." },
-      { "q": "What is the best time of day to visit Mae Kampong?", "a": "The first two hours after sunrise. That is when the valley fills with mist, the light on the tea terraces is softest, and the village is still quiet." }
+      {
+        "q": "Where is Mae Kampong Village located?",
+        "a": "Mae Kampong Village is located in Huai Kaeo, Mae On District, Chiang Mai Province, Thailand (postal code 50130), about a 1–1.5 hour drive east of Chiang Mai city."
+      },
+      {
+        "q": "Is Mae Kampong free to visit?",
+        "a": "Yes, Mae Kampong Village is a public village and is free to visit year-round; only the community waterfall charges a small maintenance fee."
+      },
+      {
+        "q": "How far is Mae Kampong from Chiang Mai?",
+        "a": "About a 1–1.5 hour drive, east of Chiang Mai."
+      },
+      {
+        "q": "When is the sea of clouds best?",
+        "a": "At dawn 06:00–08:00, especially in the cool season (Nov–Feb)."
+      },
+      {
+        "q": "Is there an entry fee?",
+        "a": "The village is free; the waterfall charges a small community fee — bring cash."
+      },
+      {
+        "q": "Can I stay overnight?",
+        "a": "Yes — several community homestays; booking ahead is recommended."
+      },
+      {
+        "q": "Is it suitable for seniors and children?",
+        "a": "Most trails are short and flat, good for all ages, but watch for slipperiness at dawn."
+      },
+      {
+        "q": "What is Mae Kampong famous for?",
+        "a": "Highland oolong tea and Arabica coffee, the seven-tier Mae Kampong Waterfall, community homestays and the dawn 'sea of clouds' rolling over the valley."
+      },
+      {
+        "q": "Is there parking and are there public restrooms?",
+        "a": "Yes. Open-air parking lots sit at the village entrance and along the main lane, and public restrooms are available near the car park and at the waterfall entrance. Homestays and tea houses also let visitors use their facilities."
+      },
+      {
+        "q": "Can I refuel or charge an electric car in the village?",
+        "a": "No. There is no fuel station and no public EV charger in Mae Kampong. Refuel or recharge in San Kamphaeng or Mae On before the mountain climb."
+      },
+      {
+        "q": "What is the best time of day to visit Mae Kampong?",
+        "a": "The first two hours after sunrise. That is when the valley fills with mist, the light on the tea terraces is softest, and the village is still quiet."
+      }
     ],
     "nearby": {
       "title": "Nearby places",
       "cta": "More to explore in Mae On",
       "items": [
-        { "name": "Mae Kampong Waterfall", "desc": "A 7-tier waterfall about 1 km from the village", "url": "https://www.google.com/maps/search/?api=1&query=Mae+Kampong+Waterfall+Chiang+Mai+Thailand" },
-        { "name": "San Kamphaeng Hot Springs", "desc": "Natural hot springs on the way to Mae Kampong", "url": "https://www.google.com/maps/search/?api=1&query=San+Kamphaeng+Hot+Spring+Chiang+Mai+Thailand" },
-        { "name": "Chiang Mai", "desc": "Old city, Doi Suthep and night markets", "url": "https://www.google.com/maps/search/?api=1&query=Chiang+Mai+Thailand" }
+        {
+          "name": "Mae Kampong Waterfall",
+          "desc": "A 7-tier waterfall about 1 km from the village",
+          "url": "https://www.google.com/maps/search/?api=1&query=Mae+Kampong+Waterfall+Chiang+Mai+Thailand"
+        },
+        {
+          "name": "San Kamphaeng Hot Springs",
+          "desc": "Natural hot springs on the way to Mae Kampong",
+          "url": "https://www.google.com/maps/search/?api=1&query=San+Kamphaeng+Hot+Spring+Chiang+Mai+Thailand"
+        },
+        {
+          "name": "Chiang Mai",
+          "desc": "Old city, Doi Suthep and night markets",
+          "url": "https://www.google.com/maps/search/?api=1&query=Chiang+Mai+Thailand"
+        }
       ]
     }
   },
@@ -416,10 +940,26 @@
     "heading": "Landmarks & Attractions Around Mae Kampong",
     "lead": "When visiting Mae Kampong Village, visitors can easily explore surrounding historical landmarks and points of interest, including Mae Kampong Waterfall and San Kamphaeng Hot Springs.",
     "items": [
-      { "name": "Mae Kampong Waterfall", "desc": "A seven-tier waterfall about 1 km from the village, reached by a community nature trail.", "url": "https://www.google.com/maps/search/?api=1&query=Mae+Kampong+Waterfall+Chiang+Mai+Thailand" },
-      { "name": "San Kamphaeng Hot Springs", "desc": "Natural hot springs on the San Kamphaeng → Mae On road, an easy stop on the way up.", "url": "https://www.google.com/maps/search/?api=1&query=San+Kamphaeng+Hot+Spring+Chiang+Mai+Thailand" },
-      { "name": "Kew Fin Viewpoint", "desc": "A 1,517 m viewpoint inside Chae Son National Park with a 360° sea of clouds at dawn.", "url": "https://www.google.com/maps/search/?api=1&query=Kew+Fin+Viewpoint+Chiang+Mai+Thailand" },
-      { "name": "Chiang Mai", "desc": "The provincial capital — old city temples, Doi Suthep and night markets, 1–1.5 hours away.", "url": "https://www.google.com/maps/search/?api=1&query=Chiang+Mai+Thailand" }
+      {
+        "name": "Mae Kampong Waterfall",
+        "desc": "A seven-tier waterfall about 1 km from the village, reached by a community nature trail.",
+        "url": "https://www.google.com/maps/search/?api=1&query=Mae+Kampong+Waterfall+Chiang+Mai+Thailand"
+      },
+      {
+        "name": "San Kamphaeng Hot Springs",
+        "desc": "Natural hot springs on the San Kamphaeng → Mae On road, an easy stop on the way up.",
+        "url": "https://www.google.com/maps/search/?api=1&query=San+Kamphaeng+Hot+Spring+Chiang+Mai+Thailand"
+      },
+      {
+        "name": "Kew Fin Viewpoint",
+        "desc": "A 1,517 m viewpoint inside Chae Son National Park with a 360° sea of clouds at dawn.",
+        "url": "https://www.google.com/maps/search/?api=1&query=Kew+Fin+Viewpoint+Chiang+Mai+Thailand"
+      },
+      {
+        "name": "Chiang Mai",
+        "desc": "The provincial capital — old city temples, Doi Suthep and night markets, 1–1.5 hours away.",
+        "url": "https://www.google.com/maps/search/?api=1&query=Chiang+Mai+Thailand"
+      }
     ],
     "viewOnMaps": "View on Google Maps"
   },
@@ -496,7 +1036,15 @@
     },
     "forecastTitle": "Next 7 days",
     "today": "Today",
-    "weekdays": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    "weekdays": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ]
   },
   "services": {
     "label": "Visitor services",
@@ -504,14 +1052,62 @@
     "lead": "Mae Kampong is a living village rather than a ticketed attraction. Facilities are simple and community-run, so the list below describes the type of service to expect — never a specific shop.",
     "typeLabel": "Type",
     "items": [
-      { "icon": "🚻", "name": "Restrooms", "type": "Public / community", "desc": "Toilets are available near the village car park and by the waterfall entrance; homestays and tea houses also let visitors use theirs.", "tip": "Carry your own tissue and some small change." },
-      { "icon": "🅿️", "name": "Parking", "type": "Open-air village lots", "desc": "Several open-air lots sit at the village entrance and along the main lane. They fill quickly on cool-season weekends.", "tip": "Arrive before 09:00, or park lower down and walk in." },
-      { "icon": "🍜", "name": "Food & drink", "type": "Small local kitchens", "desc": "Family kitchens and tea houses serve Northern Thai dishes, highland oolong tea and village-roasted coffee, mostly from morning to late afternoon.", "tip": "Kitchens close early — eat before 18:00 if you are not staying overnight." },
-      { "icon": "🏡", "name": "Accommodation", "type": "Community homestays", "desc": "Homestays are private homes registered with the village cooperative: simple rooms, shared bathrooms, blankets and mosquito nets.", "tip": "Book ahead for weekends and the November–February high season." },
-      { "icon": "🏪", "name": "Groceries & daily goods", "type": "Village shops", "desc": "Small shops stock drinks, snacks and daily necessities. For a full supermarket or pharmacy, stop in Mae On or San Kamphaeng on the way up.", "tip": "Bring any regular medication with you." },
-      { "icon": "⛽", "name": "Fuel & EV charging", "type": "Outside the village", "desc": "There is no fuel station or public EV charger inside the village. Refuel or recharge in San Kamphaeng or Mae On before the climb.", "tip": "The last stretch is a winding mountain road — start with a full tank or generous range." },
-      { "icon": "💊", "name": "Health & first aid", "type": "Basic only", "desc": "The village can handle basic first aid; the nearest clinic and hospital are in Mae On and Chiang Mai.", "tip": "Save the emergency numbers listed in the visitor guide section." },
-      { "icon": "📶", "name": "Connectivity & payment", "type": "Patchy signal, cash first", "desc": "Mobile data works but is uneven in the valley, and card payment is not always accepted.", "tip": "Withdraw cash in Chiang Mai or Mae On before you arrive." }
+      {
+        "icon": "🚻",
+        "name": "Restrooms",
+        "type": "Public / community",
+        "desc": "Toilets are available near the village car park and by the waterfall entrance; homestays and tea houses also let visitors use theirs.",
+        "tip": "Carry your own tissue and some small change."
+      },
+      {
+        "icon": "🅿️",
+        "name": "Parking",
+        "type": "Open-air village lots",
+        "desc": "Several open-air lots sit at the village entrance and along the main lane. They fill quickly on cool-season weekends.",
+        "tip": "Arrive before 09:00, or park lower down and walk in."
+      },
+      {
+        "icon": "🍜",
+        "name": "Food & drink",
+        "type": "Small local kitchens",
+        "desc": "Family kitchens and tea houses serve Northern Thai dishes, highland oolong tea and village-roasted coffee, mostly from morning to late afternoon.",
+        "tip": "Kitchens close early — eat before 18:00 if you are not staying overnight."
+      },
+      {
+        "icon": "🏡",
+        "name": "Accommodation",
+        "type": "Community homestays",
+        "desc": "Homestays are private homes registered with the village cooperative: simple rooms, shared bathrooms, blankets and mosquito nets.",
+        "tip": "Book ahead for weekends and the November–February high season."
+      },
+      {
+        "icon": "🏪",
+        "name": "Groceries & daily goods",
+        "type": "Village shops",
+        "desc": "Small shops stock drinks, snacks and daily necessities. For a full supermarket or pharmacy, stop in Mae On or San Kamphaeng on the way up.",
+        "tip": "Bring any regular medication with you."
+      },
+      {
+        "icon": "⛽",
+        "name": "Fuel & EV charging",
+        "type": "Outside the village",
+        "desc": "There is no fuel station or public EV charger inside the village. Refuel or recharge in San Kamphaeng or Mae On before the climb.",
+        "tip": "The last stretch is a winding mountain road — start with a full tank or generous range."
+      },
+      {
+        "icon": "💊",
+        "name": "Health & first aid",
+        "type": "Basic only",
+        "desc": "The village can handle basic first aid; the nearest clinic and hospital are in Mae On and Chiang Mai.",
+        "tip": "Save the emergency numbers listed in the visitor guide section."
+      },
+      {
+        "icon": "📶",
+        "name": "Connectivity & payment",
+        "type": "Patchy signal, cash first",
+        "desc": "Mobile data works but is uneven in the valley, and card payment is not always accepted.",
+        "tip": "Withdraw cash in Chiang Mai or Mae On before you arrive."
+      }
     ],
     "note": "This is an independent, non-profit guide: we describe facility types only and never promote or take commission from an individual business."
   },
@@ -521,23 +1117,147 @@
     "lead": "Four quarters, four different mountains. Match the season to what you want to see, then choose a route that fits your travel party.",
     "seasonsTitle": "Quarterly visit strategy",
     "seasonsNote": "A combined read of mountain weather, stream flow and seasonal wildlife activity, based on long-term climate normals (30-year averages) for the Chiang Mai highlands.",
-    "seasonsCols": ["Quarter", "Weather", "Stream & trails", "Wildlife & plants", "Good for"],
+    "seasonsCols": [
+      "Quarter",
+      "Weather",
+      "Stream & trails",
+      "Wildlife & plants",
+      "Good for"
+    ],
     "seasons": [
-      { "q": "Nov – Feb · cool", "weather": "13–25 °C, clearest skies, coldest dawns around 8–12 °C", "water": "Lower flow; the falls run clear and calm", "wildlife": "Birds and butterflies most active in the morning; winter flowers bloom", "good": "Sea of clouds, photography, first visits", "tip": "Peak season — book homestays early and be at a viewpoint before 06:30." },
-      { "q": "Mar – May · hot", "weather": "18–32 °C, hazy days from regional agricultural burning", "water": "Streams at their lowest; upper tiers may reduce to a trickle", "wildlife": "Fewer butterflies; fruiting trees draw birds at dawn", "good": "Quiet village walks, tea harvesting", "tip": "Check air quality before driving up; walk early and drink plenty of water." },
-      { "q": "Jun – Oct · rainy", "weather": "19–27 °C, afternoon downpours, mist on most mornings", "water": "Fullest flow and the most dramatic falls, but slippery trails", "wildlife": "Frogs, insects and fungi peak; moss and ferns at their greenest", "good": "Waterfall scenery, forest ecology, few crowds", "tip": "Waterproof shoes and a rain jacket; avoid the falls after heavy overnight rain." },
-      { "q": "Year-round", "weather": "Roughly 5–8 °C cooler than Chiang Mai city", "water": "The Mae Kampong stream flows all year from the watershed forest", "wildlife": "Dawn is always the best window for birds and for mist", "good": "Slow travel, community homestays", "tip": "In any season, the first two hours after sunrise are the village's signature." }
+      {
+        "q": "Nov – Feb · cool",
+        "weather": "13–25 °C, clearest skies, coldest dawns around 8–12 °C",
+        "water": "Lower flow; the falls run clear and calm",
+        "wildlife": "Birds and butterflies most active in the morning; winter flowers bloom",
+        "good": "Sea of clouds, photography, first visits",
+        "tip": "Peak season — book homestays early and be at a viewpoint before 06:30."
+      },
+      {
+        "q": "Mar – May · hot",
+        "weather": "18–32 °C, hazy days from regional agricultural burning",
+        "water": "Streams at their lowest; upper tiers may reduce to a trickle",
+        "wildlife": "Fewer butterflies; fruiting trees draw birds at dawn",
+        "good": "Quiet village walks, tea harvesting",
+        "tip": "Check air quality before driving up; walk early and drink plenty of water."
+      },
+      {
+        "q": "Jun – Oct · rainy",
+        "weather": "19–27 °C, afternoon downpours, mist on most mornings",
+        "water": "Fullest flow and the most dramatic falls, but slippery trails",
+        "wildlife": "Frogs, insects and fungi peak; moss and ferns at their greenest",
+        "good": "Waterfall scenery, forest ecology, few crowds",
+        "tip": "Waterproof shoes and a rain jacket; avoid the falls after heavy overnight rain."
+      },
+      {
+        "q": "Year-round",
+        "weather": "Roughly 5–8 °C cooler than Chiang Mai city",
+        "water": "The Mae Kampong stream flows all year from the watershed forest",
+        "wildlife": "Dawn is always the best window for birds and for mist",
+        "good": "Slow travel, community homestays",
+        "tip": "In any season, the first two hours after sunrise are the village's signature."
+      }
     ],
     "audienceTitle": "Routes by traveller type",
     "audiences": [
-      { "tag": "👨‍👩‍👧", "name": "Families with children", "desc": "Short, gentle walking with plenty of places to stop for snacks and tea.", "steps": ["Park at the upper lot and stroll the village lane", "Tea break on a wooden veranda", "Easy 1 km nature trail to the lower tiers of the waterfall", "Lunch at a family kitchen, then head back before dark"] },
-      { "tag": "📷", "name": "Photography & nature", "desc": "Built around dawn light, mist and the geometry of the tea terraces.", "steps": ["Sleep in the village the night before", "Set up at a viewpoint by 06:00 for the sea of clouds", "Shoot the tea terraces in soft morning light", "Forest and waterfall details once the mist lifts", "Blue hour over the valley before dinner"] },
-      { "tag": "♿", "name": "Low-effort / accessible", "desc": "Minimal walking on the flattest ground, with the village itself as the main attraction.", "steps": ["Drive up to the upper car park to avoid the slope", "Follow the main village lane — mostly level wooden walkways", "Tea and coffee stop with a valley view", "See the waterfall from the accessible lower area", "Return the same way; ask your host for the gentlest route"] }
+      {
+        "tag": "👨‍👩‍👧",
+        "name": "Families with children",
+        "desc": "Short, gentle walking with plenty of places to stop for snacks and tea.",
+        "steps": [
+          "Park at the upper lot and stroll the village lane",
+          "Tea break on a wooden veranda",
+          "Easy 1 km nature trail to the lower tiers of the waterfall",
+          "Lunch at a family kitchen, then head back before dark"
+        ]
+      },
+      {
+        "tag": "📷",
+        "name": "Photography & nature",
+        "desc": "Built around dawn light, mist and the geometry of the tea terraces.",
+        "steps": [
+          "Sleep in the village the night before",
+          "Set up at a viewpoint by 06:00 for the sea of clouds",
+          "Shoot the tea terraces in soft morning light",
+          "Forest and waterfall details once the mist lifts",
+          "Blue hour over the valley before dinner"
+        ]
+      },
+      {
+        "tag": "♿",
+        "name": "Low-effort / accessible",
+        "desc": "Minimal walking on the flattest ground, with the village itself as the main attraction.",
+        "steps": [
+          "Drive up to the upper car park to avoid the slope",
+          "Follow the main village lane — mostly level wooden walkways",
+          "Tea and coffee stop with a valley view",
+          "See the waterfall from the accessible lower area",
+          "Return the same way; ask your host for the gentlest route"
+        ]
+      }
     ],
     "routesTitle": "Recommended routes",
     "routes": [
-      { "tag": "Half day · 4–5 h", "name": "Village & waterfall sampler", "steps": [ { "time": "08:00", "text": "Leave Chiang Mai, coffee stop in San Kamphaeng" }, { "time": "09:30", "text": "Arrive, park, walk the village lane" }, { "time": "10:30", "text": "Nature trail to the waterfall, about 1 km each way" }, { "time": "12:00", "text": "Northern Thai lunch and village tea" }, { "time": "13:30", "text": "Drive back with a viewpoint stop on the way down" } ] },
-      { "tag": "Full day · 8–10 h", "name": "Sea of clouds & tea terraces", "steps": [ { "time": "05:00", "text": "Depart Chiang Mai, or sleep in the village the night before" }, { "time": "06:15", "text": "Dawn viewpoint for the sea of clouds" }, { "time": "08:00", "text": "Breakfast and a walk through the tea terraces" }, { "time": "10:00", "text": "Waterfall tiers and forest trail" }, { "time": "12:30", "text": "Lunch, then a tea or coffee demonstration" }, { "time": "15:00", "text": "Village crafts and a homestay visit" }, { "time": "17:00", "text": "Sunset over the valley, then descend" } ] }
+      {
+        "tag": "Half day · 4–5 h",
+        "name": "Village & waterfall sampler",
+        "steps": [
+          {
+            "time": "08:00",
+            "text": "Leave Chiang Mai, coffee stop in San Kamphaeng"
+          },
+          {
+            "time": "09:30",
+            "text": "Arrive, park, walk the village lane"
+          },
+          {
+            "time": "10:30",
+            "text": "Nature trail to the waterfall, about 1 km each way"
+          },
+          {
+            "time": "12:00",
+            "text": "Northern Thai lunch and village tea"
+          },
+          {
+            "time": "13:30",
+            "text": "Drive back with a viewpoint stop on the way down"
+          }
+        ]
+      },
+      {
+        "tag": "Full day · 8–10 h",
+        "name": "Sea of clouds & tea terraces",
+        "steps": [
+          {
+            "time": "05:00",
+            "text": "Depart Chiang Mai, or sleep in the village the night before"
+          },
+          {
+            "time": "06:15",
+            "text": "Dawn viewpoint for the sea of clouds"
+          },
+          {
+            "time": "08:00",
+            "text": "Breakfast and a walk through the tea terraces"
+          },
+          {
+            "time": "10:00",
+            "text": "Waterfall tiers and forest trail"
+          },
+          {
+            "time": "12:30",
+            "text": "Lunch, then a tea or coffee demonstration"
+          },
+          {
+            "time": "15:00",
+            "text": "Village crafts and a homestay visit"
+          },
+          {
+            "time": "17:00",
+            "text": "Sunset over the valley, then descend"
+          }
+        ]
+      }
     ]
   },
   "science": {
@@ -545,10 +1265,26 @@
     "heading": "Why Mae Kampong looks the way it does",
     "lead": "The mist, the cool air and the tea on the hillsides are all connected. Four short explanations for curious visitors.",
     "cards": [
-      { "icon": "🌫️", "title": "Why the valley fills with cloud", "text": "On clear, windless nights the ground loses heat by radiation. Cold air is heavier, so it slides down the slopes and pools in the valley. Once the air near the ground cools to its dew point, water vapour condenses into tiny droplets — fog. Seen from a ridge above, that fog is exactly what visitors call a sea of clouds." },
-      { "icon": "🌡️", "title": "Why it is cooler than Chiang Mai", "text": "Air temperature falls by roughly 6.5 °C for every 1,000 m of altitude. Mae Kampong sits at about 1,300 m while Chiang Mai city is near 300 m, which is why the village is typically 5–8 °C cooler — and why dawns feel genuinely cold." },
-      { "icon": "💧", "title": "Where the stream comes from", "text": "The Mae Kampong stream is fed by rainfall captured in the watershed forest above the village. Moss, leaf litter and tree roots slow the water down and release it gradually through the year rather than in one runoff surge. Protecting that forest is what keeps the village water supply stable." },
-      { "icon": "🌱", "title": "From Miang to tea: an economy that regrew a forest", "text": "Villagers once relied on Miang — tea leaves fermented and chewed — alongside shifting cultivation. High-value cool-climate crops introduced with royal project support gave households an alternative that keeps trees on the hillside, and community-based tourism gave visitors a reason to keep the forest standing." }
+      {
+        "icon": "🌫️",
+        "title": "Why the valley fills with cloud",
+        "text": "On clear, windless nights the ground loses heat by radiation. Cold air is heavier, so it slides down the slopes and pools in the valley. Once the air near the ground cools to its dew point, water vapour condenses into tiny droplets — fog. Seen from a ridge above, that fog is exactly what visitors call a sea of clouds."
+      },
+      {
+        "icon": "🌡️",
+        "title": "Why it is cooler than Chiang Mai",
+        "text": "Air temperature falls by roughly 6.5 °C for every 1,000 m of altitude. Mae Kampong sits at about 1,300 m while Chiang Mai city is near 300 m, which is why the village is typically 5–8 °C cooler — and why dawns feel genuinely cold."
+      },
+      {
+        "icon": "💧",
+        "title": "Where the stream comes from",
+        "text": "The Mae Kampong stream is fed by rainfall captured in the watershed forest above the village. Moss, leaf litter and tree roots slow the water down and release it gradually through the year rather than in one runoff surge. Protecting that forest is what keeps the village water supply stable."
+      },
+      {
+        "icon": "🌱",
+        "title": "From Miang to tea: an economy that regrew a forest",
+        "text": "Villagers once relied on Miang — tea leaves fermented and chewed — alongside shifting cultivation. High-value cool-climate crops introduced with royal project support gave households an alternative that keeps trees on the hillside, and community-based tourism gave visitors a reason to keep the forest standing."
+      }
     ],
     "responsibilityTitle": "Visitor responsibility",
     "responsibility": [
@@ -571,10 +1307,30 @@
     "heading": "Tea, coffee & local food",
     "lead": "The Mae Kampong experience blends Lanna culture with highland tea, coffee and simple local food.",
     "dishes": [
-      { "tag": "01", "name": "Khao Soi", "price": "฿60", "desc": "A Northern classic: egg noodles in coconut curry, simmered with highland spring water and local herbs" },
-      { "tag": "02", "name": "Sai Ua (Northern sausage)", "price": "฿80", "desc": "Herbed pork sausage spiced with wild highland peppercorns, eaten with chili paste" },
-      { "tag": "03", "name": "Homeroasted Oolong & coffee", "price": "฿50", "desc": "Tea and coffee from the village's highland farms" },
-      { "tag": "04", "name": "Coconut dessert", "price": "฿40", "desc": "Thai sweets made with young coconut, perfect for slow living" }
+      {
+        "tag": "01",
+        "name": "Khao Soi",
+        "price": "฿60",
+        "desc": "A Northern classic: egg noodles in coconut curry, simmered with highland spring water and local herbs"
+      },
+      {
+        "tag": "02",
+        "name": "Sai Ua (Northern sausage)",
+        "price": "฿80",
+        "desc": "Herbed pork sausage spiced with wild highland peppercorns, eaten with chili paste"
+      },
+      {
+        "tag": "03",
+        "name": "Homeroasted Oolong & coffee",
+        "price": "฿50",
+        "desc": "Tea and coffee from the village's highland farms"
+      },
+      {
+        "tag": "04",
+        "name": "Coconut dessert",
+        "price": "฿40",
+        "desc": "Thai sweets made with young coconut, perfect for slow living"
+      }
     ],
     "quote": {
       "text": "“Sipping hot tea among the sea of clouds — that is the Lanna art of slowing down.”",
@@ -616,40 +1372,38 @@
   },
   "reviews": {
     "label": "Reviews",
-    "heading": "What visitors say about Mae Kampong",
-    "intro": "A collection of voices from people who have visited Mae Kampong Village.",
+    "heading": "Google Maps rating & reviews",
+    "intro": "Mae Kampong Village holds a 4.5-star Google Maps rating from thousands of visitor reviews. We show the current snapshot and link to Google Maps for the latest individual reviews — we do not copy them onto this site.",
     "ratingLabel": "Google Maps rating",
-    "disclaimer": "Ratings and review counts synced from Google Maps user reviews · September 2026 · Click to view all Google Maps reviews",
-    "declaration": "Synced from Google Maps user reviews, synced September 2026; copyright belongs to the original authors and Google Maps.",
+    "disclaimer": "Rating and review count synced from Google Maps user reviews · October 2026 · Click to view all Google Maps reviews",
+    "declaration": "Synced from Google Maps user reviews, last synced October 2026; copyright belongs to the original authors and Google Maps.",
     "reviewsFrom": "Reviews from Google Maps user reviews",
-    "featured": [
-      { "text": "Worth getting up early — the sea of clouds is as wide as the ocean and the sunrise is breathtaking.", "source": "— Google Maps user review" },
-      { "text": "Sitting on a wooden veranda with hot tea in the mist was the most peaceful moment of my Chiang Mai trip.", "source": "— Google Maps user review" }
-    ],
-    "items": [
-      { "rating": "5", "name": "Anong S.", "date": "2025-12", "text": "[Sea of clouds] Dec, the mist was very thick and the photos turned out amazing" },
-      { "rating": "5", "name": "James T.", "date": "2025-11", "text": "[Sunrise] Woke at 5am, no regrets — the golden light was beautiful" },
-      { "rating": "4", "name": "Linda", "date": "2026-01", "text": "[Tea] The hilltop café was great and the air was cool and fresh" },
-      { "rating": "5", "name": "Peter W.", "date": "2025-10", "text": "[View] A real 360° — beautiful in every direction" },
-      { "rating": "4", "name": "Somchai", "date": "2026-02", "text": "[Road] Winding climb but easy to drive, watch the mist" },
-      { "rating": "5", "name": "Mika K.", "date": "2025-12", "text": "[Homestay] Stayed in a homestay, woke to mist — highly recommend" },
-      { "rating": "4", "name": "Wichai", "date": "2025-09", "text": "[Food] Up there they have tea and snacks with a great view" },
-      { "rating": "5", "name": "Emma R.", "date": "2026-01", "text": "[Photography] The white-mist tones are beautiful — arrive before dawn" },
-      { "rating": "4", "name": "Noi Na", "date": "2025-11", "text": "[Family] Brought the kids, trails are short but watch the slipperiness" },
-      { "rating": "5", "name": "Daniel L.", "date": "2025-12", "text": "[Peace] Quieter and calmer than elsewhere — great for relaxing" },
-      { "rating": "4", "name": "Or", "date": "2026-02", "text": "[Cool season] Very cold — don't forget a warm jacket" },
-      { "rating": "5", "name": "Yuki H.", "date": "2025-10", "text": "[Value] Waterfall entry is cheap and the view is well worth it" }
-    ],
-    "viewLocation": "View all reviews on Google Maps"
+    "featured": [],
+    "items": [],
+    "viewLocation": "View all reviews on Google Maps",
+    "snapshotTitle": "Google Maps rating snapshot",
+    "snapshotNote": "This site does not reproduce individual Google Maps reviews. Open Google Maps to read the most recent visitor reviews for Mae Kampong Village."
   },
   "mapSection": {
     "label": "Map",
     "heading": "Location & How to Visit Mae Kampong in Chiang Mai",
     "lead": "The village is in Huai Kaeo, Mae On District, Chiang Mai. Use the coordinates below for navigation.",
     "stats": [
-      { "tag": "From Chiang Mai", "value": "≈ 1–1.5 hrs", "sub": "by car" },
-      { "tag": "Coordinates", "value": "18.8642°N", "sub": "99.3498°E" },
-      { "tag": "Plus Code", "value": "V982+695", "sub": "Huai Kaeo, Mae On" }
+      {
+        "tag": "From Chiang Mai",
+        "value": "≈ 1–1.5 hrs",
+        "sub": "by car"
+      },
+      {
+        "tag": "Coordinates",
+        "value": "18.8642°N",
+        "sub": "99.3498°E"
+      },
+      {
+        "tag": "Plus Code",
+        "value": "V982+695",
+        "sub": "Huai Kaeo, Mae On"
+      }
     ],
     "address": "V982+695, Huai Kaeo, Mae On District, Chiang Mai 50130, Thailand",
     "plusCode": "V982+695 (Huai Kaeo, Mae On)",
@@ -661,8 +1415,16 @@
     "intro": "Information on this site is compiled from tourism authorities and openly available references, for learning and conservation.",
     "photoTitle": "Photo credits",
     "photoItems": [
-      { "text": "All images show the real scenery of Mae Kampong Village.", "url": "https://maps.app.goo.gl/CJABCvJdCDW68ttP9", "linkLabel": "View location" },
-      { "text": "Photos by visitors and the local community.", "url": "", "linkLabel": "" }
+      {
+        "text": "All images show the real scenery of Mae Kampong Village.",
+        "url": "https://maps.app.goo.gl/CJABCvJdCDW68ttP9",
+        "linkLabel": "View location"
+      },
+      {
+        "text": "Photos by visitors and the local community.",
+        "url": "",
+        "linkLabel": ""
+      }
     ],
     "factTitle": "Reference data",
     "factText": "Weather from Open-Meteo; scores from Google reviews; location per GPS coordinates and Plus Code.",
@@ -684,19 +1446,40 @@
       "title": "Privacy Policy",
       "updated": "Last updated: 2026",
       "sections": [
-        { "h": "Information we collect", "p": "The site does not require personal information and does not store identifiable data." },
-        { "h": "Cookies & analytics", "p": "We use cookies only to remember language settings and do not share data with third parties for marketing." },
-        { "h": "External links", "p": "The site links to Google Maps and external sources that have their own privacy policies." },
-        { "h": "Contact us", "p": "For any questions about your data, reach us via the channel stated on the home page." }
+        {
+          "h": "Information we collect",
+          "p": "The site does not require personal information and does not store identifiable data."
+        },
+        {
+          "h": "Cookies & analytics",
+          "p": "We use cookies only to remember language settings and do not share data with third parties for marketing."
+        },
+        {
+          "h": "External links",
+          "p": "The site links to Google Maps and external sources that have their own privacy policies."
+        },
+        {
+          "h": "Contact us",
+          "p": "For any questions about your data, reach us via the channel stated on the home page."
+        }
       ]
     },
     "terms": {
       "title": "Terms of Use",
       "updated": "Last updated: 2026",
       "sections": [
-        { "h": "Usage guidance", "p": "Site content is for learning and reference only." },
-        { "h": "Limitation of liability", "p": "We are not liable for any damage from using this information; please verify the latest details before travelling." },
-        { "h": "Copyright", "p": "All content belongs to the site author; commercial use without permission is prohibited." }
+        {
+          "h": "Usage guidance",
+          "p": "Site content is for learning and reference only."
+        },
+        {
+          "h": "Limitation of liability",
+          "p": "We are not liable for any damage from using this information; please verify the latest details before travelling."
+        },
+        {
+          "h": "Copyright",
+          "p": "All content belongs to the site author; commercial use without permission is prohibited."
+        }
       ]
     },
     "cookies": {
@@ -704,8 +1487,20 @@
       "updated": "Last updated: 2026",
       "intro": "Cookies help remember language settings and improve your experience. You can toggle them below.",
       "categories": [
-        { "h": "Essential cookies", "p": "Required for basic functions such as language selection", "status": "Enabled", "subStatus": "Required", "active": true },
-        { "h": "Analytics cookies", "p": "Help understand usage in a non-identifiable way", "status": "Disabled", "subStatus": "Optional", "active": false }
+        {
+          "h": "Essential cookies",
+          "p": "Required for basic functions such as language selection",
+          "status": "Enabled",
+          "subStatus": "Required",
+          "active": true
+        },
+        {
+          "h": "Analytics cookies",
+          "p": "Help understand usage in a non-identifiable way",
+          "status": "Disabled",
+          "subStatus": "Optional",
+          "active": false
+        }
       ],
       "consent": "Click 'Save' to accept cookies as selected.",
       "save": "Save",
@@ -713,25 +1508,73 @@
     }
   },
   "footer": {
-    "brand": { "name": "Mae Kampong · Lanna Village", "tagline": "Where the mist comes to visit · Mae On, Chiang Mai" },
+    "brand": {
+      "name": "Mae Kampong · Lanna Village",
+      "tagline": "Where the mist comes to visit · Mae On, Chiang Mai"
+    },
     "about": "A guide to Mae Kampong Village — an independent educational resource gathering the views, ecosystem and community stories of this village.",
     "navTitle": "Menu",
     "navItems": [
-      { "label": "Home", "href": "#home" },
-      { "label": "About", "href": "#about" },
-      { "label": "Ecosystem", "href": "#eco" },
-      { "label": "History", "href": "#history" },
-      { "label": "Visitor Guide", "href": "#guide" },
-      { "label": "Weather", "href": "#weather" },
-      { "label": "Services", "href": "#services" },
-      { "label": "Plan your trip", "href": "#plan" },
-      { "label": "Food & drink", "href": "#food" },
-      { "label": "Landmarks", "href": "#landmarks" },
-      { "label": "Gallery", "href": "#gallery" },
-      { "label": "Reviews", "href": "#reviews" },
-      { "label": "Science & responsibility", "href": "#science" },
-      { "label": "Sources", "href": "#sources" },
-      { "label": "Map", "href": "#map" }
+      {
+        "label": "Home",
+        "href": "#home"
+      },
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Ecosystem",
+        "href": "#eco"
+      },
+      {
+        "label": "History",
+        "href": "#history"
+      },
+      {
+        "label": "Visitor Guide",
+        "href": "#guide"
+      },
+      {
+        "label": "Weather",
+        "href": "#weather"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Plan your trip",
+        "href": "#plan"
+      },
+      {
+        "label": "Food & drink",
+        "href": "#food"
+      },
+      {
+        "label": "Landmarks",
+        "href": "#landmarks"
+      },
+      {
+        "label": "Gallery",
+        "href": "#gallery"
+      },
+      {
+        "label": "Reviews",
+        "href": "#reviews"
+      },
+      {
+        "label": "Science & responsibility",
+        "href": "#science"
+      },
+      {
+        "label": "Sources",
+        "href": "#sources"
+      },
+      {
+        "label": "Map",
+        "href": "#map"
+      }
     ],
     "noteTitle": "Contact",
     "note": "The village is open all day; the waterfall 08:00–17:00. For tourism enquiries contact TAT Chiang Mai +66 53 248 604.",
@@ -747,5 +1590,50 @@
     "reviewSource": "Reviews synced from Google Maps user reviews, synced September 2026; copyright belongs to the original authors and Google Maps.",
     "imageCopyright": "Image rights: all images shown on this site remain the property and copyright of their original photographers.",
     "copyright": "© 2026 Mae Kampong Village · All rights reserved"
+  },
+  "quick": {
+    "label": "Plan your visit",
+    "heading": "Mae Kampong at a glance",
+    "facts": [
+      {
+        "icon": "📍",
+        "label": "Where",
+        "value": "Huai Kaeo, Mae On, Chiang Mai"
+      },
+      {
+        "icon": "⛰️",
+        "label": "Elevation",
+        "value": "About 1,300 m — 5–8 °C cooler than the city"
+      },
+      {
+        "icon": "🚗",
+        "label": "From Chiang Mai",
+        "value": "About 1–1.5 hours by car"
+      },
+      {
+        "icon": "🕕",
+        "label": "Hours",
+        "value": "Village open all day · waterfall 08:00–17:00"
+      },
+      {
+        "icon": "🎟️",
+        "label": "Entry",
+        "value": "Free village entry · small fee at the waterfall"
+      },
+      {
+        "icon": "🌤️",
+        "label": "Best season",
+        "value": "November–February for clear skies & sea of clouds"
+      }
+    ],
+    "guidesTitle": "Jump to a guide",
+    "guidesLead": "Detailed pages for the decisions you need to make before driving up.",
+    "guideDescs": {
+      "transport": "Routes from Chiang Mai, transport options compared, parking and return-trip planning.",
+      "stay": "How community homestays work, what to confirm when booking, and who each room type suits.",
+      "waterfall": "The seven-tier falls: trail, hours, fees, what to bring and safety notes.",
+      "plan": "Opening hours, season-by-season strategy and ready-made itineraries.",
+      "attractions": "Waterfall, Kew Fin sea of clouds, tea terraces and village coffee experiences."
+    }
   }
 }

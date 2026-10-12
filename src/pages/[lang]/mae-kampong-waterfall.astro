@@ -1,0 +1,75 @@
+---
+import TopicLayout from '../../layouts/TopicLayout.astro';
+import th from '../../i18n/th.json';
+import en from '../../i18n/en.json';
+import zh from '../../i18n/zh.json';
+import { languagesList, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return languagesList.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params as { lang: Lang };
+const m = { th, en, zh }[lang];
+const w = m.topics.waterfall;
+---
+
+<TopicLayout lang={lang} messages={m} topic="mae-kampong-waterfall">
+  <section>
+    <h2 class="font-display text-2xl text-teak">{w.heading}</h2>
+    <p class="mt-2 text-stone-600">{w.lead}</p>
+    <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {
+        w.facts.map((f: any) => (
+          <div class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <div class="text-2xl">{f.icon}</div>
+            <div class="mt-2 text-xs uppercase tracking-wide text-stone-500">{f.label}</div>
+            <div class="mt-0.5 font-medium text-stone-800">{f.value}</div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{w.routeTitle}</h2>
+    <ol class="mt-4 space-y-2 text-stone-600 list-decimal pl-5">
+      {w.route.map((s: string) => <li>{s}</li>)}
+    </ol>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{w.bringTitle}</h2>
+    <ul class="mt-4 space-y-2 text-stone-600 list-disc pl-5">
+      {w.bring.map((s: string) => <li>{s}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{w.safetyTitle}</h2>
+    <ul class="mt-4 space-y-2 text-stone-600 list-disc pl-5">
+      {w.safety.map((s: string) => <li>{s}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{w.seasonsTitle}</h2>
+    <div class="mt-4 space-y-4">
+      {
+        w.seasons.map((s: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{s.name}</h3>
+            <p class="mt-1 text-stone-600">{s.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{w.photoTitle}</h2>
+    <ul class="mt-4 space-y-2 text-stone-600 list-disc pl-5">
+      {w.photo.map((s: string) => <li>{s}</li>)}
+    </ul>
+  </section>
+</TopicLayout>

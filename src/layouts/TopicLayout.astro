@@ -4,14 +4,14 @@ import Footer from '../components/Footer.astro';
 import type { Lang } from '../i18n/ui';
 
 /**
- * Shared shell for the topic landing pages (/transport, /stay, /attractions, /plan).
+ * Shared shell for the topic landing pages (/transport, /stay, /attractions, /plan, /mae-kampong-waterfall).
  * Each page keeps its own canonical + hreflang cluster, ships FAQPage JSON-LD and
  * links back to the hub so the cluster is crawlable in both directions.
  */
 interface Props {
   lang: Lang;
   messages: Record<string, any>;
-  topic: 'transport' | 'stay' | 'attractions' | 'plan';
+  topic: 'transport' | 'stay' | 'attractions' | 'plan' | 'mae-kampong-waterfall';
 }
 
 const { lang, messages, topic } = Astro.props;
@@ -19,7 +19,7 @@ const t = messages.topics;
 const page = t[topic];
 const home = `/${lang}/`;
 
-const order = ['transport', 'stay', 'attractions', 'plan'] as const;
+const order = ['transport', 'stay', 'mae-kampong-waterfall', 'attractions', 'plan'] as const;
 const links = [
   { href: home, label: t.homeLabel },
   ...order.filter((k) => k !== topic).map((k) => ({ href: `/${lang}/${k}/`, label: t[k].navLabel })),

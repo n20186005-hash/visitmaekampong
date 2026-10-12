@@ -12,12 +12,12 @@ export const siteConfig = {
   phone: '+6653248604',
   phoneDisplay: '+66 53 248 604',
 
-  // 最新谷歌地图数据（同步时间 2026 年 9 月）
+  // 最新谷歌地图数据（同步时间 2026 年 10 月）
   rating: 4.5,
-  reviewCount: '6,102',
+  reviewCount: '6,198',
   // 评价同步自谷歌地图的时间（用于页面来源说明，规避违规风险）
-  reviewSyncAt: '2026 年 9 月 / September 2026 / กันยายน 2026',
-  reviewSyncShort: '2026-09',
+  reviewSyncAt: '2026 年 10 月 / October 2026 / ตุลาคม 2026',
+  reviewSyncShort: '2026-10',
 
   // 实际坐标（用于天气 / 日落 API 与地图嵌入）—— Mae Kampong Village, Huai Kaeo, Mae On, Chiang Mai
   coords: { lat: 18.8642, lng: 99.3498 },
@@ -51,7 +51,7 @@ export const siteConfig = {
     fullName: 'Mae Kampong Village',
     shortName: 'Mae Kampong',
     // 其他语言写法，用于 alternateName
-    alternateNames: ['หมู่บ้านแม่กำปอง', '湄甘蓬村', 'Mae Kampong Chiang Mai'],
+    alternateNames: ['หมู่บ้านแม่กำปอง', '湄甘蓬村', '湄康蓬村', 'Mae Kampong Chiang Mai'],
     city: 'Chiang Mai',
     district: 'Mae On',
     subDistrict: 'Huai Kaeo',

@@ -14,6 +14,7 @@ const { lang } = Astro.params as { lang: Lang };
 const m = { th, en, zh }[lang];
 const guide = m.guide;
 const services = m.services;
+const t = m.topics.transport;
 const pick = (icons: string[]) => services.items.filter((i: any) => icons.includes(i.icon));
 ---
 
@@ -30,6 +31,64 @@ const pick = (icons: string[]) => services.items.filter((i: any) => icons.includ
         ))
       }
     </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{t.departuresTitle}</h2>
+    <div class="mt-4 space-y-4">
+      {
+        t.departures.map((d: any) => (
+          <article class="rounded-2xl border border-stone-300 bg-white/50 p-5">
+            <h3 class="font-semibold text-stone-800">{d.name}</h3>
+            <p class="mt-1 text-stone-600">{d.desc}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{t.compareTitle}</h2>
+    <div class="mt-4 overflow-x-auto">
+      <table class="w-full text-sm border border-stone-300 rounded-xl overflow-hidden">
+        <thead class="bg-sand/60 text-stone-700">
+          <tr>
+            {t.compare.cols.map((c: string) => <th class="text-left font-semibold p-3">{c}</th>)}
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-200">
+          {
+            t.compare.rows.map((r: any) => (
+              <tr class="bg-white/50">
+                <td class="p-3 font-medium text-stone-800">{r.option}</td>
+                <td class="p-3 text-stone-600">{r.time}</td>
+                <td class="p-3 text-stone-600">{r.best}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-3 text-sm text-amber-800">{t.compareNote}</p>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{t.roadTitle}</h2>
+    <ul class="mt-4 space-y-2 text-stone-600 list-disc pl-5">
+      {t.road.map((s: string) => <li>{s}</li>)}
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{t.parkingTitle}</h2>
+    <p class="mt-3 text-stone-600">{t.parking}</p>
+  </section>
+
+  <section>
+    <h2 class="font-display text-2xl text-teak">{t.returnTitle}</h2>
+    <ul class="mt-4 space-y-2 text-stone-600 list-disc pl-5">
+      {t.return.map((s: string) => <li>{s}</li>)}
+    </ul>
   </section>
 
   <section class="rounded-2xl border border-gold/40 bg-white/50 p-6">
