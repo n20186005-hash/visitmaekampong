@@ -14,10 +14,10 @@ export const siteConfig = {
 
   // 最新谷歌地图数据（同步时间 2026 年 10 月）
   rating: 4.5,
-  reviewCount: '6,198',
+  reviewCount: '6,396',
   // 评价同步自谷歌地图的时间（用于页面来源说明，规避违规风险）
   reviewSyncAt: '2026 年 10 月 / October 2026 / ตุลาคม 2026',
-  reviewSyncShort: '2026-10',
+  reviewSyncShort: '2026-11-16',
 
   // 实际坐标（用于天气 / 日落 API 与地图嵌入）—— Mae Kampong Village, Huai Kaeo, Mae On, Chiang Mai
   coords: { lat: 18.8642, lng: 99.3498 },
