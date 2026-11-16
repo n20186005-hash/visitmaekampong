@@ -28,6 +28,15 @@ const FILES = [
   'src/config.ts',
   'src/lib/weather.ts',
   'src/components/Hero.astro',
+  'src/data/nearby.ts',
+  'src/data/nearbyDetails.ts',
+  'src/data/nearbyPractical.ts',
+  'src/data/experiences.ts',
+  'src/components/NearbyExplore.astro',
+  'src/pages/[lang]/guides/[slug].astro',
+  'src/pages/[lang]/nearby/[slug].astro',
+  'src/pages/[lang]/attractions.astro',
+  'src/pages/[lang]/mae-kampong-waterfall.astro',
 ];
 
 const convertQuoted = (src) => {

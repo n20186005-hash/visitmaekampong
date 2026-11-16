@@ -79,7 +79,7 @@ export const siteConfig = {
     'https://www.tourismthailand.org/',
   ],
 
-  address: 'V982+695, Huai Kaeo, Mae On District, Chiang Mai 50130, Thailand',
+  address: '65 Moo 3, Huai Kaeo, Mae On District, Chiang Mai 50130, Thailand',
   plusCode: 'V982+695',
 
   // JSON-LD / OG 使用的首图（必须是可通过公网访问的可抓取图片）

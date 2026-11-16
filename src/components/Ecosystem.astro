@@ -20,7 +20,7 @@ const eco = messages.eco;
     <!-- Microclimate -->
     <h3 class="font-display text-2xl text-teak mt-12 mb-4">{eco.microTitle}</h3>
     <div class="grid md:grid-cols-3 gap-4">
-      {eco.micro.map((m) => (
+      {eco.micro.map((m: any) => (
         <div class="rounded-xl border border-gold/25 bg-white/50 p-5">
           <div class="font-semibold text-teak mb-1">{m.title}</div>
           <p class="text-sm text-ink/75">{m.desc}</p>
@@ -111,7 +111,7 @@ const eco = messages.eco;
         <h3 class="font-display text-2xl text-teak mb-1">{eco.checklist.title}</h3>
         <p class="text-sm text-ink/75 mb-5">{eco.checklist.intro}</p>
         <div class="grid sm:grid-cols-2 gap-4">
-          {eco.checklist.items.map((c) => (
+          {eco.checklist.items.map((c: any) => (
             <div class={`rounded-2xl border p-5 ${c.rareClass === 'warn' ? 'border-red-300 bg-red-50' : 'border-gold/25 bg-white/50'}`}>
               <div class="flex items-center gap-3">
                 <span class="text-2xl" aria-hidden="true">{c.emoji}</span>

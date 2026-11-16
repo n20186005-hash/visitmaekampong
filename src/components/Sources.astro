@@ -19,7 +19,7 @@ const mapsUrl = siteConfig.mapsUrl;
       <div>
         <h3 class="font-display text-xl text-goldBright">{s.photoTitle}</h3>
         <ul class="mt-3 space-y-2 text-sm text-ivory/80 list-disc list-inside">
-          {s.photoItems.map((it) => (
+          {s.photoItems.map((it: any) => (
             <li>
               {it.url
                 ? <a href={it.url} class="underline hover:text-goldBright" target="_blank" rel="noopener">{it.text} — {it.linkLabel}</a>

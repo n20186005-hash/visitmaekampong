@@ -12,9 +12,19 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: Lang };
 const m = { th, en, zh }[lang];
 const w = m.topics.waterfall;
+const more = {
+  th:{about:'เกี่ยวกับน้ำตกและพื้นที่ดูแล',aboutText:'น้ำตกแม่กำปองเป็นพื้นที่ธรรมชาติใกล้หมู่บ้าน เส้นทางและจุดเข้าถึงต้องปฏิบัติตามป้ายของผู้ดูแลพื้นที่และคำแนะนำของชุมชน การเดินป่าหรือเล่นน้ำไม่ใช่กิจกรรมที่เปิดทุกจุดตลอดเวลา',background:'ป่าต้นน้ำบนภูเขาสร้างลำธารที่ไหลผ่านหมู่บ้าน น้ำตกเป็นส่วนหนึ่งของภูมิทัศน์ที่เคยรองรับไร่เมี่ยงและเกษตรบนพื้นที่สูง',details:'มองชั้นหินที่รับสายน้ำ ความชื้นของมอส และพืชริมทางเดิน แต่ควรหลีกเลี่ยงการเหยียบพื้นที่เปราะบาง',fees:'ค่าเข้าชมหรือค่าบริการที่อาจมีให้ตรวจสอบจากป้ายหน้างาน',address:'เส้นทางน้ำตกแม่กำปอง ตำบลห้วยแก้ว อำเภอแม่ออน จังหวัดเชียงใหม่ 50130 ประเทศไทย',maps:'เปิดแผนที่น้ำตกแม่กำปอง',stay:'หากอยากเดินช่วงเช้า เลือกพักในหมู่บ้านและตรวจสอบทางเข้ากับที่พัก',reviews:'ดูความคิดเห็นล่าสุดจากรายการสถานที่น้ำตกใน Google Maps โดยตรง อย่าใช้คะแนนหมู่บ้านแทน',photo:'ภาพทางเดินและสายน้ำ',source:'ข้อมูลพื้นที่จากการท่องเที่ยวแห่งประเทศไทย'},
+  en:{about:'About the waterfall and management',aboutText:'Mae Kampong Waterfall is a natural area near the village. Follow trail signs, local access instructions and any applicable park rules. Swimming and hiking access should not be assumed open everywhere.',background:'The mountain watershed feeds the stream running through the village. The waterfall belongs to the highland landscape that also supported tea-leaf and other hillside cultivation.',details:'Look for the rock tiers, moss and streamside plants, but stay off fragile edges and closed paths.',fees:'Check any current access or service fees at the entrance',address:'Mae Kampong Waterfall trail, Huai Kaeo, Mae On District, Chiang Mai 50130, Thailand',maps:'Open Mae Kampong Waterfall map',stay:'For a morning walk, consider staying in the village and confirming trail access with your host.',reviews:'Read current feedback on the waterfall’s own Google Maps listing; do not substitute the village rating.',photo:'Waterfall trail and flowing stream',source:'Area information from the Tourism Authority of Thailand'},
+  zh:{about:'關於瀑布與管理主體',aboutText:'湄甘蓬瀑布是村落附近的自然遊覽區域。應遵循現場步道及管理單位指示，不要假設所有層級、游泳點與登山路線全年開放。',background:'山區集水林形成流經村落的溪水，瀑布也是當地茶葉種植與山區生活賴以發展的自然環境之一。',details:'重點觀察層疊岩石、苔蘚及溪邊植物，避免踐踏脆弱區域或進入封閉步道。',fees:'如有入場或服務收費，以入口公告為準',address:'泰國清邁府湄安縣 Huai Kaeo 分割槽湄甘蓬瀑布步道 50130',maps:'檢視湄甘蓬瀑布地圖',stay:'想清晨步行，可住在村內並向民宿核實當日步道開放情況。',reviews:'在瀑布獨立 Google 地圖地點檢視最新評論，不引用村落總評分替代。',photo:'瀑布步道與溪流',source:'地點資訊參考泰國國家旅遊局'},
+}[lang];
+const waterfallMaps = 'https://www.google.com/maps/search/?api=1&query=Mae+Kampong+Waterfall+Mae+On+Chiang+Mai';
 ---
 
 <TopicLayout lang={lang} messages={m} topic="mae-kampong-waterfall">
+  <section class="rounded-2xl border border-gold/40 bg-white/60 p-6"><h2 class="font-display text-2xl text-teak">{more.about}</h2><p class="mt-2 text-stone-600">{more.aboutText}</p></section>
+  <section><figure><img src="/nearby/mae-kampong-waterfall-trail.jpg" alt={more.photo} class="rounded-2xl w-full h-64 object-cover" loading="lazy"/><figcaption class="mt-2 text-xs text-stone-500">{more.photo} · Villa Vadee Mae Kampong</figcaption></figure></section>
+  <section><h2 class="font-display text-2xl text-teak">{{th:'ภูมิหลังและธรรมชาติ',en:'History and natural setting',zh:'歷史與自然背景'}[lang]}</h2><p class="mt-2 text-stone-600">{more.background}</p><p class="mt-3 text-stone-600">{more.details}</p></section>
+  <section><h2 class="font-display text-2xl text-teak">{{th:'ข้อมูลและแผนที่',en:'Essential details and map',zh:'基本資料與交通地圖'}[lang]}</h2><p class="mt-2 text-stone-600">{more.address}</p><p class="mt-2 text-stone-600">{more.fees}</p><a href={waterfallMaps} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-amber-800 underline">{more.maps} ↗</a></section>
   <section>
     <h2 class="font-display text-2xl text-teak">{w.heading}</h2>
     <p class="mt-2 text-stone-600">{w.lead}</p>
@@ -72,4 +82,5 @@ const w = m.topics.waterfall;
       {w.photo.map((s: string) => <li>{s}</li>)}
     </ul>
   </section>
+  <section><h2 class="font-display text-2xl text-teak">{{th:'ที่พักและความคิดเห็น',en:'Accommodation and visitor reviews',zh:'住宿與遊客評價'}[lang]}</h2><p class="mt-2 text-stone-600">{more.stay}</p><p class="mt-3 text-stone-600">{more.reviews}</p><p class="mt-3 text-sm text-stone-500">{more.source}</p></section>
 </TopicLayout>

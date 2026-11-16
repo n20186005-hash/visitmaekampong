@@ -23,7 +23,7 @@ const landmarkImgs = [5, 4, 16, 2].map(
         <p class="mt-4 max-w-3xl text-ivory/80">{lm.lead}</p>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
-          {lm.items.map((it, i) => (
+          {lm.items.map((it: any, i: number) => (
             <a
               href={it.url}
               target="_blank"

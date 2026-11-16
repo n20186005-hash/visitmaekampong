@@ -19,6 +19,7 @@ import Gallery from '../../components/Gallery.astro';
 import Reviews from '../../components/Reviews.astro';
 import MapSection from '../../components/MapSection.astro';
 import Footer from '../../components/Footer.astro';
+import NearbyExplore from '../../components/NearbyExplore.astro';
 import { getI18n } from '../../i18n/ui';
 
 export async function getStaticPaths() {
@@ -42,6 +43,7 @@ const { lang, messages } = await getI18n(Astro.url);
     <Planner messages={messages} />
     <Food messages={messages} />
     <Landmarks messages={messages} />
+    <NearbyExplore lang={lang} />
     <Gallery messages={messages} />
     <Science messages={messages} />
     <Reviews messages={messages} />

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Footer from '../../../components/Footer.astro';
+import { languagesList, type Lang } from '../../../i18n/ui';
+import { experiences, type ExperienceSlug } from '../../../data/experiences';
+import { nearby, type NearbySlug } from '../../../data/nearby';
+import th from '../../../i18n/th.json';
+import en from '../../../i18n/en.json';
+import zh from '../../../i18n/zh.json';
+
+export function getStaticPaths() {
+  return languagesList.flatMap(lang => (Object.keys(experiences) as ExperienceSlug[]).map(slug => ({ params: { lang, slug } })));
+}
+const { lang, slug } = Astro.params as { lang: Lang; slug: ExperienceSlug };
+const m = {th,en,zh}[lang];
+const guide = experiences[slug];
+const p = guide[lang];
+const ui = {
+  th:{home:'หน้าแรก',all:'คู่มือท่องเที่ยว',hero:'ข้อมูลท่องเที่ยวแม่กำปอง',map:'แผนที่ที่เกี่ยวข้อง',management:'เกี่ยวกับพื้นที่และผู้ดูแล',planning:'การวางแผนและข้อแนะนำ',facts:'ข้อมูลพื้นฐาน',hours:'เวลาเปิด',hoursValue:'ตรวจสอบแต่ละสถานที่หน้างาน',location:'พื้นที่',locationValue:'แม่กำปอง ห้วยแก้ว แม่ออน เชียงใหม่ 50130 ประเทศไทย',price:'ค่าใช้จ่าย',transport:'การเดินทาง',story:'ประวัติและความเป็นมา',details:'ลักษณะเด่นและจุดสังเกต',route:'เส้นทางแนะนำ',safety:'ข้อควรระวัง',photo:'มุมถ่ายภาพ',stay:'ที่พักใกล้เคียง',reviews:'ความคิดเห็นผู้มาเยือน',reviewText:'อ่านรีวิวของสถานที่จริงบน Google Maps แยกจากคะแนนรวมของหมู่บ้าน',faq:'คำถามที่พบบ่อย',more:'คู่มืออื่น ๆ',source:'ข้อมูลอ้างอิง',caption:'ภาพประกอบบรรยากาศแม่กำปอง ไม่ได้ยืนยันว่าเป็นภาพทุกจุดที่กล่าวถึง',imageCaption:'ภาพสถานที่จากแหล่งข้อมูลที่ระบุ' },
+  en:{home:'Home',all:'Visitor guides',hero:'Mae Kampong visitor guide',map:'Relevant Google Maps location',management:'About the place and management',planning:'Visit planning',facts:'Essential information',hours:'Opening hours',hoursValue:'Check each venue locally',location:'Area',locationValue:'Mae Kampong, Huai Kaeo, Mae On, Chiang Mai 50130, Thailand',price:'Costs',transport:'Getting there',story:'History and context',details:'Architecture, landscape and what to notice',route:'Suggested route',safety:'Before you go',photo:'Photography spots',stay:'Accommodation nearby',reviews:'Visitor reviews',reviewText:'Check feedback for the actual place on Google Maps rather than using the overall village rating',faq:'Frequently asked questions',more:'More visitor guides',source:'Information source',caption:'Illustrative Mae Kampong area photograph; not verification of every stop discussed',imageCaption:'Location photograph from the credited source' },
+  zh:{home:'首頁',all:'遊覽專題',hero:'湄甘蓬村遊覽指南',map:'相關 Google 地圖定位',management:'關於地點及管理主體',planning:'遊覽建議',facts:'基本資訊',hours:'開放時間',hoursValue:'各地點以現場資訊為準',location:'所在區域',locationValue:'泰國清邁府湄安縣 Huai Kaeo 分割槽湄甘蓬村 50130',price:'門票與費用',transport:'交通方式',story:'歷史背景',details:'建築、地貌與觀察重點',route:'推薦遊覽路線',safety:'遊覽須知',photo:'拍照機位',stay:'住宿建議',reviews:'遊客評價',reviewText:'請分別在 Google 地圖檢視具體地點的評論，不要將村落總評分視為單個業者評分',faq:'常見問題',more:'更多專題攻略',source:'資料來源',caption:'配圖用於展示湄甘蓬地區環境，不代表文中每個停留點的核實實景',imageCaption:'經來源核對的地點照片' },
+}[lang];
+const isLocationPhoto = slug === 'streamside-cafes';
+const extra = {
+ th:{'village-walking-route':'ชุมชนเป็นพื้นที่อยู่อาศัยจริง การเข้าออกบ้าน ร้านค้า และสถานที่ศาสนาไม่ใช่สิทธิเดียวกัน การท่องเที่ยวอย่างรับผิดชอบเริ่มจากการถามก่อนใช้พื้นที่ส่วนบุคคล','streamside-cafes':'เส้นทางริมน้ำและระเบียงบนเนินอาจใช้พื้นที่ทางเดินต่างกัน จึงควรตรวจสอบทางเข้าและข้อจำกัดการเข้าถึงกับร้านโดยตรง','homestay-selection':'การท่องเที่ยวโดยชุมชนมีความเกี่ยวข้องกับกลุ่มที่พักท้องถิ่น แต่สัญญาการจองและความรับผิดชอบด้านบริการขึ้นกับที่พักที่ผู้เดินทางเลือก','chiang-mai-transport':'ถนนบนภูเขาไม่ใช่บริการรถรับส่ง ผู้ขับขี่ต้องปฏิบัติตามกฎจราจร ส่วนราคาและเวลารับส่งต้องสอบถามผู้ประกอบการ','nature-day-trip':'พื้นที่ทางน้ำและเส้นทางป่าอาจมีผู้รับผิดชอบต่างจากถนนในหมู่บ้าน หากมีป้ายปิดทางหรือคำแนะนำของเจ้าหน้าที่ต้องปฏิบัติตาม'},
+ en:{'village-walking-route':'This is a living village. Access to homes, shops and religious premises is not interchangeable: ask permission before using private spaces.','streamside-cafes':'Streamside decks and uphill terraces have different entrances and access limits, so visitors should confirm conditions with each café.','homestay-selection':'Community tourism involves local accommodation groups, but booking terms and service responsibilities belong to the property chosen.','chiang-mai-transport':'The mountain road is public infrastructure, not a transfer service. Drivers follow road rules, while pickup schedules and charges depend on operators.','nature-day-trip':'Stream and forest trails may be overseen differently from village roads. Respect closed sections, park signage and staff directions.'},
+ zh:{'village-walking-route':'這是居民真實生活的村落。住家、店鋪與寺院的參觀規則各不相同；使用私人空間前應先取得同意。','streamside-cafes':'溪畔平臺和山坡露臺的入口與通行限制不同，須向各咖啡館確認使用條件。','homestay-selection':'社區旅遊與地方住宿團體有關，但訂房條款、服務內容和責任仍由實際預訂的民宿分別承擔。','chiang-mai-transport':'山路是公共基礎設施，不等同接送服務。駕駛須守交通規則，接送價格與時刻則由各業者確定。','nature-day-trip':'溪流與森林步道的管理可能不同於村內道路。應遵守封閉標誌、國家公園及現場工作人員的指示。'},
+}[lang][slug];
+const guidePlace = {
+ th:{'village-walking-route':'ถนนสายหลัก บ้านแม่กำปอง หมู่ 3 ห้วยแก้ว แม่ออน เชียงใหม่ 50130','streamside-cafes':'ระเบียงวิวแม่กำปอง และร้านริมลำธารในบ้านแม่กำปอง ห้วยแก้ว แม่ออน เชียงใหม่ 50130','homestay-selection':'ที่พักหลายแห่งในบ้านแม่กำปอง หมู่ 3 ห้วยแก้ว แม่ออน เชียงใหม่ 50130','chiang-mai-transport':'ต้นทาง: ตัวเมืองเชียงใหม่ / ปลายทาง: บ้านแม่กำปอง ห้วยแก้ว แม่ออน เชียงใหม่ 50130','nature-day-trip':'เส้นทางน้ำตกแม่กำปอง และจุดชมวิวกิ่วฝิ่น บริเวณแม่ออน–อุทยานแห่งชาติแจ้ซ้อน'},
+ en:{'village-walking-route':'Village main lane, Ban Mae Kampong, Moo 3, Huai Kaeo, Mae On, Chiang Mai 50130','streamside-cafes':'Rabiang View Mae Kampong and streamside cafés, Huai Kaeo, Mae On, Chiang Mai 50130','homestay-selection':'Individual homestays in Ban Mae Kampong, Moo 3, Huai Kaeo, Mae On, Chiang Mai 50130','chiang-mai-transport':'Origin: Chiang Mai city / Destination: Ban Mae Kampong, Huai Kaeo, Mae On, Chiang Mai 50130','nature-day-trip':'Mae Kampong Waterfall trail and Kew Fin Viewpoint, Mae On–Chae Son National Park area'},
+ zh:{'village-walking-route':'泰國清邁府湄安縣 Huai Kaeo 分割槽湄甘蓬村第 3 村主街 50130','streamside-cafes':'泰國清邁府湄安縣 Huai Kaeo 湄甘蓬村 Rabiang View 及村內溪畔咖啡館 50130','homestay-selection':'泰國清邁府湄安縣 Huai Kaeo 湄甘蓬村第 3 村各民宿 50130','chiang-mai-transport':'起點：清邁市區／終點：清邁府湄安縣 Huai Kaeo 湄甘蓬村 50130','nature-day-trip':'湄甘蓬瀑布步道及吉芬觀景臺，湄安縣至傑頌國家公園周邊'},
+}[lang][slug];
+---
+<BaseLayout lang={lang} title={`${p.title} | Mae Kampong`} description={`${p.subtitle}. ${p.lead}`} messages={m} path={`guides/${slug}`} crumb={p.title} faqs={p.faq.map(([q,a])=>({q,a}))}>
+  <main class="mx-auto max-w-3xl px-5 py-16 md:py-24 text-stone-700 leading-7">
+    <nav class="text-sm text-amber-800"><a href={`/${lang}/`}>{ui.home}</a> / <a href={`/${lang}/attractions/`}>{ui.all}</a> / {p.title}</nav>
+    <p class="mt-8 font-hand text-2xl text-amber-700">{ui.hero}</p>
+    <h1 class="mt-2 font-display text-3xl md:text-5xl text-teak font-semibold">{p.title}</h1>
+    <p class="mt-4 text-xl text-stone-600">{p.subtitle}</p>
+    <div class="mt-5 flex flex-wrap gap-3 text-sm"><span class="rounded-full border border-stone-300 bg-white/60 px-4 py-2">{ui.hours}: {ui.hoursValue}</span><a href={guide.maps} target="_blank" rel="noopener noreferrer" class="rounded-full bg-amber-800 text-white px-4 py-2">{ui.map} ↗</a></div>
+    <figure class="mt-7"><img class="w-full h-64 md:h-80 object-cover rounded-2xl" src={guide.image} alt={p.title} loading="lazy"/><figcaption class="mt-2 text-xs text-stone-500">{isLocationPhoto ? ui.imageCaption : ui.caption}</figcaption></figure>
+    <div class="mt-9 space-y-10">
+      <section class="rounded-2xl bg-white/60 border border-gold/40 p-6"><h2 class="font-display text-2xl text-teak">{ui.management} · {p.title}</h2><p class="mt-3">{p.manager}</p><p class="mt-3">{extra}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.planning}</h2><p class="mt-2">{p.lead}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.facts}</h2><dl class="mt-4 divide-y divide-stone-200 rounded-2xl border border-stone-300 bg-white/50">{[[ui.location,guidePlace],[ui.hours,ui.hoursValue],[ui.price,p.price],[ui.planning,p.timing]].map(([label,value])=><div class="p-4 sm:grid sm:grid-cols-3 gap-3"><dt class="font-semibold">{label}</dt><dd class="sm:col-span-2">{value}</dd></div>)}</dl></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.transport}</h2><p class="mt-2">{p.transit}</p><a href={guide.maps} class="text-amber-800 underline" target="_blank" rel="noopener noreferrer">{ui.map} ↗</a></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.story}</h2><p class="mt-2">{p.background}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.details}</h2><p class="mt-2">{p.features}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.route}</h2><ol class="mt-3 list-decimal pl-5 space-y-2">{p.route.map(step=><li>{step}</li>)}</ol></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.safety}</h2><p class="mt-2">{p.safety}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.photo}</h2><p class="mt-2">{p.photo}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.stay}</h2><a href={`/${lang}/stay/`} class="mt-2 inline-block text-amber-800 underline">{m.topics.stay.heading} →</a></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.reviews}</h2><p class="mt-2">{ui.reviewText}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.faq}</h2><dl class="mt-4 space-y-4">{p.faq.map(([q,a])=><div class="rounded-xl border border-stone-300 bg-white/50 p-4"><dt class="font-semibold">{q}</dt><dd class="mt-1">{a}</dd></div>)}</dl></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.map}</h2><p class="mt-2">{guidePlace}</p><a href={guide.maps} class="mt-2 inline-block text-amber-800 underline" target="_blank" rel="noopener noreferrer">Google Maps ↗</a></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.more}</h2><div class="mt-3 grid sm:grid-cols-2 gap-3">{(Object.keys(experiences) as ExperienceSlug[]).filter(key=>key!==slug).map(key=><a href={`/${lang}/guides/${key}/`} class="rounded-xl border border-stone-300 p-4 hover:border-amber-800">{experiences[key][lang].title} →</a>)}{(Object.keys(nearby) as NearbySlug[]).map(key=><a href={`/${lang}/nearby/${key}/`} class="rounded-xl border border-stone-300 p-4 hover:border-amber-800">{nearby[key][lang].name} →</a>)}</div></section>
+      <p class="text-sm text-stone-500">{ui.source}: <a class="text-amber-800 underline break-all" href={guide.source} target="_blank" rel="noopener noreferrer">{guide.source}</a></p>
+    </div>
+  </main>
+  <Footer lang={lang} messages={m}/>
+</BaseLayout>

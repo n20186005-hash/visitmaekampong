@@ -24,7 +24,7 @@ const guideImgs = [
         <h3 class="font-display text-2xl text-teak mb-1">{guide.twoZone.title}</h3>
         <p class="text-sm text-ink/75 mb-5">{guide.twoZone.intro}</p>
         <div class="grid sm:grid-cols-2 gap-4">
-          {guide.twoZone.items.map((z) => (
+          {guide.twoZone.items.map((z: any) => (
             <div class="rounded-xl border border-gold/25 bg-teak/5 p-5">
               <div class="flex items-start justify-between gap-3">
                 <div class="font-display text-teak font-semibold text-lg">{z.name}</div>
@@ -61,7 +61,7 @@ const guideImgs = [
         <span class="font-display text-gold text-2xl">{guide.hours.tag}</span>
         <p class="font-semibold text-teak mt-1 mb-3">{guide.hours.time}</p>
         <ul class="mt-3 space-y-2 text-sm text-ink/75">
-          {guide.hours.items.map((it) => (
+          {guide.hours.items.map((it: any) => (
             <li class="flex justify-between gap-3 border-b border-gold/15 pb-2">
               <span>{it.label}</span><span class="text-teak font-medium whitespace-nowrap">{it.value}</span>
             </li>
@@ -74,7 +74,7 @@ const guideImgs = [
         <span class="font-display text-gold text-2xl">{guide.fees.tag}</span>
         <h3 class="font-display text-xl text-teak mt-1 mb-3">{guide.fees.title}</h3>
         <ul class="space-y-3 text-sm">
-          {guide.fees.items.map((it) => (
+          {guide.fees.items.map((it: any) => (
             <li>
               <div class="font-semibold text-teak">{it.title}</div>
               <div class="text-ink/70">{it.desc}</div>
@@ -88,7 +88,7 @@ const guideImgs = [
         <span class="font-display text-gold text-2xl">{guide.transport.tag}</span>
         <h3 class="font-display text-xl text-teak mt-1 mb-3">{guide.transport.title}</h3>
         <ul class="space-y-3 text-sm">
-          {guide.transport.items.map((it) => (
+          {guide.transport.items.map((it: any) => (
             <li>
               <div class="font-semibold text-teak">{it.title}</div>
               <div class="text-ink/70">{it.desc}</div>
@@ -190,7 +190,7 @@ const guideImgs = [
           <span aria-hidden="true">⚠</span> {guide.safety.title}
         </h3>
         <ul class="mt-3 space-y-2 text-sm text-amber-900/85">
-          {guide.safety.items.map((it) => (
+          {guide.safety.items.map((it: any) => (
             <li class="flex gap-2">
               <span class="text-amber-600 mt-0.5" aria-hidden="true">•</span>
               <span><span class="font-semibold">{it.title}</span> — {it.desc}</span>
@@ -214,7 +214,7 @@ const guideImgs = [
         <h3 class="font-display text-xl text-red-700 font-semibold">{guide.emergency.title}</h3>
         <p class="mt-2 text-sm text-red-900/80">{guide.emergency.intro}</p>
         <div class="mt-4 grid sm:grid-cols-3 gap-3">
-          {guide.emergency.items.map((it) => (
+          {guide.emergency.items.map((it: any) => (
             <a href={`tel:${(it.value || '').replace(/[^+0-9]/g, '')}`} class="block rounded-xl border border-red-200 bg-white/70 p-4 hover:border-red-400 hover:shadow-md transition">
               <div class="text-xs text-red-700/80">{it.title}</div>
               <div class="mt-1 font-display text-lg font-semibold text-red-800">{it.value}</div>
@@ -232,7 +232,7 @@ const guideImgs = [
         </h3>
         <p class="mt-2 text-sm text-teal-900/85 leading-relaxed">{guide.accessibility.intro}</p>
         <ul class="mt-3 space-y-2 text-sm text-teal-900/85">
-          {guide.accessibility.items.map((it) => (
+          {guide.accessibility.items.map((it: any) => (
             <li class="flex gap-2">
               <span class="text-teal-600 mt-0.5" aria-hidden="true">✓</span>
               <span><span class="font-semibold">{it.title}</span> — {it.desc}</span>
@@ -246,7 +246,7 @@ const guideImgs = [
     <div class="mt-14 max-w-3xl">
       <h3 class="font-display text-2xl text-teak mb-5">{guide.faqTitle}</h3>
       <div class="space-y-3">
-        {guide.faqs.map((f) => (
+        {guide.faqs.map((f: any) => (
           <details class="group rounded-xl border border-gold/25 bg-white/50 p-4 open:bg-teak/5">
             <summary class="cursor-pointer font-medium text-teak flex justify-between items-center">
               {f.q}
@@ -263,7 +263,7 @@ const guideImgs = [
       <div class="mt-14 max-w-4xl">
         <h3 class="font-display text-2xl text-teak mb-5">{guide.nearby.title}</h3>
         <div class="grid sm:grid-cols-3 gap-4">
-          {guide.nearby.items.map((it) => (
+          {guide.nearby.items.map((it: any) => (
             <a href={it.url} target="_blank" rel="noopener" class="group rounded-2xl border border-gold/25 bg-white/50 p-5 hover:border-gold hover:shadow-md transition">
               <div class="font-display text-teak font-semibold text-lg">{it.name}</div>
               <p class="mt-1 text-sm text-ink/70">{it.desc}</p>

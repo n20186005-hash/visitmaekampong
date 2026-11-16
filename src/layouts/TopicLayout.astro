@@ -16,13 +16,13 @@ interface Props {
 
 const { lang, messages, topic } = Astro.props;
 const t = messages.topics;
-const page = t[topic];
+const page = topic === 'mae-kampong-waterfall' ? t.waterfall : t[topic];
 const home = `/${lang}/`;
 
 const order = ['transport', 'stay', 'mae-kampong-waterfall', 'attractions', 'plan'] as const;
 const links = [
   { href: home, label: t.homeLabel },
-  ...order.filter((k) => k !== topic).map((k) => ({ href: `/${lang}/${k}/`, label: t[k].navLabel })),
+  ...order.filter((k) => k !== topic).map((k) => ({ href: `/${lang}/${k}/`, label: (k === 'mae-kampong-waterfall' ? t.waterfall : t[k]).navLabel })),
 ];
 ---
 

@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Footer from '../../../components/Footer.astro';
+import { languagesList, type Lang } from '../../../i18n/ui';
+import { nearby, type NearbySlug } from '../../../data/nearby';
+import { nearbyDetails } from '../../../data/nearbyDetails';
+import { nearbyPractical } from '../../../data/nearbyPractical';
+import th from '../../../i18n/th.json';
+import en from '../../../i18n/en.json';
+import zh from '../../../i18n/zh.json';
+
+export function getStaticPaths() {
+  return languagesList.flatMap(lang => (Object.keys(nearby) as NearbySlug[]).map(slug => ({ params: { lang, slug } })));
+}
+const { lang, slug } = Astro.params as { lang: Lang; slug: NearbySlug };
+const m = { th, en, zh }[lang];
+const item = nearby[slug];
+const p = item[lang];
+const detail = nearbyDetails[slug];
+const practical = nearbyPractical[slug][lang];
+const verifiedTemplePhoto = slug === 'wat-khantha-phueksa';
+const photoCredit = {
+ 'kew-fin-viewpoint':'MGR Travel · Kew Fin Viewpoint',
+ 'wat-khantha-phueksa':'Grand Goldman · Wat Khantha Phueksa',
+ 'ban-mae-lai':'Kapook Travel · Ban Mae Lai',
+ 'san-kamphaeng-hot-springs':'TripTH · San Kamphaeng Hot Springs',
+ 'rabiang-view-cafe':'Villa Vadee · Rabiang View Mae Kampong',
+ 'teen-tok-royal-project':'Chillpainai · Teen Tok Royal Project',
+}[slug];
+const questions = {
+ th: slug === 'kew-fin-viewpoint' ? [['เห็นทะเลหมอกทุกวันหรือไม่','ไม่สามารถรับประกันได้ ขึ้นอยู่กับสภาพอากาศ'],['เดินจากหมู่บ้านได้หรือไม่','ควรตรวจสอบระยะทางและทางชัน แล้วพิจารณารถท้องถิ่น']] : slug === 'wat-khantha-phueksa' ? [['วัดเปิดให้เข้าทุกพื้นที่หรือไม่','โปรดดูป้ายและคำแนะนำจากผู้ดูแลวัด'],['ถ่ายภาพพิธีได้ไหม','ควรขออนุญาตก่อนถ่ายภาพบุคคลและพิธีกรรม']] : slug === 'ban-mae-lai' ? [['ไกลจากแม่กำปองแค่ไหน','ข้อมูล ททท. ระบุประมาณ 4 กิโลเมตร'],['เข้าที่พักริมน้ำเพื่อถ่ายรูปได้ไหม','ควรขออนุญาตเจ้าของสถานที่ก่อน']] : slug === 'rabiang-view-cafe' ? [['ต้องซื้อเครื่องดื่มก่อนเข้าระเบียงหรือไม่','ตรวจสอบเงื่อนไขของร้านโดยตรง'],['เดินขึ้นเนินลำบากหรือไม่','ควรตรวจสอบทางชันและการเข้าถึงก่อน']] : slug === 'teen-tok-royal-project' ? [['เข้าชมแปลงได้ทุกพื้นที่หรือไม่','เข้าชมเฉพาะพื้นที่ที่ศูนย์อนุญาต'],['มีอาหารให้บริการหรือไม่','ตรวจสอบบริการในวันที่จะไป']] : [['ลงแช่น้ำพุได้ทุกบ่อไหม','ไม่ได้ ใช้เฉพาะพื้นที่ที่เปิดให้แช่ตามป้าย'],['ค่าเข้าและค่าบริการเท่ากันไหม','อาจแยกกัน ตรวจสอบหน้างาน']],
+ en: slug === 'kew-fin-viewpoint' ? [['Is there mist every morning?','No. Cloud and mist depend on weather and cannot be guaranteed.'],['Can I walk from the village?','Check distance and the steep route first; local vehicle transfer may be more suitable.']] : slug === 'wat-khantha-phueksa' ? [['Can I enter all temple areas?','Follow signage and the caretakers’ instructions.'],['May I photograph ceremonies?','Ask for permission before photographing people or religious activity.']] : slug === 'ban-mae-lai' ? [['How far is it from Mae Kampong?','The Tourism Authority of Thailand describes it as roughly 4 km away.'],['Can I enter homestay decks to take photos?','Ask each property owner before entering.']] : slug === 'rabiang-view-cafe' ? [['Must I order to use the terrace?','Ask the café about its current seating policy.'],['Is the uphill walk difficult?','Check the steep approach and accessibility before visiting.']] : slug === 'teen-tok-royal-project' ? [['Are all demonstration plots open?','Visit only areas the center makes accessible.'],['Is food served on site?','Check current services on the day of your visit.']] : [['Can I bathe in every hot-spring pool?','No. Use only pools marked as safe and open to visitors.'],['Is the entrance fee the same as bathing charges?','Fees can be separate; consult the current signs.']],
+ zh: slug === 'kew-fin-viewpoint' ? [['每天都能看到雲海嗎？','不能保證，雲霧受天氣變化影響。'],['可以從村裡徒步嗎？','須核實距離及山路坡度，必要時使用當地車輛。']] : slug === 'wat-khantha-phueksa' ? [['寺院所有區域都能進入嗎？','以現場標識和寺院管理者指示為準。'],['可以拍攝法會嗎？','拍攝人物或宗教活動前應先徵得同意。']] : slug === 'ban-mae-lai' ? [['距湄甘蓬多遠？','泰國國家旅遊局資料約為 4 公里。'],['能進入民宿露臺拍照嗎？','應先徵得各住宿業者同意。']] : slug === 'rabiang-view-cafe' ? [['使用露臺需要點飲品嗎？','請向咖啡館核實當期座位規定。'],['上坡步行困難嗎？','出發前查清坡度及無障礙條件。']] : slug === 'teen-tok-royal-project' ? [['所有示範田都開放嗎？','只參觀中心允許進入的區域。'],['中心提供餐飲嗎？','依當日服務狀況向中心查詢。']] : [['每個溫泉池都能泡嗎？','不可，只能使用標示開放且安全的設施。'],['入場費等於浴池費嗎？','可能分開收費，以現場公告為準。']],
+}[lang];
+const ui = {
+  th: { home: 'หน้าแรก', nearby: 'สถานที่ใกล้เคียง', explore: 'เริ่มสำรวจ', planning: 'คำแนะนำการเที่ยว', about: 'เกี่ยวกับสถานที่และผู้ดูแล', facts: 'ข้อมูลพื้นฐาน', location: 'สถานที่', time: 'เวลาที่เหมาะสม', hours: 'เวลาเปิด', hoursValue: 'ตรวจสอบหน้างาน', fee: 'ค่าเข้าชม', feeValue: 'ตรวจสอบค่าธรรมเนียมหน้างาน', transport: 'วิธีเดินทาง', transportText: 'ออกจากหมู่บ้านแม่กำปอง ตรวจสอบเส้นทางและสภาพถนนก่อนเดินทาง', history: 'ภูมิหลัง', architecture: 'จุดสังเกต', experience: 'สิ่งที่ควรสัมผัส', route: 'เส้นทางแนะนำ', caution: 'ข้อควรรู้', photo: 'มุมถ่ายภาพ', stay: 'ที่พัก', stayText: 'หากต้องการสัมผัสบรรยากาศเช้าและเย็น สามารถเลือกโฮมสเตย์ในแม่กำปองและจองล่วงหน้า', reviews: 'รีวิวผู้มาเยือน', reviewsText: 'อ่านความเห็นล่าสุดจากแผนที่โดยตรง ข้อมูลรีวิวของหมู่บ้านไม่ใช่คะแนนของสถานที่ย่อยนี้', map: 'แผนที่และการนำทาง', directions: 'เปิด Google Maps', more: 'สำรวจสถานที่อื่น', disclaimer: 'ภาพประกอบมาจากคลังภาพหมู่บ้าน ไม่ใช่ภาพยืนยันของสถานที่นี้โดยเฉพาะ' },
+  en: { home: 'Home', nearby: 'Nearby places', explore: 'Explore', planning: 'Visit planning', about: 'About and management', facts: 'Essential information', location: 'Location', time: 'Best time', hours: 'Opening hours', hoursValue: 'Verify locally', fee: 'Admission', feeValue: 'Verify any applicable fees locally', transport: 'Getting there', transportText: 'Start in Mae Kampong Village and check the specific route and road conditions before leaving.', history: 'Background', architecture: 'What to notice', experience: 'Core experience', route: 'Suggested route', caution: 'Before you go', photo: 'Photography spots', stay: 'Where to stay', stayText: 'For an unhurried morning or evening visit, consider a village homestay and book ahead.', reviews: 'Visitor reviews', reviewsText: 'Read current feedback on the individual Google Maps listing. The village rating does not represent this separate place.', map: 'Address and navigation', directions: 'Open Google Maps', more: 'Explore more nearby', disclaimer: 'Illustrative image from the village gallery; it is not verified as a photograph of this specific location.' },
+  zh: { home: '首頁', nearby: '周邊景點', explore: '探索景點', planning: '遊覽建議', about: '關於景點與管理主體', facts: '基本資料', location: '所在地', time: '建議時段', hours: '開放時間', hoursValue: '以現場資訊為準', fee: '門票價格', feeValue: '如有收費，以現場公告為準', transport: '交通方式', transportText: '從湄甘蓬村出發，出行前核實獨立地點路線與山路狀況。', history: '歷史與背景', architecture: '建築及地貌特色', experience: '核心體驗', route: '推薦遊覽路線', caution: '遊覽須知', photo: '拍照機位', stay: '住宿建議', stayText: '希望體驗清晨與傍晚的村落氣氛，可考慮提前預訂村內民宿。', reviews: '遊客評價', reviewsText: '請通過該景點的 Google 地圖頁面檢視最新評論，湄甘蓬村總評分不代表此獨立景點。', map: '交通指南與地圖', directions: '在 Google 地圖檢視', more: '更多周邊專頁', disclaimer: '配圖取自村落相簿，僅用於呈現周邊環境，不視為該獨立地點的已核實實景照片。' },
+}[lang];
+---
+<BaseLayout lang={lang} title={`${p.name} | ${ui.nearby} | Mae Kampong`} description={`${p.tagline}. ${p.intro}`} messages={m} path={`nearby/${slug}`} crumb={p.name}>
+  <main class="mx-auto max-w-3xl px-5 py-16 md:py-24 text-stone-700">
+    <nav class="text-sm text-amber-800"><a href={`/${lang}/`}>{ui.home}</a> / <a href={`/${lang}/attractions/`}>{ui.nearby}</a> / {p.name}</nav>
+    <p class="mt-8 text-amber-700">{ui.explore} · Mae Kampong</p>
+    <h1 class="mt-2 font-display text-3xl md:text-5xl font-semibold text-teak">{p.name}</h1>
+    <p class="mt-4 text-xl">{p.tagline}</p>
+    <div class="mt-5 flex flex-wrap gap-3 text-sm"><span class="rounded-full bg-white/70 border border-stone-300 px-4 py-2">{detail.type[lang]}</span><span class="rounded-full bg-white/70 border border-stone-300 px-4 py-2">{ui.hours}: {ui.hoursValue}</span><a class="rounded-full border border-amber-700 text-amber-800 px-4 py-2" href={item.maps} target="_blank" rel="noopener noreferrer">{lang === 'th' ? 'ดูคะแนนบนแผนที่' : lang === 'en' ? 'Check live rating' : '檢視即時評分'} ↗</a><a class="rounded-full bg-amber-800 text-white px-4 py-2" href={item.maps} target="_blank" rel="noopener noreferrer">{ui.directions} ↗</a></div>
+    <figure class="mt-7"><img src={item.photo} alt={p.name} loading="lazy" class="w-full h-64 md:h-80 object-cover rounded-2xl"/><figcaption class="mt-2 text-xs text-stone-500">{photoCredit}</figcaption></figure>
+    <div class="mt-10 space-y-10 leading-7">
+      <section class="rounded-2xl border border-gold/40 bg-white/60 p-6"><h2 class="font-display text-2xl text-teak">{ui.about} · {p.name}</h2><p class="mt-3">{detail.management[lang]}</p><p class="mt-3">{p.about}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.explore}</h2><p class="mt-2">{p.intro}</p><p class="mt-3">{p.experience}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.planning}</h2><p class="mt-2">{p.visit}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.architecture}</h2><p class="mt-2">{detail.highlight[lang]}</p><ul class="mt-3 list-disc pl-5 space-y-2">{detail.highlights[lang].map(s=><li>{s}</li>)}</ul></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.facts}</h2><dl class="mt-4 rounded-2xl border border-stone-300 bg-white/50 divide-y divide-stone-200">{[[ui.location,p.address],[ui.explore,detail.type[lang]],[ui.hours,practical.opening],[ui.fee,practical.admission],[ui.time,p.visit]].map(([k,v])=><div class="p-4 sm:grid sm:grid-cols-3 gap-3"><dt class="font-semibold">{k}</dt><dd class="sm:col-span-2">{v}</dd></div>)}</dl></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.hours}</h2><p class="mt-2">{practical.opening}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.fee}</h2><p class="mt-2">{practical.admission}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.transport}</h2><p class="mt-2">{practical.access}</p><a href={item.maps} class="text-amber-800 underline" target="_blank" rel="noopener noreferrer">{ui.directions} ↗</a></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.history}</h2><p class="mt-2">{p.history}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.architecture}</h2><p class="mt-2">{p.character}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.experience}</h2><p class="mt-2">{p.experience}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.route}</h2><ol class="mt-3 list-decimal pl-5 space-y-2">{p.route.map(step=><li>{step}</li>)}</ol></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.caution}</h2><p class="mt-2">{p.caution}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.photo}</h2><p class="mt-2">{p.photoTip}</p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.stay}</h2><p class="mt-2">{ui.stayText} <a href={`/${lang}/stay/`} class="text-amber-800 underline">{m.topics.stay.navLabel}</a></p></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.reviews}</h2><p class="mt-2">{ui.reviewsText}</p><a href={item.maps} target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-amber-800 underline">Google Maps ↗</a></section>
+      <section><h2 class="font-display text-2xl text-teak">{{th:'คำถามที่พบบ่อย',en:'Frequently asked questions',zh:'常見問題'}[lang]}</h2><dl class="mt-3 space-y-3">{questions.map(([q,a])=><div class="rounded-xl border border-stone-300 bg-white/50 p-4"><dt class="font-semibold">{q}</dt><dd class="mt-1">{a}</dd></div>)}</dl></section>
+      <section><h2 class="font-display text-2xl text-teak">{ui.map}</h2><address class="mt-2 not-italic">{p.address}</address><a href={item.maps} class="mt-2 inline-block text-amber-800 underline" target="_blank" rel="noopener noreferrer">{ui.directions} ↗</a></section>
+      {verifiedTemplePhoto && <section><h2 class="font-display text-2xl text-teak">{ui.photo}</h2><figure class="mt-3"><img src="/nearby/wat-khantha-phueksa-alt.jpg" alt={p.name} class="rounded-2xl w-full h-64 object-cover" loading="lazy"/><figcaption class="text-xs text-stone-500 mt-2">Wat Khantha Phueksa · Source: Thai Temples photographic post</figcaption></figure></section>}
+      <p class="text-sm text-stone-500">{lang === 'th' ? 'แหล่งข้อมูล' : lang === 'en' ? 'Reference' : '參考資料'}: <a class="text-amber-800 underline" href={detail.source} target="_blank" rel="noopener noreferrer">{detail.source}</a></p>
+      <section><h2 class="font-display text-2xl text-teak">{ui.more}</h2><div class="mt-4 grid sm:grid-cols-2 gap-3">{(Object.keys(nearby) as NearbySlug[]).filter(k=>k!==slug).map(k=><a href={`/${lang}/nearby/${k}/`} class="rounded-xl border border-stone-300 p-4 hover:border-amber-700">{nearby[k][lang].name} →</a>)}<a href={`/${lang}/mae-kampong-waterfall/`} class="rounded-xl border border-stone-300 p-4 hover:border-amber-700">{m.topics.waterfall.heading} →</a><a href={`/${lang}/attractions/`} class="rounded-xl border border-stone-300 p-4 hover:border-amber-700">{m.topics.attractions.navLabel} →</a></div></section>
+    </div>
+  </main>
+  <Footer lang={lang} messages={m}/>
+</BaseLayout>

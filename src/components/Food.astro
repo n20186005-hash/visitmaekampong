@@ -17,7 +17,7 @@ const foodImg = `/gallery/${siteConfig.galleryPrefix}5.${siteConfig.galleryExt}`
 
     <div class="grid md:grid-cols-2 gap-6 mt-10">
       <div class="space-y-4">
-        {food.dishes.map((d) => (
+        {food.dishes.map((d: any) => (
           <div class="flex gap-4 rounded-xl bg-teakDeep/60 border border-gold/20 p-4">
             <span class="font-display text-goldBright text-xl mt-0.5">{d.tag}</span>
             <div>

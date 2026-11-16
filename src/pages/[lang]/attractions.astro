@@ -4,6 +4,8 @@ import th from '../../i18n/th.json';
 import en from '../../i18n/en.json';
 import zh from '../../i18n/zh.json';
 import { languagesList, type Lang } from '../../i18n/ui';
+import { nearby } from '../../data/nearby';
+import { experiences } from '../../data/experiences';
 
 export function getStaticPaths() {
   return languagesList.map((lang) => ({ params: { lang } }));
@@ -16,6 +18,28 @@ const landmarks = m.landmarks;
 ---
 
 <TopicLayout lang={lang} messages={m} topic="attractions">
+  <section>
+    <h2 class="font-display text-2xl text-teak">{{th:'คู่มือเที่ยวแม่กำปองแบบละเอียด',en:'In-depth Mae Kampong guides',zh:'湄甘蓬村深度專題'}[lang]}</h2>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      {(Object.keys(experiences) as (keyof typeof experiences)[]).map(slug=><a href={`/${lang}/guides/${slug}/`} class="block rounded-2xl border border-stone-300 bg-white/50 p-5 hover:border-amber-700"><h3 class="font-semibold text-stone-800">{experiences[slug][lang].title}</h3><p class="mt-2 text-sm text-stone-600">{experiences[slug][lang].lead}</p></a>)}
+    </div>
+  </section>
+  <section>
+    <h2 class="font-display text-2xl text-teak">{{th:'สถานที่ใกล้เคียงที่น่าเที่ยว',en:'Nearby places: detailed guides',zh:'更多周邊景點專頁'}[lang]}</h2>
+    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+      {(Object.keys(nearby) as (keyof typeof nearby)[]).map(slug => (
+        <a href={`/${lang}/nearby/${slug}/`} class="block rounded-2xl border border-stone-300 bg-white/50 p-5 hover:border-amber-700">
+          <h3 class="font-semibold text-stone-800">{nearby[slug][lang].name}</h3>
+          <p class="mt-2 text-sm text-stone-600">{nearby[slug][lang].intro}</p>
+          <span class="mt-3 inline-block text-sm text-amber-800">{{th:'อ่านคู่มือ',en:'Read the guide',zh:'檢視完整指南'}[lang]} →</span>
+        </a>
+      ))}
+      <a href={`/${lang}/mae-kampong-waterfall/`} class="block rounded-2xl border border-stone-300 bg-white/50 p-5 hover:border-amber-700">
+        <h3 class="font-semibold text-stone-800">{m.topics.waterfall.heading}</h3>
+        <p class="mt-2 text-sm text-stone-600">{m.topics.waterfall.lead}</p>
+      </a>
+    </div>
+  </section>
   <section>
     <h2 class="font-display text-2xl text-teak">{guide.twoZone.title}</h2>
     <p class="mt-2 text-stone-600">{guide.twoZone.intro}</p>

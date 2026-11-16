@@ -1,0 +1,24 @@
+---
+import type { Lang } from '../i18n/ui';
+import { nearby } from '../data/nearby';
+import { experiences } from '../data/experiences';
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const words = {
+ th:{eyebrow:'สำรวจรอบหมู่บ้าน',heading:'คู่มือเดินเที่ยวและสถานที่ใกล้เคียง',lead:'เจาะลึกเส้นทางเดิน คาเฟ่ โฮมสเตย์ การเดินทาง และจุดชมธรรมชาติ พร้อมแผนที่แยกตามสถานที่',open:'อ่านคู่มือ',all:'สถานที่ท่องเที่ยวทั้งหมด'},
+ en:{eyebrow:'Explore nearby',heading:'Village walks and nearby places',lead:'Explore dedicated guides to walks, cafés, homestays, transport and natural sights with separate location links.',open:'Read guide',all:'All attractions'},
+ zh:{eyebrow:'探索周邊',heading:'村內漫步與周邊景點',lead:'從村內步行、溪畔咖啡、民宿、清邁交通到自然景點，檢視完整專題和各自的地圖定位。',open:'檢視專題',all:'全部周邊景點'},
+}[lang];
+---
+<section id="nearby-explore" class="py-16 md:py-24 bg-ivory text-stone-700">
+ <div class="max-w-7xl mx-auto px-5">
+  <p class="font-hand text-2xl text-amber-700">{words.eyebrow}</p>
+  <h2 class="font-display text-3xl md:text-4xl text-teak mt-2">{words.heading}</h2>
+  <p class="mt-4 max-w-3xl text-stone-600">{words.lead}</p>
+  <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+   {(Object.keys(experiences) as (keyof typeof experiences)[]).map(key=><a href={`/${lang}/guides/${key}/`} class="rounded-2xl border border-stone-300 bg-white/70 hover:border-amber-600 p-5 transition-colors"><h3 class="font-display text-xl text-teak">{experiences[key][lang].title}</h3><p class="mt-2 text-sm text-stone-600">{experiences[key][lang].subtitle}</p><span class="mt-3 inline-block text-sm text-amber-800">{words.open} →</span></a>)}
+   {(Object.keys(nearby) as (keyof typeof nearby)[]).map(key=><a href={`/${lang}/nearby/${key}/`} class="rounded-2xl border border-stone-300 bg-white/70 hover:border-amber-600 p-5 transition-colors"><h3 class="font-display text-xl text-teak">{nearby[key][lang].name}</h3><p class="mt-2 text-sm text-stone-600">{nearby[key][lang].tagline}</p><span class="mt-3 inline-block text-sm text-amber-800">{words.open} →</span></a>)}
+  </div>
+  <a class="mt-7 inline-block text-amber-800 font-semibold underline" href={`/${lang}/attractions/`}>{words.all} →</a>
+ </div>
+</section>

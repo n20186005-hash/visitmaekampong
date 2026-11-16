@@ -1,5 +1,7 @@
 ---
 import { siteConfig } from '../config';
+import { nearby } from '../data/nearby';
+import { experiences } from '../data/experiences';
 
 interface Props {
   lang: any;
@@ -25,7 +27,7 @@ const topics = messages.topics;
       <div>
         <div class="text-xs uppercase tracking-wider text-gold mb-3">{footer.navTitle}</div>
         <ul class="grid grid-cols-2 gap-2 text-sm">
-          {footer.navItems.map((n) => (
+          {footer.navItems.map((n: any) => (
             <li><a href={n.href} class="text-ivory/80 hover:text-goldBright transition-colors">{n.label}</a></li>
           ))}
         </ul>
@@ -39,9 +41,15 @@ const topics = messages.topics;
               {topicKeys.map((k) => (
                 <li>
                   <a href={`/${lang}/${k}/`} class="text-ivory/80 hover:text-goldBright transition-colors">
-                    {topics[k].navLabel}
+                    {(k === 'mae-kampong-waterfall' ? topics.waterfall : topics[k]).navLabel}
                   </a>
                 </li>
+              ))}
+              {(Object.keys(nearby) as (keyof typeof nearby)[]).map(slug => (
+                <li><a href={`/${lang}/nearby/${slug}/`} class="text-ivory/80 hover:text-goldBright transition-colors">{nearby[slug][lang as 'th'|'en'|'zh'].name}</a></li>
+              ))}
+              {(Object.keys(experiences) as (keyof typeof experiences)[]).map(slug => (
+                <li><a href={`/${lang}/guides/${slug}/`} class="text-ivory/80 hover:text-goldBright transition-colors">{experiences[slug][lang as 'th'|'en'|'zh'].title}</a></li>
               ))}
             </ul>
           </div>
@@ -75,7 +83,7 @@ const topics = messages.topics;
               rel="noopener noreferrer"
               class="text-goldBright hover:underline inline-flex items-center gap-1"
             >
-              {s.name[lang]} <span class="text-ivory/40">↗</span>
+              {s.name[lang as keyof typeof s.name]} <span class="text-ivory/40">↗</span>
             </a>
           </li>
         ))}
