@@ -70,27 +70,7 @@ const topics = messages.topics;
       </div>
     </div>
 
-    <!-- Sources / References -->
-    <div class="mt-12 border-t border-ivory/10 pt-8">
-      <div class="text-xs uppercase tracking-wider text-gold mb-3">{footer.sourcesTitle}</div>
-      <p class="text-sm text-ivory/70 max-w-2xl mb-4">{footer.sourcesNote}</p>
-      <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3 text-sm">
-        {siteConfig.sources.map((s) => (
-          <li>
-            <a
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-goldBright hover:underline inline-flex items-center gap-1"
-            >
-              {s.name[lang as keyof typeof s.name]} <span class="text-ivory/40">↗</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs">
+    <div class="mt-12 border-t border-ivory/10 pt-8 flex flex-wrap gap-x-5 gap-y-2 text-xs">
       <a href={`/${lang}/privacy-policy`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{footer.privacy}</a>
       <a href={`/${lang}/terms-of-service`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{footer.terms}</a>
       <a href={`/${lang}/cookie-settings`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{footer.cookies}</a>
@@ -98,13 +78,9 @@ const topics = messages.topics;
 
     <div class="ornament my-10 opacity-60"></div>
 
-    <div class="text-xs text-ivory/50 leading-relaxed space-y-2">
-      <p>{footer.disclaimerLead}</p>
-      <p class="text-ivory/70">{footer.unofficial}</p>
-      <p>{footer.dataSource}</p>
-      <p>{footer.reviewSource}</p>
-      <p>{footer.imageCopyright}</p>
-      <p class="pt-2 text-ivory/40">{footer.copyright}</p>
+    <div class="text-xs text-ivory/60 leading-relaxed space-y-2">
+      <p>{footer.copyright}</p>
+      <p>{footer.unofficial}</p>
     </div>
   </div>
 </footer>
