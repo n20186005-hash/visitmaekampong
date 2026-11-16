@@ -8,7 +8,6 @@ import Ecosystem from '../../components/Ecosystem.astro';
 import History from '../../components/History.astro';
   import Guide from '../../components/Guide.astro';
 import QuickStart from '../../components/QuickStart.astro';
-  import Sources from '../../components/Sources.astro';
   import Food from '../../components/Food.astro';
   import Landmarks from '../../components/Landmarks.astro';
   import Weather from '../../components/Weather.astro';
@@ -16,7 +15,6 @@ import QuickStart from '../../components/QuickStart.astro';
   import Planner from '../../components/Planner.astro';
   import Science from '../../components/Science.astro';
 import Gallery from '../../components/Gallery.astro';
-import Reviews from '../../components/Reviews.astro';
 import MapSection from '../../components/MapSection.astro';
 import Footer from '../../components/Footer.astro';
 import NearbyExplore from '../../components/NearbyExplore.astro';
@@ -46,8 +44,6 @@ const { lang, messages } = await getI18n(Astro.url);
     <NearbyExplore lang={lang} />
     <Gallery messages={messages} />
     <Science messages={messages} />
-    <Reviews messages={messages} />
-    <Sources messages={messages} />
     <MapSection lang={lang} messages={messages} />
   </main>
   <Footer lang={lang} messages={messages} />

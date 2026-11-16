@@ -28,7 +28,7 @@ const topics = messages.topics;
         <div class="text-xs uppercase tracking-wider text-gold mb-3">{footer.navTitle}</div>
         <ul class="grid grid-cols-2 gap-2 text-sm">
           {footer.navItems.map((n: any) => (
-            <li><a href={n.href} class="text-ivory/80 hover:text-goldBright transition-colors">{n.label}</a></li>
+            <li><a href={n.href === '#reviews' ? `/${lang}/reviews/` : n.href === '#sources' ? `/${lang}/sources/` : n.href.startsWith('#') ? `/${lang}/${n.href}` : n.href} class="text-ivory/80 hover:text-goldBright transition-colors">{n.label}</a></li>
           ))}
         </ul>
       </div>
@@ -71,6 +71,8 @@ const topics = messages.topics;
     </div>
 
     <div class="mt-12 border-t border-ivory/10 pt-8 flex flex-wrap gap-x-5 gap-y-2 text-xs">
+      <a href={`/${lang}/reviews/`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{messages.reviews.label}</a>
+      <a href={`/${lang}/sources/`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{messages.sources.label}</a>
       <a href={`/${lang}/privacy-policy`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{footer.privacy}</a>
       <a href={`/${lang}/terms-of-service`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{footer.terms}</a>
       <a href={`/${lang}/cookie-settings`} class="text-ivory/60 hover:text-goldBright underline-offset-2 hover:underline">{footer.cookies}</a>
