@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Footer from '../../../components/Footer.astro';
+import {languagesList, type Lang} from '../../../i18n/ui';
+import {parkPlaces, publishedPlaces} from '../../../data/parkPlaces';
+import th from '../../../i18n/th.json'; import en from '../../../i18n/en.json'; import zh from '../../../i18n/zh.json';
+export function getStaticPaths(){return languagesList.flatMap(lang=>publishedPlaces.map(slug=>({params:{lang,slug}})));}
+const {lang,slug}=Astro.params as {lang:Lang;slug:keyof typeof parkPlaces};
+const place=parkPlaces[slug], p=place[lang], messages={th,en,zh}[lang];
+const u={th:{home:'หน้าแรก',nearby:'สถานที่ใกล้เคียง',about:'เกี่ยวกับสถานที่และผู้ดูแล',plan:'วางแผนการเดินทาง',route:'เส้นทางแนะนำ',faq:'คำถามที่พบบ่อย',map:'แผนที่และรีวิว',source:'แหล่งข้อมูล',more:'สำรวจสถานที่ใกล้เคียง',notice:'ตรวจสอบเวลาเปิด ค่าธรรมเนียม สภาพถนน และข้อจำกัดกับผู้ดูแลก่อนเดินทาง ฝนและน้ำหลากอาจทำให้เส้นทางปิด'},en:{home:'Home',nearby:'Nearby places',about:'About and management',plan:'Plan your visit',route:'Suggested route',faq:'Frequently asked questions',map:'Map and reviews',source:'Source',more:'Explore nearby',notice:'Confirm opening, fees, road conditions and restrictions with the site before travelling. Rain and high water may close routes.'},zh:{home:'首頁',nearby:'周邊景點',about:'關於景點與管理',plan:'行前準備',route:'建議路線',faq:'常見問題',map:'地圖與評論',source:'資料來源',more:'探索周邊',notice:'出發前向管理人員確認開放時間、費用、路況與限制；降雨及漲水可能導致路線關閉。'}}[lang];
+const map=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.query)}`;
+---
+<BaseLayout lang={lang} title={`${p.name} | Mae Kampong`} description={p.sub} messages={messages} path={`places/${slug}`} crumb={p.name}>
+ <main class="mx-auto max-w-3xl px-5 py-16 md:py-24 text-stone-700">
+  <nav class="text-sm text-amber-800"><a href={`/${lang}/`}>{u.home}</a> / <a href={`/${lang}/attractions/`}>{u.nearby}</a> / {p.name}</nav>
+  <nav class="mt-5 flex gap-4 text-sm text-amber-800" aria-label="Language">{languagesList.map(l=><a href={`/${l}/places/${slug}/`} aria-current={l===lang?'page':undefined}>{{th:'ไทย',en:'English',zh:'中文'}[l]}</a>)}</nav>
+  <h1 class="mt-8 font-display text-3xl md:text-5xl font-semibold text-teak">{p.name}</h1><p class="mt-4 text-xl">{p.sub}</p><a class="mt-5 inline-block rounded-full bg-amber-800 text-white px-4 py-2" href={map} target="_blank" rel="noopener noreferrer">{u.map} ↗</a>
+  <div class="mt-7 h-40 rounded-2xl border border-stone-200 bg-stone-100" aria-hidden="true"></div><div class="mt-10 space-y-10 leading-7"><section class="rounded-2xl border border-gold/40 bg-white/60 p-6"><h2 class="font-display text-2xl text-teak">{u.about}</h2><p class="mt-3">{p.manage}</p><p class="mt-3">{p.fact}</p></section>
+  <section><h2 class="font-display text-2xl text-teak">{u.plan}</h2><p class="mt-2">{p.access}</p><p class="mt-3">{u.notice}</p></section>
+  <section><h2 class="font-display text-2xl text-teak">{u.route}</h2><ol class="mt-3 list-decimal pl-5 space-y-2">{p.route.map(step=><li>{step}</li>)}</ol></section>
+  <section><h2 class="font-display text-2xl text-teak">{u.faq}</h2><dl class="mt-3 space-y-3">{p.qs.map(([q,a])=><div class="rounded-xl border border-stone-300 bg-white/50 p-4"><dt class="font-semibold">{q}</dt><dd class="mt-1">{a}</dd></div>)}</dl></section>
+  <p><a class="text-amber-800 underline" href={place.source} target="_blank" rel="noopener noreferrer">{u.source} ↗</a></p>
+  <section><h2 class="font-display text-2xl text-teak">{u.more}</h2><div class="mt-4 grid sm:grid-cols-2 gap-3">{publishedPlaces.filter(k=>k!==slug).map(k=><a href={`/${lang}/places/${k}/`} class="rounded-xl border border-stone-300 p-4 hover:border-amber-700">{parkPlaces[k][lang].name} →</a>)}<a href={`/${lang}/attractions/`} class="rounded-xl border border-stone-300 p-4 hover:border-amber-700">{u.nearby} →</a></div></section></div>
+ </main><Footer lang={lang} messages={messages}/>
+</BaseLayout>
