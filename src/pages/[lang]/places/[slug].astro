@@ -8,7 +8,7 @@ export function getStaticPaths(){return languagesList.flatMap(lang=>publishedPla
 const {lang,slug}=Astro.params as {lang:Lang;slug:keyof typeof parkPlaces};
 const place=parkPlaces[slug], p=place[lang], messages={th,en,zh}[lang];
 const u={th:{home:'หน้าแรก',nearby:'สถานที่ใกล้เคียง',about:'เกี่ยวกับสถานที่และผู้ดูแล',plan:'วางแผนการเดินทาง',route:'เส้นทางแนะนำ',faq:'คำถามที่พบบ่อย',map:'แผนที่และรีวิว',source:'แหล่งข้อมูล',more:'สำรวจสถานที่ใกล้เคียง',notice:'ตรวจสอบเวลาเปิด ค่าธรรมเนียม สภาพถนน และข้อจำกัดกับผู้ดูแลก่อนเดินทาง ฝนและน้ำหลากอาจทำให้เส้นทางปิด'},en:{home:'Home',nearby:'Nearby places',about:'About and management',plan:'Plan your visit',route:'Suggested route',faq:'Frequently asked questions',map:'Map and reviews',source:'Source',more:'Explore nearby',notice:'Confirm opening, fees, road conditions and restrictions with the site before travelling. Rain and high water may close routes.'},zh:{home:'首頁',nearby:'周邊景點',about:'關於景點與管理',plan:'行前準備',route:'建議路線',faq:'常見問題',map:'地圖與評論',source:'資料來源',more:'探索周邊',notice:'出發前向管理人員確認開放時間、費用、路況與限制；降雨及漲水可能導致路線關閉。'}}[lang];
-const map=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.query)}`;
+const map=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.query)}${slug === 'wat-pa-tueng' ? '&query_place_id=ChIJGxaPE20o2jARjulZFiWSMmM' : ''}`;
 ---
 <BaseLayout lang={lang} title={`${p.name} | Mae Kampong`} description={p.sub} messages={messages} path={`places/${slug}`} crumb={p.name}>
  <main class="mx-auto max-w-3xl px-5 py-16 md:py-24 text-stone-700">

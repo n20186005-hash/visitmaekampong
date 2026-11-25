@@ -45,4 +45,4 @@ export const parkPlaces = {
 } as const;
 
 // Only publish places whose map search has been checked against its listing.
-export const publishedPlaces = ['doi-saket-hot-springs', 'mae-kuang-udom-thara-dam'] as const;
+export const publishedPlaces = ['doi-saket-hot-springs', 'mae-kuang-udom-thara-dam', 'wat-pa-tueng', 'pa-miang-royal-project', 'maiiam-art-museum'] as const;
